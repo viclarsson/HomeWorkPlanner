@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HomeWorkPlanner</string>
+    <string name="title_activity_week">HomeWorkPlanner Start</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="math">Math</string>
+    <string name="swedish">Swedish</string>
+    <string name="greenButton">GreenButton!</string>
+</resources>
