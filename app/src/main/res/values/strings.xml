@@ -7,4 +7,7 @@
     <string name="math">Math</string>
     <string name="swedish">Swedish</string>
     <string name="greenButton">GreenButton!</string>
+
+    <!-- top_menu -->
+    <string name="topText">Schemalägg läxor</string>
 </resources>
