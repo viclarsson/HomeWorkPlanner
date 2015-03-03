@@ -10,40 +10,40 @@
         android:layout_height="wrap_content"
         android:weightSum="2.0">
 
-        <EditText
+        <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".40"
             android:text="@string/monday"
-            android:id="@+id/editText" />
+            android:id="@+id/textView" />
 
-        <EditText
+        <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".40"
             android:text="@string/tuesday"
-            android:id="@+id/editText2" />
+            android:id="@+id/textView2" />
 
-        <EditText
+        <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".40"
             android:text="@string/wednesday"
-            android:id="@+id/editText3" />
+            android:id="@+id/textView3" />
 
-        <EditText
+        <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".40"
             android:text="@string/thursday"
-            android:id="@+id/editText4" />
+            android:id="@+id/textView4" />
 
-        <EditText
+        <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".40"
             android:text="@string/friday"
-            android:id="@+id/editText5" />
+            android:id="@+id/textView5" />
 
     </LinearLayout>
 
