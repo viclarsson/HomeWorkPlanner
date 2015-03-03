@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="235dp"
+                android:layout_height="64dp"
+                android:text="Ta tag i en deadline och dra en session till en rimlig tid!"
+                android:id="@+id/textView" />
+
+            <Button
+                android:layout_width="223dp"
+                android:layout_height="wrap_content"
+                android:text="Lägg till en egen aktivitet"
+                android:id="@+id/button" />
+        </LinearLayout>
+
+        <AnalogClock
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/analogClock" />
+    </LinearLayout>
+</RelativeLayout>
