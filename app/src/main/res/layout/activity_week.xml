@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#7C95D0"
     tools:context="iprog.group5.homeworkplanner.Week"
     android:id="@+id/base">
 
@@ -16,8 +17,16 @@
         android:layout_height="wrap_content"
         layout="@layout/info_field" />
 
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/week_deadlines"
+        android:layout_gravity="center_horizontal" />
+
     <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+
 
     <Button
         android:layout_width="wrap_content"
