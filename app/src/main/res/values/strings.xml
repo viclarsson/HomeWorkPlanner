@@ -10,4 +10,13 @@
 
     <!-- top_menu -->
     <string name="topText">Schemalägg läxor</string>
+
+    <!-- week_deadlines -->
+    <string name="monday">Mån</string>
+    <string name="tuesday">Tis</string>
+    <string name="wednesday">Ons</string>
+    <string name="thursday">Tor</string>
+    <string name="friday">Fre</string>
+
+
 </resources>
