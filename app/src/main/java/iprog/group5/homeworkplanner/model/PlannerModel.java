@@ -31,6 +31,8 @@ public class PlannerModel extends Observable {
         HomeWorkSession testSession2 = new HomeWorkSession(swedish1);
         week1.days.get(Week.WEDNESDAY).addSessionAtTime(15, testSession1);
         week1.days.get(Week.WEDNESDAY).addSessionAtTime(15.5, testSession2);
+
+        weeks.add(week1);
     }
 
     public ArrayList<Week> getWeeks() {
