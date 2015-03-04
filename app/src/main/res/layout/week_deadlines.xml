@@ -55,16 +55,16 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="a"
+            android:text="@string/apple"
             android:layout_weight=".40"
-            android:id="@+id/button3" />
+            android:id="@+id/buttonApple" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="b"
+            android:text="@string/pear"
             android:layout_weight=".40"
-            android:id="@+id/button4" />
+            android:id="@+id/buttonPear" />
 
         <Button
             android:layout_width="wrap_content"

@@ -17,6 +17,10 @@
     <string name="wednesday">Ons</string>
     <string name="thursday">Tor</string>
     <string name="friday">Fre</string>
+    <string name="Target">Drop Target</string>
+    <string name="apple">Apple</string>
+    <string name="orange">Orange</string>
+    <string name="pear">Pear</string>
 
 
 </resources>
