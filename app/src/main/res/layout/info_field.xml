@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="fill_parent"
-    android:background="@color/darkGray"
+    android:background="@color/darkBlue"
     android:layout_height="200dp"
     android:baselineAligned="false">
 
@@ -11,10 +11,7 @@
         android:layout_height="fill_parent"
         android:layout_weight=".6"
         android:orientation="vertical"
-        android:paddingBottom="40dp"
-        android:paddingTop="40dp"
-        android:paddingLeft="@dimen/global_padding"
-        android:paddingRight="@dimen/global_padding"
+        android:padding="@dimen/global_padding"
         android:layout_gravity="center_vertical">
 
         <ScrollView
@@ -22,19 +19,19 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@drawable/bubble_bg"
-            android:padding="20dp">
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hej!"
+                android:text="Hej! Jag undrar om du är sugen på att planera din vecka?"
                 android:id="@+id/animalMessage"
                 android:textColor="@color/black"/>
 
             </ScrollView>
         <Button
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="0"
             android:text="@string/add_activity"
             android:layout_marginTop="@dimen/global_margin"

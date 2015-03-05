@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import iprog.group5.homeworkplanner.model.PlannerModel;
 import iprog.group5.homeworkplanner.view.*;
@@ -38,11 +39,11 @@ public class OverviewActivity extends Activity {
         HelperView helperView = new HelperView(model, findViewById(R.id.base));
         HelperViewController helperViewController = new HelperViewController(model, helperView, this);
 
-        WeekDeadlinesView weekDeadlinesView = new WeekDeadlinesView(model, findViewById(R.id.base));
-        WeekDeadlinesViewController weekDeadlinesViewController = new WeekDeadlinesViewController(model, weekDeadlinesView, this);
+       WeekDeadlinesView weekDeadlinesView = new WeekDeadlinesView(model, findViewById(R.id.base));
+       WeekDeadlinesViewController weekDeadlinesViewController = new WeekDeadlinesViewController(model, weekDeadlinesView, this);
 
         WeekScheduleView weekScheduleView = new WeekScheduleView(model, findViewById(R.id.base));
-        WeekScheduleViewController weekScheduleViewController = new WeekScheduleViewController(model, weekScheduleView, this);
+       WeekScheduleViewController weekScheduleViewController = new WeekScheduleViewController(model, weekScheduleView, this);
 
         WeeksOverviewView weeksOverviewView = new WeeksOverviewView(model, findViewById(R.id.base));
 
@@ -53,7 +54,7 @@ public class OverviewActivity extends Activity {
         findViewById(R.id.buttonThursday).setOnLongClickListener(longListen);
         findViewById(R.id.buttonFriday).setOnLongClickListener(longListen);
 
-        //findViewById(R.id.textTarget).setOnDragListener(DropListener);
+        findViewById(R.id.textTarget).setOnDragListener(DropListener);
 
     }
 
@@ -64,9 +65,29 @@ public class OverviewActivity extends Activity {
         @Override
         public boolean onLongClick(View v)
         {
-            DragShadow dragShadow = new DragShadow(v);
+           DragShadow dragShadow = new DragShadow(v);
 
-            ClipData data = ClipData.newPlainText("", "");
+           // Calculate with textarea to get text from
+           String sending = null;
+           TextView tmp = null;
+           switch (v.getId()) {
+               case R.id.buttonMonday:
+                   tmp = (TextView) v.findViewById(R.id.deadlineMonday);
+                   break;
+               case R.id.buttonTuesday:
+                   tmp = (TextView) v.findViewById(R.id.deadlineTuesday);
+                   break;
+               case R.id.buttonWednesday:
+                   tmp = (TextView) v.findViewById(R.id.deadlineWednesday);
+                   break;
+               case R.id.buttonThursday:
+                   tmp = (TextView) v.findViewById(R.id.deadlineThursday);
+                   break;
+               case R.id.buttonFriday:
+                   tmp = (TextView) v.findViewById(R.id.deadlineFriday);
+                   break;
+           }
+            ClipData data = ClipData.newPlainText(tmp.getText(), "");
             v.startDrag(data, dragShadow, v, 0);
             return false;
         }
@@ -125,8 +146,11 @@ public class OverviewActivity extends Activity {
                     break;
                 case DragEvent.ACTION_DROP:
                     TextView target = (TextView) v;
-                    TextView dragged = (TextView) event.getLocalState();
-                    target.setText(dragged.getText());
+                   // TextView dragged = (TextView) event.getLocalState();
+                    String data = event.getClipData().getDescription().getLabel().toString();
+                    target.setText(data);
+                    Toast toast = Toast.makeText(getApplicationContext(), data, Toast.LENGTH_LONG);
+                    toast.show();
 
                     break;
             }

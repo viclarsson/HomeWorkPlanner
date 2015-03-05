@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -41,8 +42,8 @@ public class WeekArrayAdapter extends ArrayAdapter<Week> {
             item = inflater.inflate(layoutResourceId, parent, false);
             WeekWrapper = new WeekWrapper();
             WeekWrapper.number = (TextView) item.findViewById(R.id.week_number);
-            WeekWrapper.description = (TextView) item.findViewById(R.id.week_description);
-            WeekWrapper.show = (Button) item.findViewById(R.id.show_week);
+            WeekWrapper.description = (TextView) item.findViewById(R.id.weekDescription);
+            WeekWrapper.show = (ImageView) item.findViewById(R.id.show_week);
             item.setTag(WeekWrapper);
         } else {
             WeekWrapper = (WeekWrapper) item.getTag();
@@ -52,7 +53,7 @@ public class WeekArrayAdapter extends ArrayAdapter<Week> {
         WeekWrapper.number.setText(week.getWeekNumber()+"");
 
         //TODO: This should generate some description of the week, like number of deadlines etc
-        WeekWrapper.description.setText("Test");
+        WeekWrapper.description.setText(week.getNumberOfAssignments() + " läxor denna vecka.");
 
         return item;
     }
@@ -60,7 +61,7 @@ public class WeekArrayAdapter extends ArrayAdapter<Week> {
     static class WeekWrapper {
         TextView number;
         TextView description;
-        Button show;
+        ImageView show;
     }
 
 }

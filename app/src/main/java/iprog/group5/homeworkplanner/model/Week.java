@@ -28,6 +28,16 @@ public class Week {
         return days;
     }
 
+    public int getNumberOfAssignments() {
+        int total = 0;
+        for ( Day d : days) {
+            if (d.assignment != null) {
+                total++;
+            }
+        }
+        return total;
+    }
+
     public Day getDay(int name) {
         return days.get(name);
     }

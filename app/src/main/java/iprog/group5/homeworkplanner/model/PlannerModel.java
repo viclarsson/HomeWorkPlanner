@@ -18,7 +18,7 @@ public class PlannerModel extends Observable {
 
     public PlannerModel() {
         Subject math = new Subject("Math", Color.parseColor("#FF6600"));
-        Subject swedish = new Subject("Svenska", Color.parseColor("#FFFF00"));
+        Subject swedish = new Subject("Svenska", Color.parseColor("#FF00FF"));
 
         weeks = new ArrayList<Week>();
         assignments = new ArrayList<Assignment>();
@@ -39,7 +39,9 @@ public class PlannerModel extends Observable {
         week1.days.get(Week.WEDNESDAY).addSessionAtTime(15, testSession1);
         week1.days.get(Week.WEDNESDAY).addSessionAtTime(15.5, testSession2);
 
+        Week week2 = new Week(2);
         weeks.add(week1);
+        weeks.add(week2);
     }
 
     public ArrayList<Week> getWeeks() {

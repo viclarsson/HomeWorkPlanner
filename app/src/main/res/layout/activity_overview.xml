@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/black"
+    android:layout_height="fill_parent"
+    android:background="@color/darkGray"
     tools:context="iprog.group5.homeworkplanner.Week"
     android:id="@+id/base">
 
@@ -22,12 +22,12 @@
         android:layout_height="wrap_content"
         layout="@layout/week_deadlines" />
 
-    <include
+    <!--<include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         layout="@layout/week_schedule"
         android:layout_gravity="center_horizontal"
-        />
+        />-->
 
     <include
         android:layout_width="wrap_content"

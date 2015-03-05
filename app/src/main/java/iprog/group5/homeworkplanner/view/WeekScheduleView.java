@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -34,6 +35,11 @@ public class WeekScheduleView implements Observer {
     TextView textWednesday;
     TextView textThursday;
     TextView textFriday;
+    ImageView iconMonday;
+    ImageView iconTuesday;
+    ImageView iconWednesday;
+    ImageView iconThursday;
+    ImageView iconFriday;
 
     public WeekScheduleView(PlannerModel model, View rootView) {
         this.rootView = rootView;
@@ -51,6 +57,12 @@ public class WeekScheduleView implements Observer {
         textThursday = (TextView) rootView.findViewById(R.id.deadlineThursday);
         textFriday = (TextView) rootView.findViewById(R.id.deadlineFriday);
 
+        iconMonday = (ImageView) rootView.findViewById(R.id.iconMonday);
+        iconTuesday = (ImageView) rootView.findViewById(R.id.iconTuesday);
+        iconWednesday = (ImageView) rootView.findViewById(R.id.iconWednesday);
+        iconThursday = (ImageView) rootView.findViewById(R.id.iconThursday);
+        iconFriday = (ImageView) rootView.findViewById(R.id.iconFriday);
+
 
         // Checks the models assignments and if there are any, updates the buttons
         ArrayList<Assignment> assignments = model.getAssignments();
@@ -58,24 +70,29 @@ public class WeekScheduleView implements Observer {
             Assignment currAssignment = assignments.get(i);
 
             if( currAssignment.getDeadline() == 1) {
-                textMonday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                textMonday.setText(currAssignment.getSubject().getName());
                 buttonMonday.setBackgroundColor(currAssignment.getSubject().getColor());
+                iconMonday.setImageResource(R.drawable.dragndrop);
             }
             else if( currAssignment.getDeadline() == 2) {
-                textTuesday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                textTuesday.setText(currAssignment.getSubject().getName());
                 buttonTuesday.setBackgroundColor(currAssignment.getSubject().getColor());
+                iconTuesday.setImageResource(R.drawable.dragndrop);
             }
             else if( currAssignment.getDeadline() == 3) {
-                textWednesday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                textWednesday.setText(currAssignment.getSubject().getName());
                 buttonWednesday.setBackgroundColor(currAssignment.getSubject().getColor());
+                iconWednesday.setImageResource(R.drawable.dragndrop);
             }
             else if( currAssignment.getDeadline() == 4) {
-                textThursday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                textThursday.setText(currAssignment.getSubject().getName());
                 buttonThursday.setBackgroundColor(currAssignment.getSubject().getColor());
+                iconThursday.setImageResource(R.drawable.dragndrop);
             }
             else if( currAssignment.getDeadline() == 5) {
-                textFriday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                textFriday.setText(currAssignment.getSubject().getName());
                 buttonFriday.setBackgroundColor(currAssignment.getSubject().getColor());
+                iconFriday.setImageResource(R.drawable.dragndrop);
             }
         }
 

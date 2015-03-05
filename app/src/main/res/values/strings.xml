@@ -28,7 +28,7 @@
     <string name="title_activity_schedule">Schedule</string>
     <string name="left">Left</string>
     <string name="right">Right</string>
-    <string name="add_activity">+ Lägg till en aktivitet</string>
+    <string name="add_activity">+ Aktivitet</string>
     <string name="free">Ledigt</string>
 
 </resources>
