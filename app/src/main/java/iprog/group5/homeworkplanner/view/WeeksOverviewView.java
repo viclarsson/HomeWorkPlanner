@@ -29,14 +29,14 @@ public class WeeksOverviewView implements Observer {
     View rootView;
     PlannerModel model;
     ListView listView;
-    MyArrayAdapter adapter;
+    WeekArrayAdapter adapter;
 
 
     public WeeksOverviewView(PlannerModel model, View rootView) {
-        listView = (ListView) rootView.findViewById(R.id.week_list);
         this.rootView = rootView;
         this.model = model;
-        this.adapter = new MyArrayAdapter(rootView.getContext(), R.layout.week_list_item, model.getWeeks());
+        listView = (ListView) rootView.findViewById(R.id.listview);
+        this.adapter = new WeekArrayAdapter(rootView.getContext(), R.layout.week_list_item, model.getWeeks());
 
         listView.setAdapter(adapter);
     }
@@ -44,40 +44,5 @@ public class WeeksOverviewView implements Observer {
     @Override
     public void update(Observable observable, Object data) {
 
-    }
-
-    //This adapter turns every week into a list item for the week overview view
-    private class MyArrayAdapter extends ArrayAdapter<Week> {
-        Context context;
-        int layoutResourceId;
-        ArrayList<Week> weeks = new ArrayList<Week>();
-
-        private MyArrayAdapter(Context context, int layoutResourceId, ArrayList<Week> weeks) {
-            super(context, layoutResourceId, weeks);
-            this.context = context;
-            this.weeks = weeks;
-            this.layoutResourceId = layoutResourceId;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View item = convertView;
-
-            TextView number;
-            TextView description;
-            Button show;
-
-            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-            item = inflater.inflate(layoutResourceId, parent, false);
-            number = (TextView) item.findViewById(R.id.week_number);
-            description = (TextView) item.findViewById(R.id.week_description);
-            show = (Button) item.findViewById(R.id.show_week);
-
-            Week week = weeks.get(position);
-            number.setText(week.getWeekNumber());
-            description.setText("Test");
-
-            return item;
-        }
     }
 }
