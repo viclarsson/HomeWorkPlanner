@@ -23,9 +23,6 @@ public class WeekView implements Observer {
     public WeekView(PlannerModel model, View rootView) {
         this.rootView = rootView;
         this.model = model;
-
-        greenButton = (Button) rootView.findViewById(R.id.green_button);
-        greenButton.setText("Text from view!");
     }
 
     @Override

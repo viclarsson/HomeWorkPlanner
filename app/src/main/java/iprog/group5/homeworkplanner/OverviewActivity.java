@@ -8,19 +8,22 @@ import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.DragEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import iprog.group5.homeworkplanner.model.PlannerModel;
 import iprog.group5.homeworkplanner.view.*;
 
-public class WeekActivity extends Activity {
+public class OverviewActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_week);
+        setContentView(R.layout.activity_overview);
 
         PlannerModel model = ((HomeWorkPlannerApplication) this.getApplication()).getModel();
 
@@ -29,8 +32,8 @@ public class WeekActivity extends Activity {
         WeekController controller = new WeekController(model, weekView, this);*/
 
         // Initialize this activity:s views and controllers
-        TopMenuView topMenuView = new TopMenuView(model, findViewById(R.id.base));
-        TopMenuViewController topMenuViewController = new TopMenuViewController(model, topMenuView, this);
+        //TopMenuView topMenuView = new TopMenuView(model, findViewById(R.id.base));
+        //TopMenuViewController topMenuViewController = new TopMenuViewController(model, topMenuView, this);
 
         HelperView helperView = new HelperView(model, findViewById(R.id.base));
         HelperViewController helperViewController = new HelperViewController(model, helperView, this);
@@ -50,7 +53,7 @@ public class WeekActivity extends Activity {
         findViewById(R.id.buttonThursday).setOnLongClickListener(longListen);
         findViewById(R.id.buttonFriday).setOnLongClickListener(longListen);
 
-        findViewById(R.id.textTarget).setOnDragListener(DropListener);
+        //findViewById(R.id.textTarget).setOnDragListener(DropListener);
 
     }
 
@@ -77,7 +80,8 @@ public class WeekActivity extends Activity {
 
         public DragShadow(View view) {
             super(view);
-            greyBox = new ColorDrawable(Color.LTGRAY);
+            ColorDrawable theColor = (ColorDrawable) view.getBackground();
+            greyBox = new ColorDrawable(theColor.getColor());
         }
 
         @Override
@@ -91,8 +95,8 @@ public class WeekActivity extends Activity {
         {
             View v = getView();
 
-            int height = (int) v.getHeight()/2;
-            int width = (int) v.getWidth()/2;
+            int height = (int) v.getHeight();
+            int width = (int) v.getWidth();
 
             greyBox.setBounds(0, 0, width, height);
 
@@ -129,6 +133,6 @@ public class WeekActivity extends Activity {
 
             return true;
         }
-};
+    };
 
 }

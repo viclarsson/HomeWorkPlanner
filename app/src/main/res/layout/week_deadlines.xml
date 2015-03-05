@@ -1,142 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#A38787">
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/lightGray"
+    android:weightSum="1"
+    android:baselineAligned="false">
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:weightSum="2.0">
-
+        android:layout_weight="0.2"
+        android:orientation="vertical">
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight=".40"
-            android:text="@string/monday"
-            android:id="@+id/textView" />
-
+            android:text="@string/Monday"
+            style="@style/day"
+            android:layout_marginTop="5dp"/>
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight=".40"
-            android:text="@string/tuesday"
-            android:id="@+id/textView2" />
-
-        <TextView
+            android:text="XX Mars"
+            android:id="@+id/dateMonday"
+            style="@style/date"/>
+        <FrameLayout
+            style="@style/deadlineButton"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".40"
-            android:text="@string/wednesday"
-            android:id="@+id/textView3" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".40"
-            android:text="@string/thursday"
-            android:id="@+id/textView4" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".40"
-            android:text="@string/friday"
-            android:id="@+id/textView5" />
-
+            android:layout_height="50dp"
+            android:id="@+id/buttonMonday">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/deadlineWrapper">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    style="@style/deadlineIcon"
+                    android:id="@+id/iconMonday"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/free"
+                    android:id="@+id/deadlineMonday"
+                    style="@style/deadline"/>
+            </LinearLayout>
+        </FrameLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:weightSum="2.0">
-
+        android:layout_weight="0.2"
+        android:orientation="vertical">
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight=".40"
-            android:text="@string/dateMonday"
-            android:id="@+id/date_monday" />
-
+            android:text="@string/Tuesday"
+            style="@style/day"
+            android:layout_marginTop="5dp"/>
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight=".40"
-            android:text="@string/dateTuesday"
-            android:id="@+id/date_tuesday" />
-
-        <TextView
+            android:text="XX Mars"
+            android:id="@+id/dateTuesday"
+            style="@style/date"/>
+        <FrameLayout
+            style="@style/deadlineButton"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".40"
-            android:text="@string/dateWednesday"
-            android:id="@+id/date_wednesday" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".40"
-            android:text="@string/dateThursday"
-            android:id="@+id/date_thursday" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".40"
-            android:text="@string/dateFriday"
-            android:id="@+id/date_friday" />
-
+            android:layout_height="50dp"
+            android:id="@+id/buttonTuesday">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/deadlineWrapper">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    style="@style/deadlineIcon"
+                    android:id="@+id/iconTuesday"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/free"
+                    android:id="@+id/deadlineTuesday"
+                    style="@style/deadline"/>
+            </LinearLayout>
+        </FrameLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:weightSum="2.0">
-
-        <Button
+        android:layout_weight="0.2"
+        android:orientation="vertical">
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/noDeadline"
-            android:textSize="10dp"
-            android:layout_weight=".40"
-            android:id="@+id/buttonMonday" />
-
-        <Button
+            android:text="@string/Wednesday"
+            style="@style/day"
+            android:layout_marginTop="5dp"/>
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/noDeadline"
-            android:textSize="10dp"
-            android:layout_weight=".40"
-            android:id="@+id/buttonTuesday" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/noDeadline"
-            android:textSize="10dp"
-            android:layout_weight=".40"
-            android:id="@+id/buttonWednesday" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/noDeadline"
-            android:textSize="10dp"
-            android:layout_weight=".40"
-            android:id="@+id/buttonThursday" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/noDeadline"
-            android:textSize="10dp"
-            android:layout_weight=".40"
-            android:id="@+id/buttonFriday" />
-
-
+            android:text="XX Mars"
+            android:id="@+id/dateWednesday"
+            style="@style/date"/>
+        <FrameLayout
+            style="@style/deadlineButton"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:id="@+id/buttonWednesday">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/deadlineWrapper">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    style="@style/deadlineIcon"
+                    android:id="@+id/iconWednesday"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/free"
+                    android:id="@+id/deadlineWednesday"
+                    style="@style/deadline"/>
+            </LinearLayout>
+        </FrameLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Thursday"
+            style="@style/day"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XX Mars"
+            android:id="@+id/dateThursday"
+            style="@style/date"/>
+        <FrameLayout
+            style="@style/deadlineButton"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:id="@+id/buttonThursday">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/deadlineWrapper">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    style="@style/deadlineIcon"
+                    android:id="@+id/iconThursday"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/free"
+                    android:id="@+id/deadlineThursday"
+                    style="@style/deadline"/>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Friday"
+            style="@style/day"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XX Mars"
+            android:id="@+id/dateFriday"
+            style="@style/date"/>
+        <FrameLayout
+            style="@style/deadlineButton"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:id="@+id/buttonFriday">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/deadlineWrapper">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    style="@style/deadlineIcon"
+                    android:id="@+id/iconFriday"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/free"
+                    android:id="@+id/deadlineFriday"
+                    style="@style/deadline"/>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
 
 </LinearLayout>
 

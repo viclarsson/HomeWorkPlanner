@@ -7,14 +7,23 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/ApplicationTheme" >
+        android:theme="@style/AppTheme" >
         <activity
-            android:name=".WeekActivity"
+            android:name=".OverviewActivity"
             android:label="@string/title_activity_week" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ScheduleActivity"
+            android:label="@string/title_activity_schedule"
+            android:parentActivityName=".OverviewActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="iprog.group5.homeworkplanner.OverviewActivity" />
         </activity>
     </application>
 

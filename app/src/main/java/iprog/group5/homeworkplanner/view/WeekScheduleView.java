@@ -3,6 +3,8 @@ package iprog.group5.homeworkplanner.view;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,21 +24,32 @@ public class WeekScheduleView implements Observer {
     PlannerModel model;
 
     //Make variables for elements
-    Button buttonMonday;
-    Button buttonTuesday;
-    Button buttonWednesday;
-    Button buttonThursday;
-    Button buttonFriday;
+    FrameLayout buttonMonday;
+    FrameLayout buttonTuesday;
+    FrameLayout buttonWednesday;
+    FrameLayout buttonThursday;
+    FrameLayout buttonFriday;
+    TextView textMonday;
+    TextView textTuesday;
+    TextView textWednesday;
+    TextView textThursday;
+    TextView textFriday;
 
     public WeekScheduleView(PlannerModel model, View rootView) {
         this.rootView = rootView;
         this.model = model;
 
-        buttonMonday = (Button) rootView.findViewById(R.id.buttonMonday);
-        buttonTuesday = (Button) rootView.findViewById(R.id.buttonTuesday);
-        buttonWednesday = (Button) rootView.findViewById(R.id.buttonWednesday);
-        buttonThursday = (Button) rootView.findViewById(R.id.buttonThursday);
-        buttonFriday = (Button) rootView.findViewById(R.id.buttonFriday);
+        buttonMonday = (FrameLayout) rootView.findViewById(R.id.buttonMonday);
+        buttonTuesday = (FrameLayout) rootView.findViewById(R.id.buttonTuesday);
+        buttonWednesday = (FrameLayout) rootView.findViewById(R.id.buttonWednesday);
+        buttonThursday = (FrameLayout) rootView.findViewById(R.id.buttonThursday);
+        buttonFriday = (FrameLayout) rootView.findViewById(R.id.buttonFriday);
+
+        textMonday = (TextView) rootView.findViewById(R.id.deadlineMonday);
+        textTuesday = (TextView) rootView.findViewById(R.id.deadlineTuesday);
+        textWednesday = (TextView) rootView.findViewById(R.id.deadlineWednesday);
+        textThursday = (TextView) rootView.findViewById(R.id.deadlineThursday);
+        textFriday = (TextView) rootView.findViewById(R.id.deadlineFriday);
 
 
         // Checks the models assignments and if there are any, updates the buttons
@@ -45,19 +58,24 @@ public class WeekScheduleView implements Observer {
             Assignment currAssignment = assignments.get(i);
 
             if( currAssignment.getDeadline() == 1) {
-                buttonMonday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                textMonday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                buttonMonday.setBackgroundColor(currAssignment.getSubject().getColor());
             }
             else if( currAssignment.getDeadline() == 2) {
-                buttonTuesday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                textTuesday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                buttonTuesday.setBackgroundColor(currAssignment.getSubject().getColor());
             }
             else if( currAssignment.getDeadline() == 3) {
-                buttonWednesday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                textWednesday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                buttonWednesday.setBackgroundColor(currAssignment.getSubject().getColor());
             }
             else if( currAssignment.getDeadline() == 4) {
-                buttonThursday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                textThursday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                buttonThursday.setBackgroundColor(currAssignment.getSubject().getColor());
             }
             else if( currAssignment.getDeadline() == 5) {
-                buttonFriday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                textFriday.setText("Deadline \n" + currAssignment.getSubject().getName());
+                buttonFriday.setBackgroundColor(currAssignment.getSubject().getColor());
             }
         }
 

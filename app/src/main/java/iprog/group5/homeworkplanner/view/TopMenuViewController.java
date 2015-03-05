@@ -20,14 +20,14 @@ public class TopMenuViewController implements View.OnClickListener {
         this.activity = activity;
 
         // Add listeners here.
-        view.backButton.setOnClickListener(this);
+        view.leftButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         Button btn = (Button) v;
         // If more click event, we have to check which fired the event.
-        if(btn == view.backButton) {
+        if(btn == view.leftButton) {
             btn.setText("Changed from Controller!");
         }
     }

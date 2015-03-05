@@ -18,14 +18,14 @@ public class TopMenuView implements Observer {
     PlannerModel model;
 
     //Make variables for elements
-    Button backButton;
+    Button leftButton;
 
     public TopMenuView(PlannerModel model, View rootView) {
         this.rootView = rootView;
         this.model = model;
 
-        backButton = (Button) rootView.findViewById(R.id.backButton);
-        backButton.setText("WORKS");
+        leftButton = (Button) rootView.findViewById(R.id.leftButton);
+        leftButton.setText("WORKS");
     }
 
     @Override
