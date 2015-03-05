@@ -43,12 +43,14 @@ public class WeekActivity extends Activity {
 
         WeeksOverviewView weeksOverviewView = new WeeksOverviewView(model, findViewById(R.id.base));
 
+        // Add Listeners to the buttons
         findViewById(R.id.buttonApple).setOnLongClickListener(longListen);
         findViewById(R.id.buttonPear).setOnLongClickListener(longListen);
         findViewById(R.id.textTarget).setOnDragListener(DropListener);
 
     }
 
+    // Listener for the drag-able objects
     View.OnLongClickListener longListen = new View.OnLongClickListener() {
 
 
@@ -63,7 +65,7 @@ public class WeekActivity extends Activity {
         }
     };
 
-
+    // The figure appearing when dragging
     private class DragShadow extends View.DragShadowBuilder {
 
         ColorDrawable greyBox;
@@ -91,12 +93,13 @@ public class WeekActivity extends Activity {
             greyBox.setBounds(0, 0, width, height);
 
             shadowSize.set(width, height);
+            // Place the point of drag in the center of the figure (drag it in the center)
             shadowTouchPoint.set((int)width/2, (int)height/2);
         }
 
     }
 
-
+    // Event listening on the drag action
     View.OnDragListener DropListener = new View.OnDragListener()
     {
         @Override
