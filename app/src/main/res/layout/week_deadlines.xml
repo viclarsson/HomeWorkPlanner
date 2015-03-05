@@ -52,40 +52,87 @@
         android:layout_height="wrap_content"
         android:weightSum="2.0">
 
-        <Button
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/apple"
             android:layout_weight=".40"
-            android:id="@+id/buttonApple" />
+            android:text="@string/dateMonday"
+            android:id="@+id/date_monday" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".40"
+            android:text="@string/dateTuesday"
+            android:id="@+id/date_tuesday" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".40"
+            android:text="@string/dateWednesday"
+            android:id="@+id/date_wednesday" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".40"
+            android:text="@string/dateThursday"
+            android:id="@+id/date_thursday" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".40"
+            android:text="@string/dateFriday"
+            android:id="@+id/date_friday" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2.0">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/pear"
+            android:text="@string/noDeadline"
+            android:textSize="10dp"
             android:layout_weight=".40"
-            android:id="@+id/buttonPear" />
+            android:id="@+id/buttonMonday" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="c"
+            android:text="@string/noDeadline"
+            android:textSize="10dp"
             android:layout_weight=".40"
-            android:id="@+id/button5" />
+            android:id="@+id/buttonTuesday" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="d"
+            android:text="@string/noDeadline"
+            android:textSize="10dp"
             android:layout_weight=".40"
-            android:id="@+id/button6" />
+            android:id="@+id/buttonWednesday" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="e"
+            android:text="@string/noDeadline"
+            android:textSize="10dp"
             android:layout_weight=".40"
-            android:id="@+id/button7" />
+            android:id="@+id/buttonThursday" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/noDeadline"
+            android:textSize="10dp"
+            android:layout_weight=".40"
+            android:id="@+id/buttonFriday" />
 
 
     </LinearLayout>

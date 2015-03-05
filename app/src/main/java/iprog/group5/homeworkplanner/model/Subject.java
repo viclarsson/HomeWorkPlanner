@@ -19,4 +19,8 @@ public class Subject {
     public void setColor(int color) {
         this.color = color;
     }
+
+    public String getName() {
+        return name;
+    }
 }

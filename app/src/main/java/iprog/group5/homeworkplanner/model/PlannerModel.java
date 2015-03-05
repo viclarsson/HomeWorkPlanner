@@ -14,16 +14,23 @@ import iprog.group5.homeworkplanner.R;
 public class PlannerModel extends Observable {
 
     ArrayList<Week> weeks;
+    ArrayList<Assignment> assignments;
 
     public PlannerModel() {
         Subject math = new Subject("Math", Color.parseColor("#FF6600"));
         Subject swedish = new Subject("Svenska", Color.parseColor("#FFFF00"));
 
         weeks = new ArrayList<Week>();
+        assignments = new ArrayList<Assignment>();
 
         Week week1 = new Week(1);
-        Assignment math1 = new Assignment(math, "Räkneläxa", "Gör 4 tal i boken.", 60);
-        Assignment swedish1 = new Assignment(swedish, "Glosor", "Se veckobrev.", 30);
+
+        // Adds assignments
+        Assignment math1 = new Assignment(math, "Räkneläxa", "Gör 4 tal i boken.", 60, 2);
+        Assignment swedish1 = new Assignment(swedish, "Glosor", "Se veckobrev.", 30, 4);
+        assignments.add(math1);
+        assignments.add(swedish1);
+
         week1.days.get(Week.TUESDAY).assignment = math1;
         week1.days.get(Week.FRIDAY).assignment = swedish1;
 
@@ -37,6 +44,10 @@ public class PlannerModel extends Observable {
 
     public ArrayList<Week> getWeeks() {
         return this.weeks;
+    }
+
+    public ArrayList<Assignment> getAssignments() {
+        return assignments;
     }
 
 }

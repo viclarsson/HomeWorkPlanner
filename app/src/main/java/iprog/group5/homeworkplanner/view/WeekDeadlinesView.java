@@ -2,6 +2,7 @@ package iprog.group5.homeworkplanner.view;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -16,9 +17,12 @@ public class WeekDeadlinesView implements Observer{
     View rootView;
     PlannerModel model;
 
+
     public WeekDeadlinesView(PlannerModel model, View rootView) {
         this.rootView = rootView;
         this.model = model;
+
+
 
     }
 

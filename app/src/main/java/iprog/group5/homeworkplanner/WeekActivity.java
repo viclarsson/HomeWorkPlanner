@@ -44,8 +44,12 @@ public class WeekActivity extends Activity {
         //WeeksOverviewView weeksOverviewView = new WeeksOverviewView(model, findViewById(R.id.base));
 
         // Add Listeners to the buttons
-        findViewById(R.id.buttonApple).setOnLongClickListener(longListen);
-        findViewById(R.id.buttonPear).setOnLongClickListener(longListen);
+        findViewById(R.id.buttonMonday).setOnLongClickListener(longListen);
+        findViewById(R.id.buttonTuesday).setOnLongClickListener(longListen);
+        findViewById(R.id.buttonWednesday).setOnLongClickListener(longListen);
+        findViewById(R.id.buttonThursday).setOnLongClickListener(longListen);
+        findViewById(R.id.buttonFriday).setOnLongClickListener(longListen);
+
         findViewById(R.id.textTarget).setOnDragListener(DropListener);
 
     }
