@@ -41,7 +41,7 @@ public class WeekActivity extends Activity {
         WeekScheduleView weekScheduleView = new WeekScheduleView(model, findViewById(R.id.base));
         WeekScheduleViewController weekScheduleViewController = new WeekScheduleViewController(model, weekScheduleView, this);
 
-        WeeksOverviewView weeksOverviewView = new WeeksOverviewView(model, findViewById(R.id.base));
+        //WeeksOverviewView weeksOverviewView = new WeeksOverviewView(model, findViewById(R.id.base));
 
         // Add Listeners to the buttons
         findViewById(R.id.buttonApple).setOnLongClickListener(longListen);

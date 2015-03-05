@@ -22,16 +22,22 @@
         android:layout_height="wrap_content"
         layout="@layout/week_deadlines"
         android:layout_gravity="center_horizontal" />
+
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        layout="@layout/week_schedule"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <!--<include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         layout="@layout/weeks_overview"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal" />-->
 
     <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
-
 
     <Button
         android:layout_width="wrap_content"
