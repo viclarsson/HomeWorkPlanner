@@ -58,7 +58,8 @@ public class ScheduleListAdapter extends BaseAdapter {
             block.setBackgroundColor(assignment.getSubject().getColor());
         }
         TextView end = (TextView) item.findViewById(R.id.endTime);
-        end.setText("" + 00 + ":" + ((i%2)*3) + "0");
+        end.setTag(session);
+        end.setText("" + i + ":" + ((i%2)*3) + "0");
         return item;
     }
 }

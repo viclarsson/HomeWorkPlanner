@@ -24,6 +24,7 @@ public class AnimalView implements Observer {
 
     // View elements
     ImageView animal;
+    TextView bubble;
 
 
     public AnimalView(PlannerModel model, View view) {
@@ -35,6 +36,8 @@ public class AnimalView implements Observer {
         model.addObserver(this);
 
         animal = (ImageView) view.findViewById(R.id.animal);
+        // If we want to edit the bubble text
+        bubble = (TextView) view.findViewById(R.id.bubble);
     }
 
     @Override

@@ -7,7 +7,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import iprog.group5.homeworkplanner.R;
 import iprog.group5.homeworkplanner.ScheduleActivity;
@@ -38,6 +41,5 @@ public class AnimalController implements View.OnClickListener {
         animation.setRepeatCount(1);
         animation.setRepeatMode(2);
         view.animal.startAnimation(animation);
-
     }
 }

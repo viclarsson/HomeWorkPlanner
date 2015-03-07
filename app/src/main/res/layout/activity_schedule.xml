@@ -14,10 +14,10 @@
         <ImageView
             android:layout_width="@dimen/menuHeight"
             android:layout_height="@dimen/menuHeight"
-            style="@style/purpleButton"
-            android:src="@drawable/arrow_left_white"
+            style="@style/greenButton"
+            android:src="@drawable/done"
             android:padding="15dp"
-            android:id="@+id/btnBack"/>
+            android:id="@+id/btnDone"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
@@ -34,10 +34,10 @@
         <ImageView
             android:layout_width="@dimen/menuHeight"
             android:layout_height="@dimen/menuHeight"
-            style="@style/greenButton"
-            android:src="@drawable/done"
+            style="@style/purpleButton"
+            android:src="@drawable/statistics"
             android:padding="15dp"
-            android:id="@+id/btnDone"/>
+            android:id="@+id/btnStats"/>
     </LinearLayout>
 
     <LinearLayout
@@ -96,7 +96,7 @@
 
             <ListView
                 android:layout_width="0dp"
-                android:layout_height="2000px"
+                android:layout_height="800dp"
                 android:id="@+id/listMonday"
                 style="@style/scheduleList"
                 android:layout_marginRight="1dp"></ListView>

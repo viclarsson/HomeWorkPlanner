@@ -56,7 +56,6 @@ public class DeadlinesGridAdapter extends BaseAdapter {
         ImageView icon = (ImageView) item.findViewById(R.id.icon);
         FrameLayout button = (FrameLayout) item.findViewById(R.id.button);
         date.setTag(day);
-
         Assignment assignment = day.getAssignment();
         if(assignment != null) {
             // Chosen State

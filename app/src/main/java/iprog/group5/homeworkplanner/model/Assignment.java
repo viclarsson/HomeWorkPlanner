@@ -21,6 +21,14 @@ public class Assignment {
         this.deadlineDayNumber = dayNumber;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
     public Subject getSubject() {
         return subject;
     }

@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import iprog.group5.homeworkplanner.OverviewActivity;
 import iprog.group5.homeworkplanner.R;
@@ -29,7 +31,7 @@ import iprog.group5.homeworkplanner.model.PlannerModel;
 /**
  * Created by Victor on 2015-03-06.
  */
-public class ScheduleController implements AdapterView.OnItemLongClickListener, View.OnClickListener, AdapterView.OnDragListener {
+public class ScheduleController implements AdapterView.OnItemLongClickListener, AdapterView.OnItemClickListener, View.OnClickListener, AdapterView.OnDragListener {
     public PlannerModel model;
     public ScheduleView view;
     public Activity activity;
@@ -43,20 +45,53 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
 
         // Add listeners here
         view.deadlineHeadings.setOnItemLongClickListener(this);
-        view.back.setOnClickListener(this);
+        view.stats.setOnClickListener(this);
         view.done.setOnClickListener(this);
+        view.deadlineHeadings.setOnItemClickListener(this);
+
+
+        // Drag listeners
         view.monday.setOnDragListener(this);
         view.tuesday.setOnDragListener(this);
         view.wednesday.setOnDragListener(this);
         view.thursday.setOnDragListener(this);
         view.friday.setOnDragListener(this);
+
+        // ListItem click listeners
+        view.monday.setOnItemClickListener(this);
+        view.tuesday.setOnItemClickListener(this);
+        view.wednesday.setOnItemClickListener(this);
+        view.thursday.setOnItemClickListener(this);
+        view.friday.setOnItemClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v == view.back || v == view.done) {
+        if (v == view.done) {
             Intent intent = new Intent(activity, OverviewActivity.class);
             v.getContext().startActivity(intent);
+        }
+
+        if (v == view.stats) {
+            // TODO: Open a dialog with stats. Send info with intent
+            Toast.makeText(v.getContext(), "(TODO dialog) Stats will show!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+        if(v.findViewById(R.id.endTime) != null) {
+            // TODO: Fix intent to open a dialog about this particular session. Send info with intent with putExtra or something.
+            HomeWorkSession session = (HomeWorkSession) v.findViewById(R.id.endTime).getTag();
+            if (session.getAssignment() != null) {
+                Toast.makeText(v.getContext(), "(TODO dialog) " + session.getAssignment().getTitle() + ", " + session.getAssignment().getDescription(), Toast.LENGTH_LONG).show();
+            }
+        } else {
+            // TODO: Fix intent to open a dialog about this assignment. Send info with intent with putExtra or something.
+            Day day = (Day) v.findViewById(R.id.date).getTag();
+            if (day.getAssignment() != null) {
+                Toast.makeText(v.getContext(), "(TODO dialog) " + day.getAssignment().getTitle() + ", " + day.getAssignment().getDescription(), Toast.LENGTH_LONG).show();
+            }
         }
     }
 
@@ -73,8 +108,6 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
         ClipData data = ClipData.newPlainText(("" + position),"");
         view.startDrag(data, dragShadow, view, 0);
 
-        // Add Drag and Drop here
-        Toast.makeText(view.getContext(), date.getText(), Toast.LENGTH_SHORT).show();
         return true;
     }
 
@@ -112,10 +145,14 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
                 int position = target.pointToPosition((int) event.getX(),(int) event.getY());
 
                 Assignment assignment = model.getDaysOfWeek(weekNumber).get(draggedDayNumber).getAssignment();
-                model.addSession(weekNumber, dayNumber, position, assignment);
+                if(!model.addSession(weekNumber, dayNumber, position, assignment)) {
+                    Toast.makeText(activity.getApplicationContext(), activity.getResources().getText(R.string.dropAfterDeadlineError), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(activity.getApplicationContext(), activity.getResources().getText(R.string.dropSuccess), Toast.LENGTH_SHORT).show();
 
-                Toast toast = Toast.makeText(activity.getApplicationContext(), (dayNumber + "/" + position + "/" + draggedDayNumber), Toast.LENGTH_SHORT);
-                toast.show();
+                }
+
+                //Toast.makeText(activity.getApplicationContext(), (dayNumber + "/" + position + "/" + draggedDayNumber), Toast.LENGTH_SHORT).show();
                 break;
         }
 
@@ -127,7 +164,8 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
 
         public DragShadow(View view) {
             super(view);
-            greyBox = new ColorDrawable(Color.RED);
+            ColorDrawable theColor = (ColorDrawable) view.findViewById(R.id.button).getBackground();
+            greyBox = new ColorDrawable(theColor.getColor());
         }
 
         @Override

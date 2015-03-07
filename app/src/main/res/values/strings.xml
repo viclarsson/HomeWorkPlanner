@@ -24,5 +24,7 @@
     <string name="choose_week">Välj vecka att schemalägga</string>
     <string name="welcome">Hej! Börja med att välja en vecka att schemalägga som din lärare har förberett.</string>
     <string name="grab_deadline">Ta tag i en deadline och dra en session till en rimlig tid innan deadlinen!</string>
+    <string name="dropAfterDeadlineError">Du kan inte schemlägga efter deadline...</string>
+    <string name="dropSuccess">Session tillagd!</string>
 
 </resources>

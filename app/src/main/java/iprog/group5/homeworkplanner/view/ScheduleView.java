@@ -28,7 +28,7 @@ public class ScheduleView implements Observer {
     // View elements
     GridView deadlineHeadings;
     TextView bubble;
-    ImageView back;
+    ImageView stats;
     ImageView done;
 
     // Schedule Lists
@@ -56,7 +56,7 @@ public class ScheduleView implements Observer {
         bubble.setText(R.string.grab_deadline);
 
         // Set up Menu buttons
-        back = (ImageView) view.findViewById(R.id.btnBack);
+        stats = (ImageView) view.findViewById(R.id.btnStats);
         done = (ImageView) view.findViewById(R.id.btnDone);
 
         // Set up schedule lists
