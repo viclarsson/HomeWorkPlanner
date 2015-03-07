@@ -1,25 +1,21 @@
-package iprog.group5.homeworkplanner.view;
+package iprog.group5.homeworkplanner.archive;
 
 import android.app.Activity;
-import android.view.View;
-import android.widget.Button;
 
+import iprog.group5.homeworkplanner.archive.WeekScheduleView;
 import iprog.group5.homeworkplanner.model.PlannerModel;
 
 /**
- * Created by Niklas on 2015-03-03.
+ * Created by Erica on 2015-03-03.
  */
-public class WeekScheduleViewController {
+public class WeeksOverviewViewController {
     public PlannerModel model;
     public WeekScheduleView view;
     public Activity activity;
 
-    public WeekScheduleViewController(PlannerModel model, WeekScheduleView view, Activity activity) {
+    public WeeksOverviewViewController() {
         this.model = model;
         this.view = view;
         this.activity = activity;
-
-
     }
-
 }

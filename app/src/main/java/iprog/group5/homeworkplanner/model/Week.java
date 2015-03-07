@@ -20,7 +20,7 @@ public class Week {
         this.weekNumber = weekNumber;
         this.days = new ArrayList<>();
         for(int i = 0; i < 5; i++) {
-            this.days.add(i, new Day());
+            this.days.add(i, new Day(i));
         }
     }
 

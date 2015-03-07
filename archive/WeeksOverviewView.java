@@ -1,25 +1,16 @@
-package iprog.group5.homeworkplanner.view;
+package iprog.group5.homeworkplanner.archive;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.TextView;
 
 import android.widget.ListView;
-
-import java.util.ArrayList;
-import android.content.Context;
 
 
 import java.util.Observable;
 import java.util.Observer;
 
 import iprog.group5.homeworkplanner.R;
+import iprog.group5.homeworkplanner.archive.WeekArrayAdapter;
 import iprog.group5.homeworkplanner.model.PlannerModel;
-import iprog.group5.homeworkplanner.model.Week;
 
 /**
  * Created by Erica on 2015-03-03.

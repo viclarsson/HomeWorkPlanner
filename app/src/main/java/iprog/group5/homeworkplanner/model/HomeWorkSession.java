@@ -12,4 +12,8 @@ public class HomeWorkSession {
     public HomeWorkSession(Assignment assignment) {
         this.assignment = assignment;
     }
+
+    public Assignment getAssignment() {
+        return assignment;
+    }
 }

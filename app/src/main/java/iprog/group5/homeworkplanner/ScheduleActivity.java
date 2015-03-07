@@ -1,39 +1,37 @@
 package iprog.group5.homeworkplanner;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import iprog.group5.homeworkplanner.model.PlannerModel;
+import iprog.group5.homeworkplanner.view.AnimalController;
+import iprog.group5.homeworkplanner.view.AnimalView;
+import iprog.group5.homeworkplanner.view.ScheduleController;
+import iprog.group5.homeworkplanner.view.ScheduleView;
 
-public class ScheduleActivity extends ActionBarActivity {
+
+public class ScheduleActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
-    }
+        PlannerModel model = ((HomeWorkPlannerApplication) this.getApplication()).getModel();
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_schedule, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        int id = 0;
+        Intent intent = getIntent();
+        if(intent != null) {
+            id = intent.getExtras().getInt("position");
         }
 
-        return super.onOptionsItemSelected(item);
+        ScheduleView view = new ScheduleView(model, findViewById(R.id.base), id);
+        ScheduleController controller = new ScheduleController(model, view, this, id);
+
+        AnimalView animalView = new AnimalView(model, findViewById(R.id.base));
+        AnimalController animalController = new AnimalController(model, animalView, this);
     }
 }

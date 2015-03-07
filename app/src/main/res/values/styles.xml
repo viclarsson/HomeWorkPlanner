@@ -5,42 +5,52 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="bigButton">
-        <item name="android:padding">10dp</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:radius">0dp</item>
-        <item name="android:layout_margin">0dp</item>
-        <item name="android:background">@color/green</item>
+    <style name="WhiteText">
+        <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="purpleButton">
-        <item name="android:background">@drawable/flatbtnpurple_selector</item>
-        <item name="android:textColor">@color/white</item>
+    <style name="menuTitle" parent="WhiteText">
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:paddingBottom">5dp</item>
-        <item name="android:paddingTop">5dp</item>
-        <item name="android:paddingLeft">30dp</item>
-        <item name="android:paddingRight">30dp</item>
+    </style>
+
+    <style name="baseButton">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">5dp</item>
         <item name="android:textSize">12dp</item>
     </style>
 
-    <style name="day">
+    <style name="purpleButton" parent="baseButton">
+        <item name="android:background">@drawable/flatbtnpurple_selector</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="greenButton" parent="baseButton">
+        <item name="android:background">@drawable/flatbtngreen_selector</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="orangeButton" parent="baseButton">
+        <item name="android:background">@drawable/flatbtnorange_selector</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="day" parent="WhiteText">
         <item name="android:layout_gravity">center</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">16dp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="date">
+    <style name="date" parent="WhiteText">
         <item name="android:layout_gravity">center</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">10dp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">10dp</item>
     </style>
 
-    <style name="deadline">
+    <style name="deadline" parent="WhiteText">
         <item name="android:layout_gravity">center</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">8dp</item>
@@ -49,19 +59,29 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="deadlineWrapper">
+    <style name="deadlineWrapper" parent="WhiteText">
         <item name="android:layout_gravity">center</item>
         <item name="android:orientation">horizontal</item>
     </style>
 
-    <style name="deadlineButton">
+    <style name="deadlineButton" parent="WhiteText">
         <item name="android:background">@color/lightGray</item>
-        <item name="android:layout_marginTop">7dp</item>
     </style>
-    <style name="deadlineIcon">
+    <style name="deadlineIcon" parent="WhiteText">
         <item name="android:src">@drawable/happy</item>
         <item name="android:layout_weight">0</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_marginRight">5dp</item>
+    </style>
+
+    <style name="smallText" parent="WhiteText">
+        <item name="android:textSize">10dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="scheduleList">
+        <item name="android:layout_weight">0.2</item>
+        <item name="android:divider">@color/darkBlue</item>
+        <item name="android:dividerHeight">1dp</item>
     </style>
 </resources>

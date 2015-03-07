@@ -18,17 +18,11 @@
     <string name="Wednesday">ONS</string>
     <string name="Thursday">TOR</string>
     <string name="Friday">FRE</string>
-    <string name="Target">Drop Target</string>
-    <string name="dateMonday">21 Mars</string>
-    <string name="dateTuesday">22 Mars</string>
-    <string name="dateWednesday">23 Mars</string>
-    <string name="dateThursday">24 Mars</string>
-    <string name="dateFriday">25 Mars</string>
-    <string name="noDeadline">Ledigt</string>
-    <string name="title_activity_schedule">Schedule</string>
-    <string name="left">Left</string>
-    <string name="right">Right</string>
+    <string name="schedule">Schemalägg din läxtid</string>
     <string name="add_activity">+ Aktivitet</string>
     <string name="free">Ledigt</string>
+    <string name="choose_week">Välj vecka att schemalägga</string>
+    <string name="welcome">Hej! Börja med att välja en vecka att schemalägga som din lärare har förberett.</string>
+    <string name="grab_deadline">Ta tag i en deadline och dra en session till en rimlig tid innan deadlinen!</string>
 
 </resources>

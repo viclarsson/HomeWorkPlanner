@@ -1,9 +1,128 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="iprog.group5.homeworkplanner.ScheduleActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/darkBlue"
+    tools:context="iprog.group5.homeworkplanner.Week"
+    android:id="@+id/base">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/darkGray"
+        android:layout_height="@dimen/menuHeight">
+        <ImageView
+            android:layout_width="@dimen/menuHeight"
+            android:layout_height="@dimen/menuHeight"
+            style="@style/purpleButton"
+            android:src="@drawable/arrow_left_white"
+            android:padding="15dp"
+            android:id="@+id/btnBack"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/schedule"
+                style="@style/menuTitle"
+                android:id="@+id/menuTitle"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="@dimen/menuHeight"
+            android:layout_height="@dimen/menuHeight"
+            style="@style/greenButton"
+            android:src="@drawable/done"
+            android:padding="15dp"
+            android:id="@+id/btnDone"/>
+    </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="150dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.6"
+            android:orientation="vertical"
+            android:padding="@dimen/global_padding"
+            android:gravity="center">
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/bubble"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:layout_gravity="center_vertical">
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/animal"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/deadlineHeadings"
+        android:numColumns="5"
+        android:horizontalSpacing="0dp">
+
+    </GridView>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="1"
+            android:background="@color/darkBlue">
+
+            <ListView
+                android:layout_width="0dp"
+                android:layout_height="2000px"
+                android:id="@+id/listMonday"
+                style="@style/scheduleList"
+                android:layout_marginRight="1dp"></ListView>
+            <ListView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/listTuesday"
+                style="@style/scheduleList"
+                android:layout_marginRight="1dp"></ListView>
+            <ListView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/listWednesday"
+                style="@style/scheduleList"
+                android:layout_marginRight="1dp"></ListView>
+            <ListView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/listThursday"
+                style="@style/scheduleList"
+                android:layout_marginRight="1dp"></ListView>
+            <ListView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/listFriday"
+                style="@style/scheduleList"></ListView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

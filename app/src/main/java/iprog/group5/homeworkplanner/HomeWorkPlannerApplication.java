@@ -1,6 +1,9 @@
 package iprog.group5.homeworkplanner;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
 
 import iprog.group5.homeworkplanner.model.PlannerModel;
 

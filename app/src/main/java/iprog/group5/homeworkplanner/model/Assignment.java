@@ -8,21 +8,24 @@ public class Assignment {
     String title;
     String description;
     int estimatedWorkLoad; // In minutes
-    int deadline; // 1 = monday, 2 = tuesday etc
+    int deadlineDayNumber; // day in week
 
-    public Assignment(Subject subject, String title, String description, int estimatedWorkLoad, int deadline) {
+    public Assignment(Subject subject, String title, String description, int estimatedWorkLoad) {
         this.subject = subject;
         this.title = title;
         this.description = description;
         this.estimatedWorkLoad = estimatedWorkLoad;
-        this.deadline = deadline;
     }
 
-     public int getDeadline() {
-        return deadline;
+    public void setDeadlineDayNumber(int dayNumber) {
+        this.deadlineDayNumber = dayNumber;
     }
 
     public Subject getSubject() {
         return subject;
+    }
+
+    public int getDeadlineDayNumber() {
+        return deadlineDayNumber;
     }
 }

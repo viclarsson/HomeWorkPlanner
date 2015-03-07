@@ -1,4 +1,4 @@
-package iprog.group5.homeworkplanner.view;
+package iprog.group5.homeworkplanner.archive;
 
 import android.util.Log;
 import android.view.View;

@@ -1,5 +1,7 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="global_margin">15dp</dimen>
-    <dimen name="global_padding">15dp</dimen>
+    <dimen name="global_margin">12dp</dimen>
+    <dimen name="global_padding">12dp</dimen>
+    <dimen name="buttonHeight">40dp</dimen>
+    <dimen name="menuHeight">60dp</dimen>
 </resources>

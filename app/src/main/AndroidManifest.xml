@@ -19,7 +19,7 @@
         </activity>
         <activity
             android:name=".ScheduleActivity"
-            android:label="@string/title_activity_schedule"
+            android:label="@string/schedule"
             android:parentActivityName=".OverviewActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
