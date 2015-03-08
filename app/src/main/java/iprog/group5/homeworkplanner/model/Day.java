@@ -2,18 +2,21 @@ package iprog.group5.homeworkplanner.model;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.InvalidPropertiesFormatException;
 
 /**
  * Created by Victor on 2015-02-23.
  */
 public class Day {
+    Calendar calendar;
     int dayNumber;
     ArrayList<HomeWorkSession> sessions;
     // Assignment to be done to this day
     Assignment assignment;
 
-    public Day(int dayNumber) {
+    public Day(int dayNumber, Calendar calendar) {
+        this.calendar = calendar;
         this.dayNumber = dayNumber;
         // We start at 8.00 and end at 21:00 with 30 min sessions
         this.sessions = new ArrayList<HomeWorkSession>(26);
@@ -24,7 +27,7 @@ public class Day {
 
     /**
      * Add a session based on 24 hour clock.
-     * @param time
+     * @param position
      * @param session
      */
     public boolean addSessionAtTime(int position, HomeWorkSession session) {
@@ -54,6 +57,49 @@ public class Day {
 
     public int getDayNumber() {
         return dayNumber;
+    }
+
+    public int getDay() { return calendar.get(Calendar.DAY_OF_MONTH); }
+
+    /**
+     * Get the text representation of a this day
+     *
+     * @return The text representation of this day
+     */
+    public String getDayText() {
+        switch(calendar.get(Calendar.DAY_OF_WEEK)) {
+            case Calendar.MONDAY: return "MÅN";
+            case Calendar.TUESDAY: return "TIS";
+            case Calendar.WEDNESDAY: return "ONS";
+            case Calendar.THURSDAY: return "TOR";
+            case Calendar.FRIDAY: return "FRE";
+        }
+        return "Unknown";
+    }
+
+    /**
+     * Get the text representation of this day's month
+     *
+     * @return The text representation of this day's month
+     */
+    public int getMonth() { return calendar.get(Calendar.MONTH); }
+
+    public String getMonthText() {
+        switch(calendar.get(Calendar.MONTH)) {
+            case Calendar.JANUARY: return "Januari";
+            case Calendar.FEBRUARY: return "Februari";
+            case Calendar.MARCH : return "Mars";
+            case Calendar.APRIL : return "April";
+            case Calendar.MAY : return "Maj";
+            case Calendar.JUNE : return "Juni";
+            case Calendar.JULY : return "Juli";
+            case Calendar.AUGUST : return "Augusti";
+            case Calendar.SEPTEMBER : return "September";
+            case Calendar.OCTOBER : return "Oktober";
+            case Calendar.NOVEMBER : return "November";
+            case Calendar.DECEMBER : return "December";
+        }
+        return "Unknown";
     }
 
     public ArrayList<HomeWorkSession> getSessions() {
