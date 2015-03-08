@@ -12,6 +12,14 @@ public class HomeWorkSession {
     public HomeWorkSession(Assignment assignment) {
         this.assignment = assignment;
     }
+    public HomeWorkSession() {
+        this.breakTime = 0;
+        this.assignment = new Assignment();
+    }
+
+    public int getBreakTime() {
+        return breakTime;
+    }
 
     public Assignment getAssignment() {
         return assignment;

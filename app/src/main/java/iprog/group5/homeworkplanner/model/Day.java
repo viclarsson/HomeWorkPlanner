@@ -9,6 +9,7 @@ import java.util.InvalidPropertiesFormatException;
  * Created by Victor on 2015-02-23.
  */
 public class Day {
+    final static int numberOfSlots = 26;
     Calendar calendar;
     int dayNumber;
     ArrayList<HomeWorkSession> sessions;
@@ -19,10 +20,20 @@ public class Day {
         this.calendar = calendar;
         this.dayNumber = dayNumber;
         // We start at 8.00 and end at 21:00 with 30 min sessions
-        this.sessions = new ArrayList<HomeWorkSession>(26);
-        for(int i = 0; i < 26; i++) {
+        this.sessions = new ArrayList<HomeWorkSession>(numberOfSlots);
+        for(int i = 0; i < numberOfSlots; i++) {
             this.sessions.add(i, new HomeWorkSession(null));
         }
+    }
+
+    public void setScheduledTime(int startPosition, int endPosition) {
+        for(int i = startPosition; i < endPosition; i++) {
+            this.sessions.set(i, new HomeWorkSession());
+        }
+    }
+
+    public int getNumberOfSlots() {
+        return numberOfSlots;
     }
 
     /**
@@ -35,7 +46,7 @@ public class Day {
         // Protocol: int time = 8.5 => 08:30, 20 => 20.00 etc.
 
         // Check to see if the session is placed before the deadline
-        if(this.getDayNumber() < session.getAssignment().getDeadlineDayNumber()) {
+        if(this.getDayNumber() < session.getAssignment().getDeadlineDayNumber() && sessions.get(position).getAssignment() == null) {
             sessions.set(position, session);
             return true;
         }

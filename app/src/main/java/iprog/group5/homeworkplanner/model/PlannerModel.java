@@ -28,13 +28,20 @@ public class PlannerModel extends Observable {
         Assignment math1 = new Assignment(math, "Räkneläxa", "Gör 4 tal i boken.", 60);
         Assignment swedish1 = new Assignment(swedish, "Glosor", "Se veckobrev.", 30);
 
+        // Test teacher added
+        week1.days.get(Week.MONDAY).setScheduledTime(0,7);
+        week1.days.get(Week.TUESDAY).setScheduledTime(2,7);
+        week1.days.get(Week.WEDNESDAY).setScheduledTime(0,7);
+        week1.days.get(Week.THURSDAY).setScheduledTime(2,7);
+        week1.days.get(Week.FRIDAY).setScheduledTime(2,5);
+
         week1.days.get(Week.TUESDAY).setAssignment(math1);
         week1.days.get(Week.FRIDAY).setAssignment(swedish1);
 
         HomeWorkSession testSession1 = new HomeWorkSession(math1);
         HomeWorkSession testSession2 = new HomeWorkSession(swedish1);
         HomeWorkSession testSession3 = new HomeWorkSession(swedish1);
-        week1.days.get(Week.MONDAY).addSessionAtTime(5, testSession1);
+        week1.days.get(Week.MONDAY).addSessionAtTime(5, testSession1); // this will fail because it is already scheduled
         week1.days.get(Week.WEDNESDAY).addSessionAtTime(10, testSession2);
         week1.days.get(Week.TUESDAY).addSessionAtTime(11, testSession3);
 

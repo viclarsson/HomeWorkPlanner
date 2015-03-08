@@ -1,7 +1,9 @@
 package iprog.group5.homeworkplanner.adapters;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,11 +57,26 @@ public class ScheduleListAdapter extends BaseAdapter {
         RelativeLayout block = (RelativeLayout) item.findViewById(R.id.block);
         Assignment assignment = session.getAssignment();
         if(assignment != null) {
-            block.setBackgroundColor(assignment.getSubject().getColor());
+            if(assignment.getSubject() == null) {
+                block.setBackgroundColor(context.getResources().getColor(R.color.darkBlue));
+                ViewGroup.LayoutParams params = block.getLayoutParams();
+                params.height = ViewGroup.LayoutParams.MATCH_PARENT;
+                block.setLayoutParams(params);
+            }else {
+                block.setBackgroundColor(assignment.getSubject().getColor());
+            }
         }
         TextView end = (TextView) item.findViewById(R.id.endTime);
         end.setTag(session);
-        end.setText("" + i + ":" + ((i%2)*3) + "0");
+        end.setText("" + getHour(i) + ":" + ((i%2)*3) + "0");
         return item;
+    }
+
+    public int getHour(int i) {
+        int hour = 0;
+        for(int n=0; n <= i; n += 2) {
+            hour = hour + 1;
+        }
+        return 7 + hour;
     }
 }

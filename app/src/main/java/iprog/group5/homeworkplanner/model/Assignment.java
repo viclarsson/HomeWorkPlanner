@@ -17,6 +17,11 @@ public class Assignment {
         this.estimatedWorkLoad = estimatedWorkLoad;
     }
 
+    public Assignment() {
+        // Null = Teacher scheduled!
+        this.subject = null;
+    }
+
     public void setDeadlineDayNumber(int dayNumber) {
         this.deadlineDayNumber = dayNumber;
     }

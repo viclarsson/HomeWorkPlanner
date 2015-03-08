@@ -70,7 +70,6 @@ public class ScheduleView implements Observer {
         wednesday.setAdapter(new ScheduleListAdapter(model.getSessionsByDay(weekNumber, 2), view.getContext()));
         thursday.setAdapter(new ScheduleListAdapter(model.getSessionsByDay(weekNumber, 3), view.getContext()));
         friday.setAdapter(new ScheduleListAdapter(model.getSessionsByDay(weekNumber, 4), view.getContext()));
-
     }
 
     @Override

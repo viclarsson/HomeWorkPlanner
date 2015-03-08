@@ -92,32 +92,32 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:weightSum="1"
-            android:background="@color/darkBlue">
+            android:background="@color/lightGray">
 
             <ListView
                 android:layout_width="0dp"
                 android:layout_height="800dp"
                 android:id="@+id/listMonday"
                 style="@style/scheduleList"
-                android:layout_marginRight="1dp"></ListView>
+                android:layout_marginRight="1px"></ListView>
             <ListView
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:id="@+id/listTuesday"
                 style="@style/scheduleList"
-                android:layout_marginRight="1dp"></ListView>
+                android:layout_marginRight="1px"></ListView>
             <ListView
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:id="@+id/listWednesday"
                 style="@style/scheduleList"
-                android:layout_marginRight="1dp"></ListView>
+                android:layout_marginRight="1px"></ListView>
             <ListView
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:id="@+id/listThursday"
                 style="@style/scheduleList"
-                android:layout_marginRight="1dp"></ListView>
+                android:layout_marginRight="1px"></ListView>
             <ListView
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"

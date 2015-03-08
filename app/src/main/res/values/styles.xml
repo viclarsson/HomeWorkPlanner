@@ -81,7 +81,7 @@
 
     <style name="scheduleList">
         <item name="android:layout_weight">0.2</item>
-        <item name="android:divider">@color/darkBlue</item>
-        <item name="android:dividerHeight">1dp</item>
+        <item name="android:divider">@color/lightGray</item>
+        <item name="android:dividerHeight">1px</item>
     </style>
 </resources>

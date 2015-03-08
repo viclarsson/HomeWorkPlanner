@@ -84,7 +84,11 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
             // TODO: Fix intent to open a dialog about this particular session. Send info with intent with putExtra or something.
             HomeWorkSession session = (HomeWorkSession) v.findViewById(R.id.endTime).getTag();
             if (session.getAssignment() != null) {
-                Toast.makeText(v.getContext(), "(TODO dialog) " + session.getAssignment().getTitle() + ", " + session.getAssignment().getDescription(), Toast.LENGTH_LONG).show();
+                if(session.getAssignment().getSubject() == null) {
+                    Toast.makeText(v.getContext(), "School scheduled!", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(v.getContext(), "(TODO dialog) " + session.getAssignment().getTitle() + ", " + session.getAssignment().getDescription(), Toast.LENGTH_LONG).show();
+                }
             }
         } else {
             // TODO: Fix intent to open a dialog about this assignment. Send info with intent with putExtra or something.
@@ -178,7 +182,7 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
         public void onProvideShadowMetrics(Point shadowSize, Point shadowTouchPoint)
         {
             View v = getView();
-            int height = (int) 100;
+            int height = (int) 30;
             int width = (int) v.getWidth();
             greyBox.setBounds(0, 0, width, height);
             shadowSize.set(width, height);
