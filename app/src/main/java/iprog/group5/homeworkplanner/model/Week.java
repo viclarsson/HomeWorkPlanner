@@ -2,6 +2,7 @@ package iprog.group5.homeworkplanner.model;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by Victor on 2015-02-23.
@@ -16,11 +17,21 @@ public class Week {
     ArrayList<Day> days;
     int weekNumber;
 
-    public Week(int weekNumber) {
+    Calendar calendar;
+
+    public Week(int weekNumber, int year) {
         this.weekNumber = weekNumber;
+        calendar = Calendar.getInstance();
+        calendar.clear();
+        calendar.set(Calendar.WEEK_OF_YEAR, weekNumber);
+        calendar.set(Calendar.YEAR, year);
+
         this.days = new ArrayList<>();
         for(int i = 0; i < 5; i++) {
-            this.days.add(i, new Day(i));
+            //Create a new day object with a new calendar object with the correct date set
+            Calendar tmp = (Calendar) calendar.clone();
+            tmp.add(Calendar.DATE, i+1);
+            this.days.add(i, new Day(i, tmp));
         }
     }
 
@@ -52,5 +63,12 @@ public class Week {
 
     public void setWeekNumber(int weekNumber) {
         this.weekNumber = weekNumber;
+        calendar.set(Calendar.WEEK_OF_YEAR, weekNumber);
     }
+
+    public void setYear(int year) {
+        calendar.set(Calendar.YEAR, year);
+    }
+
+    public int getYear() { return calendar.get(Calendar.YEAR); }
 }
