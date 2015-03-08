@@ -50,6 +50,7 @@ public class DeadlinesGridAdapter extends BaseAdapter {
         View item = view;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         item = inflater.inflate(R.layout.deadline_heading, viewGroup, false);
+        TextView weekday = (TextView) item.findViewById(R.id.weekday);
         TextView date = (TextView) item.findViewById(R.id.date);
         TextView subject = (TextView) item.findViewById(R.id.subject);
 
@@ -57,6 +58,11 @@ public class DeadlinesGridAdapter extends BaseAdapter {
         FrameLayout button = (FrameLayout) item.findViewById(R.id.button);
         date.setTag(day);
         Assignment assignment = day.getAssignment();
+
+        weekday.setText(day.getDayText());
+        date.setText(day.getDay() + " " + day.getMonthText());
+
+
         if(assignment != null) {
             // Chosen State
             button.setBackgroundColor(assignment.getSubject().getColor());

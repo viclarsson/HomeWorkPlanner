@@ -22,7 +22,7 @@ public class PlannerModel extends Observable {
 
         weeks = new ArrayList<Week>();
 
-        Week week1 = new Week(1);
+        Week week1 = new Week(10, 2015);
 
         // Adds assignments
         Assignment math1 = new Assignment(math, "Räkneläxa", "Gör 4 tal i boken.", 60);
@@ -38,7 +38,7 @@ public class PlannerModel extends Observable {
         week1.days.get(Week.WEDNESDAY).addSessionAtTime(10, testSession2);
         week1.days.get(Week.TUESDAY).addSessionAtTime(11, testSession3);
 
-        Week week2 = new Week(2);
+        Week week2 = new Week(11, 2015);
         weeks.add(week1);
         weeks.add(week2);
     }
