@@ -25,12 +25,13 @@ public class Week {
         calendar.clear();
         calendar.set(Calendar.WEEK_OF_YEAR, weekNumber);
         calendar.set(Calendar.YEAR, year);
+        calendar.setFirstDayOfWeek(Calendar.MONDAY);
 
         this.days = new ArrayList<>();
         for(int i = 0; i < 5; i++) {
             //Create a new day object with a new calendar object with the correct date set
             Calendar tmp = (Calendar) calendar.clone();
-            tmp.add(Calendar.DATE, i+1);
+            tmp.add(Calendar.DATE, i);
             this.days.add(i, new Day(i, tmp));
         }
     }

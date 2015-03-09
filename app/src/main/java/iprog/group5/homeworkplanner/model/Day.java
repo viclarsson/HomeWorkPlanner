@@ -85,7 +85,7 @@ public class Day {
             case Calendar.THURSDAY: return "TOR";
             case Calendar.FRIDAY: return "FRE";
         }
-        return "Unknown";
+        return "";
     }
 
     /**
@@ -110,7 +110,7 @@ public class Day {
             case Calendar.NOVEMBER : return "November";
             case Calendar.DECEMBER : return "December";
         }
-        return "Unknown";
+        return "";
     }
 
     public ArrayList<HomeWorkSession> getSessions() {
