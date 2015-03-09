@@ -24,6 +24,7 @@ import iprog.group5.homeworkplanner.AssignmentPopupActivity;
 import iprog.group5.homeworkplanner.OverviewActivity;
 import iprog.group5.homeworkplanner.R;
 import iprog.group5.homeworkplanner.ScheduleActivity;
+import iprog.group5.homeworkplanner.StatsPopupActivity;
 import iprog.group5.homeworkplanner.model.Assignment;
 import iprog.group5.homeworkplanner.model.Day;
 import iprog.group5.homeworkplanner.model.HomeWorkSession;
@@ -74,8 +75,9 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
         }
 
         if (v == view.stats) {
-            // TODO: Open a dialog with stats. Send info with intent
-            Toast.makeText(v.getContext(), "(TODO dialog) Stats will show!", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(activity, StatsPopupActivity.class);
+            intent.putExtra("stats_week", weekNumber);
+            v.getContext().startActivity(intent);
         }
     }
 
