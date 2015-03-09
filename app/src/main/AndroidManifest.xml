@@ -25,6 +25,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="iprog.group5.homeworkplanner.OverviewActivity" />
         </activity>
+        <activity
+            android:theme="@android:style/Theme.Dialog"
+            android:name=".AssignmentPopupActivity"
+            android:label="Information om uppgiften"
+            android:parentActivityName=".ScheduleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="iprog.group5.homeworkplanner.ScheduleActivity" />
+        </activity>
     </application>
 
 </manifest>

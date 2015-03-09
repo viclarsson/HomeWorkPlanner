@@ -20,6 +20,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import iprog.group5.homeworkplanner.AssignmentPopupActivity;
 import iprog.group5.homeworkplanner.OverviewActivity;
 import iprog.group5.homeworkplanner.R;
 import iprog.group5.homeworkplanner.ScheduleActivity;
@@ -81,20 +82,24 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
     @Override
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         if(v.findViewById(R.id.endTime) != null) {
-            // TODO: Fix intent to open a dialog about this particular session. Send info with intent with putExtra or something.
             HomeWorkSession session = (HomeWorkSession) v.findViewById(R.id.endTime).getTag();
             if (session.getAssignment() != null) {
                 if(session.getAssignment().getSubject() == null) {
                     Toast.makeText(v.getContext(), "School scheduled!", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(v.getContext(), "(TODO dialog) " + session.getAssignment().getTitle() + ", " + session.getAssignment().getDescription(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(activity, AssignmentPopupActivity.class);
+                    intent.putExtra("assignment_week", weekNumber);
+                    intent.putExtra("assignment_day", session.getAssignment().getDeadlineDayNumber());
+                    v.getContext().startActivity(intent);
                 }
             }
         } else {
-            // TODO: Fix intent to open a dialog about this assignment. Send info with intent with putExtra or something.
             Day day = (Day) v.findViewById(R.id.date).getTag();
             if (day.getAssignment() != null) {
-                Toast.makeText(v.getContext(), "(TODO dialog) " + day.getAssignment().getTitle() + ", " + day.getAssignment().getDescription(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(activity, AssignmentPopupActivity.class);
+                intent.putExtra("assignment_week", weekNumber);
+                intent.putExtra("assignment_day", day.getDayNumber());
+                v.getContext().startActivity(intent);
             }
         }
     }
