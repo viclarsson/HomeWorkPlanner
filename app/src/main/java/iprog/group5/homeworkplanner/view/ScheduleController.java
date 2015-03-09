@@ -149,13 +149,8 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
                 int position = target.pointToPosition((int) event.getX(),(int) event.getY());
 
                 Assignment assignment = model.getDaysOfWeek(weekNumber).get(draggedDayNumber).getAssignment();
-                if(!model.addSession(weekNumber, dayNumber, position, assignment)) {
-                    Toast.makeText(activity.getApplicationContext(), activity.getResources().getText(R.string.dropAfterDeadlineError), Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(activity.getApplicationContext(), activity.getResources().getText(R.string.dropSuccess), Toast.LENGTH_SHORT).show();
-
-                }
-
+                String errorOrSuccess = model.addSession(weekNumber, dayNumber, position, assignment);
+                Toast.makeText(activity.getApplicationContext(), errorOrSuccess, Toast.LENGTH_SHORT).show();
                 //Toast.makeText(activity.getApplicationContext(), (dayNumber + "/" + position + "/" + draggedDayNumber), Toast.LENGTH_SHORT).show();
                 break;
         }

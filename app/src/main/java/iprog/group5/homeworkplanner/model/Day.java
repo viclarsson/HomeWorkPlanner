@@ -9,7 +9,7 @@ import java.util.InvalidPropertiesFormatException;
  * Created by Victor on 2015-02-23.
  */
 public class Day {
-    final static int numberOfSlots = 26;
+    final static int numberOfSlots = 28; // two extra for spacing
     Calendar calendar;
     int dayNumber;
     ArrayList<HomeWorkSession> sessions;
@@ -41,16 +41,20 @@ public class Day {
      * @param position
      * @param session
      */
-    public boolean addSessionAtTime(int position, HomeWorkSession session) {
-        // We add on intervals of 30 min from 8-21.
-        // Protocol: int time = 8.5 => 08:30, 20 => 20.00 etc.
-
-        // Check to see if the session is placed before the deadline
-        if(this.getDayNumber() < session.getAssignment().getDeadlineDayNumber() && sessions.get(position).getAssignment() == null) {
+    public String addSessionAtTime(int position, HomeWorkSession session) {
+        // Check if able to add
+        if(this.getDayNumber() > session.getAssignment().getDeadlineDayNumber()) {
+            return "(FIX THIS) Schemalägg inte efter deadline.";
+        } else if(sessions.get(position).getAssignment() != null) {
+            return "(FIX THIS) Du går i skolan denna tid.";
+        } else if(position == 0) {
+            return "(FIX THIS) Du måste hinna äta frukost denna tid.";
+        } else if(position == (numberOfSlots-1)) {
+            return "(FIX THIS) Du borde gå och lägga dig vid denna tid...";
+        } else {
             sessions.set(position, session);
-            return true;
+            return "Schemalagt!";
         }
-        return false;
     }
 
     public void removeSessionAtTime(int position) {

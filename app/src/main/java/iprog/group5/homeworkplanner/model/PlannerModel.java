@@ -68,10 +68,10 @@ public class PlannerModel extends Observable {
         return this.weeks;
     }
 
-    public boolean addSession(int weekNumber, int dayNumber, int position, Assignment assignment) {
+    public String addSession(int weekNumber, int dayNumber, int position, Assignment assignment) {
         Day day = weeks.get(weekNumber).getDay(dayNumber);
-        boolean change = day.addSessionAtTime(position, new HomeWorkSession(assignment));
-        if(change) {
+        String change = day.addSessionAtTime(position, new HomeWorkSession(assignment));
+        if(change.equals("Schemalagt!")) {
             setChanged();
             notifyObservers();
         }
