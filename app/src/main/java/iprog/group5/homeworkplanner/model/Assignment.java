@@ -41,4 +41,6 @@ public class Assignment {
     public int getDeadlineDayNumber() {
         return deadlineDayNumber;
     }
+
+    public int getEstimatedWorkLoad() { return estimatedWorkLoad; }
 }
