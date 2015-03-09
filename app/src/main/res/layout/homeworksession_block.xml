@@ -1,28 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="30dp"
-    android:background="@color/darkGray"
-    android:gravity="top|center_horizontal">
-
-    <RelativeLayout
+    android:layout_height="@dimen/blockHeight"
+    android:id="@+id/baseBlock"
+    android:background="@color/darkGray">
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="25dp"
         android:id="@+id/block"
-        android:gravity="top|center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_marginTop="1px">
+    </FrameLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/endTime"
-            android:layout_gravity="top|center_horizontal"
-            android:text="00:00"
-            style="@style/smallText"
-            android:textSize="8dp"/>
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:id="@+id/divider"
+        android:background="@color/gridBlue"
+        android:gravity="center_horizontal">
+    </FrameLayout>
 
-        </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startTime"
+        android:text="00:00"
+        style="@style/smallText"
+        android:textSize="8dp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="-6sp"/>
 
-
-
-
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/endTime"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:text="00:00"
+        style="@style/smallText"
+        android:textSize="8dp"
+        android:layout_marginBottom="-5sp"/>
+</FrameLayout>

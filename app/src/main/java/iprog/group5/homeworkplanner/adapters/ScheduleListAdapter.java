@@ -54,7 +54,8 @@ public class ScheduleListAdapter extends BaseAdapter {
         View item = view;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         item = inflater.inflate(R.layout.homeworksession_block, viewGroup, false);
-        RelativeLayout block = (RelativeLayout) item.findViewById(R.id.block);
+        FrameLayout baseBlock = (FrameLayout) item.findViewById(R.id.baseBlock);
+        FrameLayout block = (FrameLayout) item.findViewById(R.id.block);
         Assignment assignment = session.getAssignment();
         if(assignment != null) {
             if(assignment.getSubject() == null) {
@@ -63,20 +64,45 @@ public class ScheduleListAdapter extends BaseAdapter {
                 params.height = ViewGroup.LayoutParams.MATCH_PARENT;
                 block.setLayoutParams(params);
             }else {
-                block.setBackgroundColor(assignment.getSubject().getColor());
+                float[] hsv = new float[3];
+                int color = assignment.getSubject().getColor();
+                Color.colorToHSV(color, hsv);
+                hsv[2] *= 0.8f; // value component
+                int darken = Color.HSVToColor(hsv);
+                block.setBackgroundColor(color);
+                baseBlock.setBackgroundColor(darken);
             }
         }
+        TextView start = (TextView) item.findViewById(R.id.startTime);
         TextView end = (TextView) item.findViewById(R.id.endTime);
         end.setTag(session);
-        end.setText("" + getHour(i) + ":" + ((i%2)*3) + "0");
+        start.setText(getHour(i, false));
+        end.setText(getHour(i, true));
         return item;
     }
 
-    public int getHour(int i) {
-        int hour = 0;
+    public String getHour(int i, boolean end) {
+        if(i == 0 && !end) {
+            return "";
+        }
+        if(i == (getCount()-1) && end) {
+            return "";
+        }
+        i++;
+        int hour = 6;
+        int minutes = (((i)%2)*3);
         for(int n=0; n <= i; n += 2) {
             hour = hour + 1;
         }
-        return 7 + hour;
+        if(end) {
+            if(minutes == 3) {
+                hour++;
+                minutes = 0;
+            } else {
+                minutes = 3;
+            }
+
+        }
+        return "" + hour + ":" + minutes + "0";
     }
 }

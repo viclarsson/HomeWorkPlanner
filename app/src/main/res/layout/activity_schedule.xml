@@ -88,15 +88,16 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:fillViewport="true">
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:weightSum="1"
-            android:background="@color/lightGray">
+            android:background="@color/gridBlue">
 
             <ListView
                 android:layout_width="0dp"
-                android:layout_height="800dp"
+                android:layout_height="900dp"
                 android:id="@+id/listMonday"
                 style="@style/scheduleList"
                 android:layout_marginRight="1px"></ListView>

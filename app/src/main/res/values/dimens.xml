@@ -4,4 +4,5 @@
     <dimen name="global_padding">12dp</dimen>
     <dimen name="buttonHeight">40dp</dimen>
     <dimen name="menuHeight">60dp</dimen>
+    <dimen name="blockHeight">30dp</dimen>
 </resources>
