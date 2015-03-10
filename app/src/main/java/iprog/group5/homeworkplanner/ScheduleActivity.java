@@ -25,7 +25,7 @@ public class ScheduleActivity extends Activity {
         int id = 0;
         Intent intent = getIntent();
         if(intent != null) {
-            id = intent.getExtras().getInt("position");
+            id = intent.getExtras().getInt("week_number");
         }
 
         ScheduleView view = new ScheduleView(model, findViewById(R.id.base), id);

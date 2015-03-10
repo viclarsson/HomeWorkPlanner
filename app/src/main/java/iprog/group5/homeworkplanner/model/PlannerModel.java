@@ -4,7 +4,12 @@ import android.graphics.Color;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Observable;
+import java.util.Set;
 
 import iprog.group5.homeworkplanner.R;
 
@@ -14,14 +19,14 @@ import iprog.group5.homeworkplanner.R;
 public class PlannerModel extends Observable {
 
     int stars = 0;
-    ArrayList<Week> weeks;
+    Hashtable<Integer, Week> weeks;
 
     public PlannerModel() {
         Subject math = new Subject("Matte", Color.parseColor("#FF6600"));
         Subject swedish = new Subject("Svenska", Color.parseColor("#FF00FF"));
         Subject english = new Subject("Engelska", Color.parseColor("#66FF66"));
 
-        weeks = new ArrayList<Week>();
+        weeks = new Hashtable<Integer, Week>();
 
         Week week1 = new Week(10, 2015);
 
@@ -49,8 +54,8 @@ public class PlannerModel extends Observable {
         week1.days.get(Week.TUESDAY).addSessionAtTime(11, testSession3);
 
         Week week2 = new Week(11, 2015);
-        weeks.add(week1);
-        weeks.add(week2);
+        weeks.put(week1.getWeekNumber(), week1);
+        weeks.put(week2.getWeekNumber(), week2);
     }
 
     public String getStars() {
@@ -68,7 +73,10 @@ public class PlannerModel extends Observable {
     }
 
     public ArrayList<Week> getWeeks() {
-        return this.weeks;
+        return new ArrayList<Week>(weeks.values());
+    }
+    public Week getWeek(int weekNumber) {
+        return weeks.get(weekNumber);
     }
 
     public String addSession(int weekNumber, int dayNumber, int position, Assignment assignment) {

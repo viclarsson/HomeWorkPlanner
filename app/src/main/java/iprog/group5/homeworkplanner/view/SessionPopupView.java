@@ -46,10 +46,10 @@ public class SessionPopupView implements Observer {
         removeBtn = (ImageView) view.findViewById(R.id.remove_btn);
         doneBtn = (ImageView) view.findViewById(R.id.done_btn);
 
-        assignmentSubject.setText(day.getAssignment().getSubject().getName());
-        assignmentTitle.setText(day.getAssignment().getTitle());
-        assignmentDescription.setText(day.getAssignment().getDescription());
-        assignmentWorkload.setText(day.getAssignment().getEstimatedWorkLoad() + "");
+        assignmentSubject.setText(week_nr +  "/" + day_nr);
+       // assignmentTitle.setText(day.getAssignment().getTitle());
+      //  assignmentDescription.setText(day.getAssignment().getDescription());
+       // assignmentWorkload.setText(day.getAssignment().getEstimatedWorkLoad() + "");
 
     }
 

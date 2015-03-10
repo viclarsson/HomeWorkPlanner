@@ -29,7 +29,7 @@ public class StatsPopupView implements Observer {
         this.view = view;
 
         LinearLayout chart =  (LinearLayout) view.findViewById(R.id.chart);
-        HashMap<Subject, Integer> sessionCounts = this.model.getWeeks().get(week_nr).getSessionSubjectsCount();
+        HashMap<Subject, Integer> sessionCounts = model.getWeek(week_nr).getSessionSubjectsCount();
 
         for (HashMap.Entry<Subject, Integer> entry : sessionCounts.entrySet()) {
             Subject subject = entry.getKey();

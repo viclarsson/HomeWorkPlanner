@@ -26,8 +26,8 @@ public class SessionPopupActivity extends Activity {
         int week_nr = 0;
         int position = 0;
         if(intent != null) {
-            day_nr = intent.getExtras().getInt("assignment_day");
-            week_nr = intent.getExtras().getInt("assignment_week");
+            day_nr = intent.getExtras().getInt("session_day");
+            week_nr = intent.getExtras().getInt("session_week");
             position = intent.getExtras().getInt("position");
         }
 

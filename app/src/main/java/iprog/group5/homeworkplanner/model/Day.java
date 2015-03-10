@@ -101,18 +101,18 @@ public class Day {
 
     public String getMonthText() {
         switch(calendar.get(Calendar.MONTH)) {
-            case Calendar.JANUARY: return "Januari";
-            case Calendar.FEBRUARY: return "Februari";
-            case Calendar.MARCH : return "Mars";
-            case Calendar.APRIL : return "April";
+            case Calendar.JANUARY: return "Jan";
+            case Calendar.FEBRUARY: return "Feb";
+            case Calendar.MARCH : return "Mar";
+            case Calendar.APRIL : return "Apr";
             case Calendar.MAY : return "Maj";
-            case Calendar.JUNE : return "Juni";
-            case Calendar.JULY : return "Juli";
-            case Calendar.AUGUST : return "Augusti";
-            case Calendar.SEPTEMBER : return "September";
-            case Calendar.OCTOBER : return "Oktober";
-            case Calendar.NOVEMBER : return "November";
-            case Calendar.DECEMBER : return "December";
+            case Calendar.JUNE : return "Jun";
+            case Calendar.JULY : return "Jul";
+            case Calendar.AUGUST : return "Aug";
+            case Calendar.SEPTEMBER : return "Sep";
+            case Calendar.OCTOBER : return "Okt";
+            case Calendar.NOVEMBER : return "Nov";
+            case Calendar.DECEMBER : return "Dec";
         }
         return "";
     }

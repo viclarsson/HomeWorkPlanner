@@ -10,6 +10,7 @@ import java.util.Observer;
 import iprog.group5.homeworkplanner.R;
 import iprog.group5.homeworkplanner.adapters.OverviewWeeksListAdapter;
 import iprog.group5.homeworkplanner.model.PlannerModel;
+import iprog.group5.homeworkplanner.model.Week;
 
 /**
  * Created by Victor on 2015-03-06.

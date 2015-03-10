@@ -3,6 +3,7 @@ package iprog.group5.homeworkplanner.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
+import android.widget.Toast;
 
 import iprog.group5.homeworkplanner.ScheduleActivity;
 import iprog.group5.homeworkplanner.model.PlannerModel;
@@ -37,7 +38,9 @@ public class SessionPopupController implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == view.removeBtn) {
+            Toast.makeText(v.getContext(), week_nr + "/" + day_nr + "/" + position, Toast.LENGTH_LONG).show();
             model.removeSession(week_nr, day_nr, position);
+            activity.finish();
         }
     }
 }

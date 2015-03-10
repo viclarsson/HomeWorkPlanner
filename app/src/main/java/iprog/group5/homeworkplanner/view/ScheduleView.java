@@ -15,6 +15,7 @@ import iprog.group5.homeworkplanner.adapters.DeadlinesGridAdapter;
 import iprog.group5.homeworkplanner.adapters.OverviewWeeksListAdapter;
 import iprog.group5.homeworkplanner.adapters.ScheduleListAdapter;
 import iprog.group5.homeworkplanner.model.PlannerModel;
+import iprog.group5.homeworkplanner.model.Week;
 
 /**
  * Created by Victor on 2015-03-06.
@@ -70,6 +71,12 @@ public class ScheduleView implements Observer {
         wednesday.setAdapter(new ScheduleListAdapter(model.getSessionsByDay(weekNumber, 2), view.getContext()));
         thursday.setAdapter(new ScheduleListAdapter(model.getSessionsByDay(weekNumber, 3), view.getContext()));
         friday.setAdapter(new ScheduleListAdapter(model.getSessionsByDay(weekNumber, 4), view.getContext()));
+        // Set tags
+        monday.setTag(model.getDaysOfWeek(weekNumber).get(Week.MONDAY));
+        tuesday.setTag(model.getDaysOfWeek(weekNumber).get(Week.TUESDAY));
+        wednesday.setTag(model.getDaysOfWeek(weekNumber).get(Week.WEDNESDAY));
+        thursday.setTag(model.getDaysOfWeek(weekNumber).get(Week.THURSDAY));
+        friday.setTag(model.getDaysOfWeek(weekNumber).get(Week.FRIDAY));
     }
 
     @Override

@@ -23,11 +23,13 @@ public class OverviewWeeksListAdapter extends ArrayAdapter<Week> {
     Context context;
     int layoutResourceId;
     ArrayList<Week> weeks = new ArrayList<Week>();
+    int total;
 
     public OverviewWeeksListAdapter(Context context, int layoutResourceId, ArrayList<Week> weeks) {
         super(context, layoutResourceId, weeks);
         this.context = context;
         this.weeks = weeks;
+        this.total = weeks.size()-1;
         this.layoutResourceId = layoutResourceId;
     }
 
@@ -50,7 +52,8 @@ public class OverviewWeeksListAdapter extends ArrayAdapter<Week> {
             WeekWrapper = (WeekWrapper) item.getTag();
         }
 
-        Week week = weeks.get(position);
+        // Hashtable returned backwards.
+        Week week = weeks.get(total-position);
         WeekWrapper.number.setText(week.getWeekNumber()+"");
         WeekWrapper.title.setText("TODO TITLE");
         WeekWrapper.description.setText(week.getNumberOfAssignments() + " läxor denna vecka.");

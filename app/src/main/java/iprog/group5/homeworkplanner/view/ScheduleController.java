@@ -32,6 +32,7 @@ import iprog.group5.homeworkplanner.model.Assignment;
 import iprog.group5.homeworkplanner.model.Day;
 import iprog.group5.homeworkplanner.model.HomeWorkSession;
 import iprog.group5.homeworkplanner.model.PlannerModel;
+import iprog.group5.homeworkplanner.model.Week;
 
 /**
  * Created by Victor on 2015-03-06.
@@ -92,9 +93,10 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
                 if(session.getAssignment().getSubject() == null) {
                     Toast.makeText(v.getContext(), "School scheduled!", Toast.LENGTH_LONG).show();
                 } else {
+                    Day day = (Day) parent.getTag();
                     Intent intent = new Intent(activity, SessionPopupActivity.class);
-                    intent.putExtra("assignment_week", weekNumber);
-                    intent.putExtra("assignment_day", session.getAssignment().getDeadlineDayNumber());
+                    intent.putExtra("session_week", weekNumber);
+                    intent.putExtra("session_day", day.getDayNumber());
                     intent.putExtra("position", position);
                     v.getContext().startActivity(intent);
                 }

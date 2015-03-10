@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
+import iprog.group5.homeworkplanner.R;
 import iprog.group5.homeworkplanner.ScheduleActivity;
 import iprog.group5.homeworkplanner.model.PlannerModel;
 
@@ -24,13 +28,14 @@ public class OverviewController implements AdapterView.OnItemClickListener{
 
         // Add listeners here
         view.list.setOnItemClickListener(this);
-
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(activity, ScheduleActivity.class);
-        intent.putExtra("position", position);
+        TextView weekText = (TextView) view.findViewById(R.id.week_number);
+        int weekNumber = (int) Integer.parseInt((String) weekText.getText());
+        intent.putExtra("week_number", weekNumber);
         view.getContext().startActivity(intent);
     }
 }
