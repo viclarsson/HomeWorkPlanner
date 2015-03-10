@@ -43,7 +43,7 @@ public class Day {
      */
     public String addSessionAtTime(int position, HomeWorkSession session) {
         // Check if able to add
-        if(this.getDayNumber() > session.getAssignment().getDeadlineDayNumber()) {
+        if(this.getDayNumber() >= session.getAssignment().getDeadlineDayNumber()) {
             return "(FIX THIS) Schemalägg inte efter deadline.";
         } else if(sessions.get(position).getAssignment() != null) {
             return "(FIX THIS) Du går i skolan denna tid.";
