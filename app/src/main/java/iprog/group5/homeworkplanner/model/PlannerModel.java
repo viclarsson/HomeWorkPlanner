@@ -81,4 +81,11 @@ public class PlannerModel extends Observable {
         return change;
     }
 
+    public void removeSession(int weekNumber, int dayNumber, int position) {
+        Day day = weeks.get(weekNumber).getDay(dayNumber);
+        day.removeSessionAtTime(position);
+        setChanged();
+        notifyObservers();
+    }
+
 }
