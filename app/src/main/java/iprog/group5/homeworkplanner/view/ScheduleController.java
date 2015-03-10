@@ -2,12 +2,14 @@ package iprog.group5.homeworkplanner.view;
 
 import android.app.Activity;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
@@ -114,7 +116,9 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
         if(assignment == null) {
             return false;
         }
-
+        // Vibrate
+        Vibrator vib = (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
+        vib.vibrate(50);
         DragShadow dragShadow = new DragShadow(view);
         ClipData data = ClipData.newPlainText(("" + position),"");
         view.startDrag(data, dragShadow, view, 0);

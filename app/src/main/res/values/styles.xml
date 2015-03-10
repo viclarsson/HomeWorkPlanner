@@ -84,4 +84,7 @@
         <item name="android:divider">@color/lightGray</item>
         <item name="android:dividerHeight">0px</item>
     </style>
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/darkBlue</item>
+    </style>
 </resources>

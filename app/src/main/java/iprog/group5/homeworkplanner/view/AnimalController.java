@@ -1,7 +1,9 @@
 package iprog.group5.homeworkplanner.view;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -36,6 +38,11 @@ public class AnimalController implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
+        // Vibrate
+        Vibrator vib = (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
+        vib.vibrate(50);
+
         TranslateAnimation animation = new TranslateAnimation(0.0f, 0.0f, 0.0f, -20.0f);
         animation.setDuration(100);
         animation.setRepeatCount(1);
