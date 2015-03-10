@@ -17,8 +17,9 @@ public class PlannerModel extends Observable {
     ArrayList<Week> weeks;
 
     public PlannerModel() {
-        Subject math = new Subject("Math", Color.parseColor("#FF6600"));
+        Subject math = new Subject("Matte", Color.parseColor("#FF6600"));
         Subject swedish = new Subject("Svenska", Color.parseColor("#FF00FF"));
+        Subject english = new Subject("Engelska", Color.parseColor("#66FF66"));
 
         weeks = new ArrayList<Week>();
 
@@ -27,6 +28,7 @@ public class PlannerModel extends Observable {
         // Adds assignments
         Assignment math1 = new Assignment(math, "Räkneläxa", "Gör 4 tal i boken.", 60);
         Assignment swedish1 = new Assignment(swedish, "Glosor", "Se veckobrev.", 30);
+        Assignment english1 = new Assignment(english, "Uppsats", "Skriv och berätta om ditt sportlov på engelska. 1 A4", 60);
 
         // Test teacher added
         week1.days.get(Week.MONDAY).setScheduledTime(0,7);
@@ -37,6 +39,7 @@ public class PlannerModel extends Observable {
 
         week1.days.get(Week.TUESDAY).setAssignment(math1);
         week1.days.get(Week.FRIDAY).setAssignment(swedish1);
+        week1.days.get(Week.WEDNESDAY).setAssignment(english1);
 
         HomeWorkSession testSession1 = new HomeWorkSession(math1);
         HomeWorkSession testSession2 = new HomeWorkSession(swedish1);
