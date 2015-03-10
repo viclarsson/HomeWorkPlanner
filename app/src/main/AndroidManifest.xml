@@ -37,6 +37,15 @@
         </activity>
         <activity
             android:theme="@style/dialog"
+            android:name=".SessionPopupActivity"
+            android:label="Information om uppgiften"
+            android:parentActivityName=".ScheduleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="iprog.group5.homeworkplanner.ScheduleActivity" />
+        </activity>
+        <activity
+            android:theme="@style/dialog"
             android:name=".StatsPopupActivity"
             android:label="Statistik"
             android:parentActivityName=".ScheduleActivity" >

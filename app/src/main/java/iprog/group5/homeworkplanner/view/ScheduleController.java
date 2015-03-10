@@ -26,6 +26,7 @@ import iprog.group5.homeworkplanner.AssignmentPopupActivity;
 import iprog.group5.homeworkplanner.OverviewActivity;
 import iprog.group5.homeworkplanner.R;
 import iprog.group5.homeworkplanner.ScheduleActivity;
+import iprog.group5.homeworkplanner.SessionPopupActivity;
 import iprog.group5.homeworkplanner.StatsPopupActivity;
 import iprog.group5.homeworkplanner.model.Assignment;
 import iprog.group5.homeworkplanner.model.Day;
@@ -91,9 +92,10 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
                 if(session.getAssignment().getSubject() == null) {
                     Toast.makeText(v.getContext(), "School scheduled!", Toast.LENGTH_LONG).show();
                 } else {
-                    Intent intent = new Intent(activity, AssignmentPopupActivity.class);
+                    Intent intent = new Intent(activity, SessionPopupActivity.class);
                     intent.putExtra("assignment_week", weekNumber);
                     intent.putExtra("assignment_day", session.getAssignment().getDeadlineDayNumber());
+                    intent.putExtra("position", position);
                     v.getContext().startActivity(intent);
                 }
             }
