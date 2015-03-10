@@ -3,6 +3,7 @@ package iprog.group5.homeworkplanner.model;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
 /**
  * Created by Victor on 2015-02-23.
@@ -48,6 +49,68 @@ public class Week {
             }
         }
         return total;
+    }
+
+    /**
+     * Get the number of assignments/deadline per subject this week
+     *
+     * @return Map with subjects and number of assignments
+     */
+    public HashMap<Subject, Integer> getAssignmentSubjectsCount() {
+        HashMap<Subject, Integer> subjectCount = new HashMap<Subject, Integer>();
+
+        for ( Day d : days) {
+            Assignment assignment = d.getAssignment();
+            Subject subject = null;
+
+            if (assignment != null) {
+                subject = assignment.getSubject();
+            }
+
+            if (subject != null) {
+                if (subjectCount.containsKey(subject)) {
+                    int currentValue = subjectCount.get(subject);
+                    subjectCount.put(subject, currentValue + 1);
+                } else {
+                    subjectCount.put(subject, 1);
+                }
+            }
+        }
+
+        return subjectCount;
+    }
+
+    /**
+     * Get the number of homework sessions for every subject this week
+     *
+     * @return Map with subjects and number of sessions
+     */
+    public HashMap<Subject, Integer> getSessionSubjectsCount() {
+        HashMap<Subject, Integer> subjectCount = new HashMap<Subject, Integer>();
+
+        for (Day d : days) {
+            ArrayList<HomeWorkSession> sessions = d.getSessions();
+
+            for (HomeWorkSession session : sessions) {
+                Assignment assignment = session.getAssignment();
+                Subject subject = null;
+
+                if (assignment != null) {
+                    subject = assignment.getSubject();
+                }
+
+                if (subject != null) {
+                    if (subjectCount.containsKey(subject)) {
+                        int currentValue = subjectCount.get(subject);
+                        subjectCount.put(subject, currentValue + 1);
+                    } else {
+                        subjectCount.put(subject, 1);
+                    }
+                }
+            }
+        }
+
+        return subjectCount;
     }
 
     public Day getDay(int name) {
