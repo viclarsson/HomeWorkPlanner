@@ -27,4 +27,7 @@
     <string name="dropAfterDeadlineError">Du kan inte schemlägga efter deadline...</string>
     <string name="dropSuccess">Session tillagd!</string>
 
+    <!-- stats_popup -->
+    <string name="chartDescription">Här kan du se hur många läxpass du har planerat per ämne den här veckan!</string>
+
 </resources>
