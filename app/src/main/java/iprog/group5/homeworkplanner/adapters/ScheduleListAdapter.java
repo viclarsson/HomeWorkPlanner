@@ -82,6 +82,7 @@ public class ScheduleListAdapter extends BaseAdapter {
     }
 
     public String getHour(int i, boolean end) {
+        boolean halfHour = false;
         if(i == 0 && !end) {
             return "";
         }
@@ -91,17 +92,25 @@ public class ScheduleListAdapter extends BaseAdapter {
         i++;
         int hour = 6;
         int minutes = (((i)%2)*3);
+        if(minutes == 3) {
+            halfHour = true;
+        }
+        // Return nothing if half hour (startTime)
+        if(!end && halfHour) {
+            return "";
+        }
         for(int n=0; n <= i; n += 2) {
             hour = hour + 1;
         }
         if(end) {
-            if(minutes == 3) {
+            if(halfHour) {
                 hour++;
                 minutes = 0;
             } else {
-                minutes = 3;
+                // Return nothing if half hour (endTime)
+                return "";
+                //minutes = 3;
             }
-
         }
         return "" + hour + ":" + minutes + "0";
     }

@@ -3,12 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="70dp"
         android:layout_weight="1"
         android:background="@drawable/bubble_bg"
-        android:padding="10dp">
+        android:padding="@dimen/bubblePadding">
 
         <TextView
             android:layout_width="match_parent"
@@ -16,8 +17,8 @@
             android:text="@string/welcome"
             android:id="@+id/bubble"
             android:textColor="@color/black"
-            android:textSize="10dp"/>
+            android:textSize="14dp"/>
 
-    </ScrollView>
+    </LinearLayout>
 
 </LinearLayout>

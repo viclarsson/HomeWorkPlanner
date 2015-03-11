@@ -67,7 +67,7 @@ public class DeadlinesGridAdapter extends BaseAdapter {
             // Chosen State
             button.setBackgroundColor(assignment.getSubject().getColor());
             icon.setImageResource(R.drawable.dragndrop);
-            subject.setText(assignment.getSubject().getName());
+            subject.setText(context.getText(R.string.deadLine) + "\n" + assignment.getSubject().getName());
         }
 
         return item;

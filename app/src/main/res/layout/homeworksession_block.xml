@@ -6,7 +6,7 @@
     android:background="@color/darkGray">
     <FrameLayout
         android:layout_width="fill_parent"
-        android:layout_height="25dp"
+        android:layout_height="@dimen/blockHeight"
         android:id="@+id/block"
         android:gravity="center_horizontal"
         android:layout_marginTop="1px">
@@ -26,9 +26,9 @@
         android:id="@+id/startTime"
         android:text="00:00"
         style="@style/smallText"
-        android:textSize="8dp"
+        android:textSize="8sp"
         android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="-6sp"/>
+        android:layout_marginTop="-7dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,5 +39,5 @@
         android:text="00:00"
         style="@style/smallText"
         android:textSize="8dp"
-        android:layout_marginBottom="-5sp"/>
+        android:layout_marginBottom="-5dp"/>
 </FrameLayout>

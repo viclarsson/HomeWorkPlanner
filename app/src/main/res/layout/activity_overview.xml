@@ -24,12 +24,11 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:minHeight="150dp"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.6"
             android:orientation="vertical"
             android:padding="@dimen/global_padding"
@@ -83,7 +82,7 @@
 
             <include
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/animalHeight"
                 layout="@layout/animal"/>
 
         </LinearLayout>
