@@ -9,6 +9,7 @@ public class Assignment {
     String description;
     int estimatedWorkLoad; // In minutes
     int deadlineDayNumber; // day in week
+    boolean finished = false;
 
     public Assignment(Subject subject, String title, String description, int estimatedWorkLoad) {
         this.subject = subject;
@@ -43,4 +44,12 @@ public class Assignment {
     }
 
     public int getEstimatedWorkLoad() { return estimatedWorkLoad; }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished() {
+        finished = true;
+    }
 }

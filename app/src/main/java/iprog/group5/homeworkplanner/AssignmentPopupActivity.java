@@ -7,6 +7,7 @@ import android.os.Bundle;
 import iprog.group5.homeworkplanner.model.Day;
 import iprog.group5.homeworkplanner.model.PlannerModel;
 import iprog.group5.homeworkplanner.view.AssignmentPopupView;
+import iprog.group5.homeworkplanner.view.AssignmentPopupViewController;
 
 /**
  * Created by Erica on 2015-03-09.
@@ -29,5 +30,6 @@ public class AssignmentPopupActivity extends Activity {
         }
 
         AssignmentPopupView view = new AssignmentPopupView(model, findViewById(R.id.base), week_nr, day_nr);
+        AssignmentPopupViewController assignmentPopupViewController = new AssignmentPopupViewController(model, view, this, week_nr, day_nr);
     }
 }

@@ -20,6 +20,7 @@ public class PlannerModel extends Observable {
 
     int stars = 0;
     Hashtable<Integer, Week> weeks;
+    ArrayList<Assignment> assignments;
 
     public PlannerModel() {
         Subject math = new Subject("Matte", Color.parseColor("#FF6600"));
@@ -27,6 +28,7 @@ public class PlannerModel extends Observable {
         Subject english = new Subject("Engelska", Color.parseColor("#66FF66"));
 
         weeks = new Hashtable<Integer, Week>();
+        assignments = new ArrayList<Assignment>();
 
         Week week1 = new Week(10, 2015);
 
@@ -34,6 +36,9 @@ public class PlannerModel extends Observable {
         Assignment math1 = new Assignment(math, "Räkneläxa", "Gör 4 tal i boken.", 60);
         Assignment swedish1 = new Assignment(swedish, "Glosor", "Se veckobrev.", 30);
         Assignment english1 = new Assignment(english, "Uppsats", "Skriv och berätta om ditt sportlov på engelska. 1 A4", 60);
+        assignments.add(math1);
+        assignments.add(swedish1);
+        assignments.add(english1);
 
         // Test teacher added
         week1.days.get(Week.MONDAY).setScheduledTime(0,7);
@@ -60,7 +65,19 @@ public class PlannerModel extends Observable {
 
     public String getStars() {
         // Stefan Nilsson hack
-        return "" + weeks.size();
+        //return "" + weeks.size();
+
+        return "" + stars;
+    }
+
+    public void addStar() {
+        stars++;
+    }
+
+    public void removeStar() {
+        if(stars > 0) {
+            stars = stars - 1;
+        }
     }
 
     public ArrayList<Day> getDaysOfWeek(int weekNumber) {

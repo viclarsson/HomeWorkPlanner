@@ -1,5 +1,6 @@
 package iprog.group5.homeworkplanner.view;
 
+import android.media.Image;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,6 +26,9 @@ public class AssignmentPopupView implements Observer {
     TextView assignmentDescription;
     TextView assignmentSubject;
     TextView assignmentWorkload;
+    TextView assignmentFinished;
+
+    ImageView assignmentDone;
 
 
     public AssignmentPopupView(PlannerModel model, View view, int week_nr, int day_nr) {
@@ -41,11 +45,15 @@ public class AssignmentPopupView implements Observer {
         assignmentTitle = (TextView) view.findViewById(R.id.assignment_title);
         assignmentDescription = (TextView) view.findViewById(R.id.assignment_description);
         assignmentWorkload = (TextView) view.findViewById(R.id.assignment_workload);
+        assignmentFinished = (TextView) view.findViewById(R.id.assignment_finished);
 
         assignmentSubject.setText(day.getAssignment().getSubject().getName());
         assignmentTitle.setText(day.getAssignment().getTitle());
         assignmentDescription.setText(day.getAssignment().getDescription());
         assignmentWorkload.setText(day.getAssignment().getEstimatedWorkLoad() + "");
+
+
+        assignmentDone = (ImageView) view.findViewById(R.id.assignment_done);
 
     }
 

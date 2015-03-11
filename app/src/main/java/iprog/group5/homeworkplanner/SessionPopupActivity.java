@@ -32,6 +32,6 @@ public class SessionPopupActivity extends Activity {
         }
 
         SessionPopupView view = new SessionPopupView(model, findViewById(R.id.base), week_nr, day_nr);
-        SessionPopupController controller = new SessionPopupController(model, view, this,week_nr, day_nr, position);
+        SessionPopupController controller = new SessionPopupController(model, view, this, week_nr, day_nr, position);
     }
 }

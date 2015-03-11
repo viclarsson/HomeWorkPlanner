@@ -31,4 +31,7 @@
     <string name="chartDescription">Här kan du se hur många läxpass du har planerat per ämne den här veckan!</string>
     <string name="deadLine">Deadline</string>
 
+    <!-- assignment_popup -->
+    <string name="assignmentFinished">Inte Klar</string>
+
 </resources>
