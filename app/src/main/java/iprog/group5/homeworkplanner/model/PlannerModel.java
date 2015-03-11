@@ -26,14 +26,17 @@ public class PlannerModel extends Observable {
 
     // Sets a temporary message for the tiger
     public void setTempAnimalMessage(String msg, int time) {
-        Handler handler = new Handler();
-        this.lastMsg = animalMessage;
-        setAnimalMessage(msg, true);
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                setAnimalMessage(lastMsg, true);
-            }
-        }, time);
+        if(animalMessage != msg) {
+            Handler handler = new Handler();
+
+            this.lastMsg = animalMessage;
+            setAnimalMessage(msg, true);
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    setAnimalMessage(lastMsg, true);
+                }
+            }, time);
+        }
     }
 
     public void setAnimalMessage(String msg, boolean update) {
