@@ -84,6 +84,7 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
         if (v == view.done) {
             Intent intent = new Intent(activity, OverviewActivity.class);
             v.getContext().startActivity(intent);
+            model.setTigerMsg("Choose which week you would like to plan.");
         }
 
         if (v == view.stats) {
@@ -103,7 +104,8 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
 
                 // Is it school scheduled?
                 if(session.getAssignment().getSubject() == null) {
-                    Toast.makeText(v.getContext(), "School scheduled!", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(v.getContext(), "School scheduled!", Toast.LENGTH_LONG).show();
+                    model.setTempTigerMsg("That is your school schedule!", 1000);
 
                 // Is it a user defined activity?
                 } else if(session.getAssignment().getSubject().getName().equals("own")) {

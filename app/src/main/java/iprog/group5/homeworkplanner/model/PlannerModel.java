@@ -2,6 +2,7 @@ package iprog.group5.homeworkplanner.model;
 
 import android.app.Application;
 import android.graphics.Color;
+import android.os.Handler;
 import android.util.Log;
 
 import java.lang.reflect.Array;
@@ -24,6 +25,7 @@ public class PlannerModel extends Observable {
     int stars = 0;
     Hashtable<Integer, Week> weeks;
     String tigerMsg = "Welcome to the Homework Planner app! Press on a week to get started.";
+    String lastMsg = "";
 
     public PlannerModel() {
         initializeTestData();
@@ -31,6 +33,20 @@ public class PlannerModel extends Observable {
 
     public String getTigerMsg() {
         return tigerMsg;
+    }
+
+    // Sets a temporary message for the tiger
+    public void setTempTigerMsg(String msg, int time) {
+
+        Handler handler = new Handler();
+        this.lastMsg = tigerMsg;
+        setTigerMsg(msg);
+
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                setTigerMsg(lastMsg);
+            }
+        }, time);
     }
 
     public void setTigerMsg(String msg) {
