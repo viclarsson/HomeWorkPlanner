@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="280dp"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     tools:context="iprog.group5.homeworkplanner.Week"
     android:id="@+id/base">
@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Uppgiftsinfo"
+                android:text="Session Info"
                 style="@style/menuTitle"
                 android:layout_gravity="center"/>
         </LinearLayout>
