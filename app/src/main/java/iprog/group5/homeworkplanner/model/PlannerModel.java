@@ -16,8 +16,6 @@ public class PlannerModel extends Observable {
     // Stars
     int stars = 0;
 
-    Hashtable<Integer, Week> weeks;
-
     //What the animal should say
     String tigerMsg = "Welcome to the Homework Planner app! Press on a week to get started.";
     String lastMsg = "";
@@ -27,7 +25,6 @@ public class PlannerModel extends Observable {
     }
 
 
-<<<<<<< HEAD
     // Sets a temporary message for the tiger
     public void setTempTigerMsg(String msg, int time) {
 
