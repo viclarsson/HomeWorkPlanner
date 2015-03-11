@@ -22,6 +22,7 @@ public class ScheduleActivity extends Activity {
         setContentView(R.layout.activity_schedule);
         PlannerModel model = ((HomeWorkPlannerApplication) this.getApplication()).getModel();
 
+        // If this activity has been opened, a week number has been added to the intent.
         int id = 0;
         Intent intent = getIntent();
         if(intent != null) {
