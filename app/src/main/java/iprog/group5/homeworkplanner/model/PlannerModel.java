@@ -28,19 +28,22 @@ public class PlannerModel extends Observable {
     public void setTempAnimalMessage(String msg, int time) {
         Handler handler = new Handler();
         this.lastMsg = animalMessage;
-        setAnimalMessage(msg);
+        setAnimalMessage(msg, true);
         handler.postDelayed(new Runnable() {
             public void run() {
-                setAnimalMessage(lastMsg);
+                setAnimalMessage(lastMsg, true);
             }
         }, time);
     }
 
-    public void setAnimalMessage(String msg) {
+    public void setAnimalMessage(String msg, boolean update) {
         animalMessage = msg;
 
-        setChanged();
-        notifyObservers("tigerUpdate");
+        if(update) {
+            setChanged();
+            notifyObservers("tigerUpdate");
+        }
+
     }
 
     public String getAnimalMessage() {

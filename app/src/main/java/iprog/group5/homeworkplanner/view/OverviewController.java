@@ -37,7 +37,7 @@ public class OverviewController implements AdapterView.OnItemClickListener{
         view.getContext().startActivity(intent);
 
         // Parameter false => dont notify, it will be fetched by the AnimalView
-        //model.setAnimalMessage("Here is your weekly schedule. Press and drag a deadline to create a session.", false);
+        model.setAnimalMessage("Here is your weekly schedule. Press and drag a deadline to create a session.", false);
 
         /*// Creates a delay before changing to text to compensate for lag when chaning states
         Handler handler = new Handler();
