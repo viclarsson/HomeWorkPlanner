@@ -3,6 +3,7 @@ package iprog.group5.homeworkplanner.view;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,10 +24,14 @@ public class StatsPopupView implements Observer {
     PlannerModel model;
     View view;
 
+    ImageView closeBtn;
+
     public StatsPopupView(PlannerModel model, View view, int week_nr) {
         // Model and root view
         this.model = model;
         this.view = view;
+
+        closeBtn = (ImageView) view.findViewById(R.id.stats_close_btn);
 
         LinearLayout chart =  (LinearLayout) view.findViewById(R.id.chart);
         HashMap<Subject, Integer> sessionCounts = model.getWeek(week_nr).getSessionSubjectsCount();
