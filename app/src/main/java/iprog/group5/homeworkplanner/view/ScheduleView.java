@@ -52,10 +52,6 @@ public class ScheduleView implements Observer {
         deadlineHeadings = (GridView) view.findViewById(R.id.deadlineHeadings);
         deadlineHeadings.setAdapter(new DeadlinesGridAdapter(model.getDaysOfWeek(weekNumber), view.getContext()));
 
-        // Set up bubble
-        bubble = (TextView) view.findViewById(R.id.bubble);
-        bubble.setText(R.string.grab_deadline);
-
         // Set up Menu buttons
         stats = (ImageView) view.findViewById(R.id.btnStats);
         done = (ImageView) view.findViewById(R.id.btnDone);

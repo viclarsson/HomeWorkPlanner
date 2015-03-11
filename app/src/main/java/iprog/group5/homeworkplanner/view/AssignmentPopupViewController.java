@@ -26,8 +26,7 @@ public class AssignmentPopupViewController implements View.OnClickListener {
         this.day_nr = day_nr;
         this.assignment = model.getWeek(week_nr).getDay(day_nr).getAssignment();
 
-
-
+        // Set Listeners
         view.assignmentDone.setOnClickListener(this);
 
         // Sets the view text if the assignment is finished or not
@@ -36,19 +35,17 @@ public class AssignmentPopupViewController implements View.OnClickListener {
         } else {
             view.assignmentFinished.setText("Inte klar");
         }
-
     }
 
     @Override
     public void onClick(View v) {
         if(v == view.assignmentDone) {
-
             // If the assignment isn't finish, set it to finished and add a star
             if(!assignment.isFinished()) {
                 model.addStar();
                 assignment.setFinished();
             }
-
+            // Close dialog
             activity.finish();
         }
     }

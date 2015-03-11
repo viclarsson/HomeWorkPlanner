@@ -6,9 +6,6 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import iprog.group5.homeworkplanner.R;
 import iprog.group5.homeworkplanner.ScheduleActivity;
@@ -39,13 +36,15 @@ public class OverviewController implements AdapterView.OnItemClickListener{
         intent.putExtra("week_number", weekNumber);
         view.getContext().startActivity(intent);
 
+        // Parameter false => dont notify, it will be fetched by the AnimalView
+        //model.setAnimalMessage("Here is your weekly schedule. Press and drag a deadline to create a session.", false);
 
-        // Creates a delay before changing to text to compensate for lag when chaning states
+        /*// Creates a delay before changing to text to compensate for lag when chaning states
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
-             	public void run() {
-                    model.setTigerMsg("Here is your weekly schedule. Press and drag a deadline to create a session.");
-                }
-                     }, 700); //1000 miliseconds = 1 second
-        }
+            public void run() {
+                model.setAnimalMessage("Here is your weekly schedule. Press and drag a deadline to create a session.");
+            }
+        }, 700); //1000 milliseconds = 1 second*/
     }
+}

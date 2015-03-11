@@ -11,6 +11,13 @@ public class Assignment {
     int deadlineDayNumber; // day in week
     boolean finished = false;
 
+    /**
+     * Initialize the assignment with info. See constructor below for non-parameter call.
+     * @param subject
+     * @param title
+     * @param description
+     * @param estimatedWorkLoad
+     */
     public Assignment(Subject subject, String title, String description, int estimatedWorkLoad) {
         this.subject = subject;
         this.title = title;
@@ -18,11 +25,18 @@ public class Assignment {
         this.estimatedWorkLoad = estimatedWorkLoad;
     }
 
+    /**
+     * Initialize the Assignement with no subject. This means that this session is set by the teacher.
+     */
     public Assignment() {
         // Null = Teacher scheduled!
         this.subject = null;
     }
 
+    /**
+     * Set the daynumber of when this assignment is due.
+     * @param dayNumber
+     */
     public void setDeadlineDayNumber(int dayNumber) {
         this.deadlineDayNumber = dayNumber;
     }

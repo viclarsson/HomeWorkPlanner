@@ -51,10 +51,7 @@ public class AssignmentPopupView implements Observer {
         assignmentTitle.setText(day.getAssignment().getTitle());
         assignmentDescription.setText(day.getAssignment().getDescription());
         assignmentWorkload.setText(day.getAssignment().getEstimatedWorkLoad() + "");
-
-
         assignmentDone = (ImageView) view.findViewById(R.id.assignment_done);
-
     }
 
     @Override

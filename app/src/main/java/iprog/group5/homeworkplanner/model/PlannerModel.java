@@ -1,29 +1,24 @@
 package iprog.group5.homeworkplanner.model;
 
-import android.app.Application;
 import android.graphics.Color;
 import android.os.Handler;
-import android.util.Log;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashSet;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.Observable;
-import java.util.Set;
-
-import iprog.group5.homeworkplanner.R;
-import iprog.group5.homeworkplanner.view.AnimalView;
 
 /**
  * Created by Victor on 2015-02-23.
  */
 public class PlannerModel extends Observable {
-
-    int stars = 0;
+    // Weeks in HashTable<WeekNumber, Week Object>
     Hashtable<Integer, Week> weeks;
+
+    // Stars
+    int stars = 0;
+
+    Hashtable<Integer, Week> weeks;
+
+    //What the animal should say
     String tigerMsg = "Welcome to the Homework Planner app! Press on a week to get started.";
     String lastMsg = "";
 
@@ -31,10 +26,8 @@ public class PlannerModel extends Observable {
         initializeTestData();
     }
 
-    public String getTigerMsg() {
-        return tigerMsg;
-    }
 
+<<<<<<< HEAD
     // Sets a temporary message for the tiger
     public void setTempTigerMsg(String msg, int time) {
 
@@ -112,7 +105,7 @@ public class PlannerModel extends Observable {
     }
 
     /**
-     * Adds a activity defined by the user.
+     * Adds a activity defined by the user. Adds #numberOfBlocks sessions from startPosition.
      * @param weekNumber
      * @param dayNumber
      * @param startPosition

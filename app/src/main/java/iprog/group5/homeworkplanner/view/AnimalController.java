@@ -2,20 +2,10 @@ package iprog.group5.homeworkplanner.view;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Vibrator;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
-import android.widget.AdapterView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import iprog.group5.homeworkplanner.R;
-import iprog.group5.homeworkplanner.ScheduleActivity;
 import iprog.group5.homeworkplanner.model.PlannerModel;
 
 /**
@@ -33,7 +23,6 @@ public class AnimalController implements View.OnClickListener {
 
         // Add listeners here
         view.animal.setOnClickListener(this);
-
     }
 
     @Override
@@ -41,8 +30,10 @@ public class AnimalController implements View.OnClickListener {
 
     }
 
-    // The tiger jumps and vibrates
-    public void tigerJump() {
+    /**
+     * The tiger jumps and device vibrates
+     */
+    public void animalJump() {
         // Vibrate
         Vibrator vib = (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
         vib.vibrate(50);
