@@ -10,7 +10,7 @@ import iprog.group5.homeworkplanner.model.PlannerModel;
 /**
  * Created by Niklas on 2015-03-11.
  */
-public class AssignmentPopupViewController implements View.OnClickListener {
+public class AssignmentPopupController implements View.OnClickListener {
     public PlannerModel model;
     public AssignmentPopupView view;
     public Activity activity;
@@ -18,7 +18,7 @@ public class AssignmentPopupViewController implements View.OnClickListener {
     public int day_nr;
     public Assignment assignment;
 
-    public AssignmentPopupViewController(PlannerModel model, AssignmentPopupView view, Activity activity, int week_nr, int day_nr) {
+    public AssignmentPopupController(PlannerModel model, AssignmentPopupView view, Activity activity, int week_nr, int day_nr) {
         this.model = model;
         this.view = view;
         this.activity = activity;
@@ -28,6 +28,7 @@ public class AssignmentPopupViewController implements View.OnClickListener {
 
         // Set Listeners
         view.assignmentDone.setOnClickListener(this);
+        view.assignmentCloseBtn.setOnClickListener(this);
 
         // Sets the view text if the assignment is finished or not
         if(assignment.isFinished()) {
@@ -46,6 +47,10 @@ public class AssignmentPopupViewController implements View.OnClickListener {
                 assignment.setFinished();
             }
             // Close dialog
+            activity.finish();
+        }
+
+        if(v == view.assignmentCloseBtn) {
             activity.finish();
         }
     }
