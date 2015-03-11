@@ -26,7 +26,7 @@ public class SessionPopupView implements Observer {
     TextView assignmentSubject;
     TextView assignmentWorkload;
     ImageView removeBtn;
-    ImageView doneBtn;
+    ImageView closeBtn;
 
     public SessionPopupView(PlannerModel model, View view, int week_nr, int day_nr) {
         // Model and root view
@@ -44,7 +44,7 @@ public class SessionPopupView implements Observer {
         assignmentWorkload = (TextView) view.findViewById(R.id.assignment_workload);
 
         removeBtn = (ImageView) view.findViewById(R.id.remove_btn);
-        doneBtn = (ImageView) view.findViewById(R.id.done_btn);
+        closeBtn = (ImageView) view.findViewById(R.id.session_close_btn);
 
         assignmentSubject.setText(week_nr +  "/" + day_nr);
        // assignmentTitle.setText(day.getAssignment().getTitle());

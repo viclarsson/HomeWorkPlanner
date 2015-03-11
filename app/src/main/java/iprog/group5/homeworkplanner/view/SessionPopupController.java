@@ -31,7 +31,7 @@ public class SessionPopupController implements View.OnClickListener {
 
         // Add listeners here
         view.removeBtn.setOnClickListener(this);
-        view.doneBtn.setOnClickListener(this);
+        view.closeBtn.setOnClickListener(this);
 
     }
 
@@ -41,6 +41,9 @@ public class SessionPopupController implements View.OnClickListener {
         // On remove button click
         if (v == view.removeBtn) {
             model.removeSession(week_nr, day_nr, position);
+            activity.finish(); // Close the dialog
+        }
+        if (v == view.closeBtn) {
             activity.finish(); // Close the dialog
         }
     }

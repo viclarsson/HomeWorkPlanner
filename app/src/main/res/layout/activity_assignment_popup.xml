@@ -70,6 +70,4 @@
         android:id="@+id/assignment_finished" />
 
 
-
-
 </LinearLayout>
