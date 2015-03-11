@@ -4,4 +4,5 @@
     <dimen name="global_margin">18dp</dimen>
     <dimen name="global_padding">18dp</dimen>
     <dimen name="bubblePadding">10dp</dimen>
+    <dimen name="animalHeight">200dp</dimen>
 </resources>

@@ -52,7 +52,8 @@
             android:layout_weight="0.6"
             android:orientation="vertical"
             android:padding="@dimen/global_padding"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_gravity="center_vertical">
 
             <include
                 android:layout_width="match_parent"
@@ -70,7 +71,8 @@
             <include
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/animalHeight"
-                layout="@layout/animal"/>
+                layout="@layout/animal"
+                android:layout_gravity="center_vertical" />
 
         </LinearLayout>
 
