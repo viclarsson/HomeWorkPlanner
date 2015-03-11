@@ -1,6 +1,8 @@
 package iprog.group5.homeworkplanner.model;
 
+import android.app.Application;
 import android.graphics.Color;
+import android.util.Log;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -99,6 +101,69 @@ public class PlannerModel extends Observable {
             notifyObservers();
         }
         return change;
+    }
+
+    /**
+     * Tests if a session is free or not
+     * @param weekNumber
+     * @param dayNumber
+     * @param position
+     * @return
+     */
+    public boolean isFree(int weekNumber, int dayNumber, int position) {
+        ArrayList<HomeWorkSession> sessions = getSessionsByDay(weekNumber, dayNumber);
+        if(sessions.get(position).getAssignment() == null) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Adds a activity defined by the user.
+     * @param weekNumber
+     * @param dayNumber
+     * @param startPosition
+     * @param numberOfBlocks
+     * @return
+     */
+    public String addOwnSession(int weekNumber, int dayNumber, int startPosition, int numberOfBlocks) {
+        boolean test = true;
+        int end = startPosition + numberOfBlocks;
+        for(int i = startPosition; i < end; i++){
+            test = isFree(weekNumber, dayNumber, i);
+            if(!test) {
+                return "Not possible.";
+            }
+        }
+        // All sessions were free! Add the defined activity
+        Assignment assignment = new Assignment(new Subject("own", Color.parseColor("#22dddd")), "Fotboll", "Fotbollsträning", 0);
+        // Set on saturday to be able to add it to all days.
+        assignment.setDeadlineDayNumber(5);
+        for(int i = startPosition; i < end; i++){
+            addSession(weekNumber, dayNumber, i, assignment);
+        }
+        return "Schemalagt!";
+    }
+
+    /**
+     * Removes the own defined assignment by checking the whole day for that object.
+     * @param weekNumber
+     * @param dayNumber
+     * @param assignment
+     * @return
+     */
+    public boolean removeOwnSession(int weekNumber, int dayNumber, Assignment assignment) {
+        ArrayList<HomeWorkSession> sessions = getDaysOfWeek(weekNumber).get(dayNumber).getSessions();
+        Assignment tmp = null;
+        for(HomeWorkSession s : sessions) {
+            tmp = s.getAssignment();
+            if(tmp != null && tmp.equals(assignment)) {
+                s.setUnscheduled();
+            }
+        }
+        setChanged();
+        notifyObservers();
+        return true;
     }
 
     public void removeSession(int weekNumber, int dayNumber, int position) {

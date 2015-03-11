@@ -58,7 +58,7 @@ public class Day {
     }
 
     public void removeSessionAtTime(int position) {
-        sessions.set(position, new HomeWorkSession(null));
+        sessions.get(position).setUnscheduled();
     }
 
     public void setAssignment(Assignment assignment) {

@@ -15,6 +15,13 @@ public class HomeWorkSession {
         this.assignment = new Assignment();
     }
 
+    /**
+     * Set this homeworksession to an unscheduled.
+     */
+    public void setUnscheduled() {
+        this.assignment = null;
+    }
+
     public int getBreakTime() {
         return breakTime;
     }
