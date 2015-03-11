@@ -29,6 +29,7 @@ public class AssignmentPopupView implements Observer {
     TextView assignmentFinished;
 
     ImageView assignmentDone;
+    ImageView assignmentCloseBtn;
 
 
     public AssignmentPopupView(PlannerModel model, View view, int week_nr, int day_nr) {
@@ -52,6 +53,7 @@ public class AssignmentPopupView implements Observer {
         assignmentDescription.setText(day.getAssignment().getDescription());
         assignmentWorkload.setText(day.getAssignment().getEstimatedWorkLoad() + "");
         assignmentDone = (ImageView) view.findViewById(R.id.assignment_done);
+        assignmentCloseBtn = (ImageView) view.findViewById(R.id.assignment_close_btn);
     }
 
     @Override
