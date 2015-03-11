@@ -86,5 +86,6 @@ public class ScheduleView implements Observer {
         wednesday.invalidateViews();
         thursday.invalidateViews();
         friday.invalidateViews();
+
     }
 }

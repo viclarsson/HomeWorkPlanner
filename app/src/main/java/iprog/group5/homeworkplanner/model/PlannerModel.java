@@ -14,6 +14,7 @@ import java.util.Observable;
 import java.util.Set;
 
 import iprog.group5.homeworkplanner.R;
+import iprog.group5.homeworkplanner.view.AnimalView;
 
 /**
  * Created by Victor on 2015-02-23.
@@ -22,6 +23,7 @@ public class PlannerModel extends Observable {
 
     int stars = 0;
     Hashtable<Integer, Week> weeks;
+    String tigerMsg = "Welcome to the Homework Planner app! Press on a week to get started.";
 
     public PlannerModel() {
         Subject math = new Subject("Matte", Color.parseColor("#FF6600"));
@@ -60,10 +62,19 @@ public class PlannerModel extends Observable {
         weeks.put(week2.getWeekNumber(), week2);
     }
 
+    public String getTigerMsg() {
+        return tigerMsg;
+    }
+
+    public void setTigerMsg(String msg) {
+        tigerMsg = msg;
+
+        setChanged();
+        notifyObservers();
+    }
+
     public String getStars() {
         // Stefan Nilsson hack
-        //return "" + weeks.size();
-
         return "" + stars;
     }
 

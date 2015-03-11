@@ -2,6 +2,7 @@ package iprog.group5.homeworkplanner.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
@@ -37,5 +38,14 @@ public class OverviewController implements AdapterView.OnItemClickListener{
         int weekNumber = (int) Integer.parseInt((String) weekText.getText());
         intent.putExtra("week_number", weekNumber);
         view.getContext().startActivity(intent);
+
+
+        // Creates a delay before changing to text to compensate for lag when chaning states
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+             	public void run() {
+                    model.setTigerMsg("Here is your weekly schedule. Press and drag a deadline to create a session.");
+                }
+                     }, 700); //1000 miliseconds = 1 second
+        }
     }
-}

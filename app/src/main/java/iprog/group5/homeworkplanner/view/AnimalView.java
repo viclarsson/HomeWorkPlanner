@@ -1,7 +1,11 @@
 package iprog.group5.homeworkplanner.view;
 
+import android.app.Activity;
+import android.content.Context;
 import android.media.Image;
+import android.os.Vibrator;
 import android.view.View;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,16 +35,17 @@ public class AnimalView implements Observer {
         // Model and root view
         this.model = model;
         this.view = view;
-
         // Subscribe to Observer
         model.addObserver(this);
 
         animal = (ImageView) view.findViewById(R.id.animal);
         // If we want to edit the bubble text
         bubble = (TextView) view.findViewById(R.id.bubble);
+        bubble.setText(model.getTigerMsg());
     }
 
     @Override
     public void update(Observable observable, Object data) {
+        bubble.setText(model.getTigerMsg());
     }
 }

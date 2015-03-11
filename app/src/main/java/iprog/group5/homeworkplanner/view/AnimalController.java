@@ -25,6 +25,7 @@ public class AnimalController implements View.OnClickListener {
     public PlannerModel model;
     public AnimalView view;
     public Activity activity;
+    boolean tmp = false;
 
     public AnimalController(PlannerModel model, AnimalView view, Activity activity) {
         this.model = model;
@@ -38,7 +39,19 @@ public class AnimalController implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        if(!tmp) {
+            model.setTigerMsg("hej");
+            tmp = true;
+        } else {
+            model.setTigerMsg("då");
+            tmp = false;
+        }
+        tigerJump();
 
+    }
+
+    // The tiger jumps and vibrates
+    public void tigerJump() {
         // Vibrate
         Vibrator vib = (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
         vib.vibrate(50);
