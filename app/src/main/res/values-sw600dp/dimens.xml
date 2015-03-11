@@ -5,4 +5,5 @@
     <dimen name="global_padding">18dp</dimen>
     <dimen name="bubblePadding">10dp</dimen>
     <dimen name="animalHeight">200dp</dimen>
+    <dimen name="listViewHeight">1095dp</dimen>
 </resources>

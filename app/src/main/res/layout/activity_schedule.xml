@@ -99,7 +99,7 @@
 
             <ListView
                 android:layout_width="0dp"
-                android:layout_height="1095dp"
+                android:layout_height="@dimen/listViewHeight"
                 android:id="@+id/listMonday"
                 style="@style/scheduleList"
                 android:layout_marginRight="1px"></ListView>
