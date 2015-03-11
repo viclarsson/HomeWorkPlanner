@@ -5,7 +5,7 @@
     <dimen name="buttonHeight">40dp</dimen>
     <dimen name="menuHeight">60dp</dimen>
     <dimen name="blockHeight">30dp</dimen>
-    <dimen name="listViewHeight">83dp</dimen>
+    <dimen name="listViewHeight">830dp</dimen>
     <dimen name="deadlineButtonHeight">40dp</dimen>
     <dimen name="animalHeight">125dp</dimen>
     <dimen name="bubblePadding">10dp</dimen>
