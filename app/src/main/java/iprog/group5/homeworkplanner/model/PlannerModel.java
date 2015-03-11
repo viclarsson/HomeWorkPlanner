@@ -17,33 +17,34 @@ public class PlannerModel extends Observable {
     int stars = 0;
 
     //What the animal should say
-    String tigerMsg = "Welcome to the Homework Planner app! Press on a week to get started.";
+    String animalMessage = "Welcome to the Homework Planner app! Press on a week to get started.";
     String lastMsg = "";
 
     public PlannerModel() {
         initializeTestData();
     }
 
-
     // Sets a temporary message for the tiger
-    public void setTempTigerMsg(String msg, int time) {
-
+    public void setTempAnimalMessage(String msg, int time) {
         Handler handler = new Handler();
-        this.lastMsg = tigerMsg;
-        setTigerMsg(msg);
-
+        this.lastMsg = animalMessage;
+        setAnimalMessage(msg);
         handler.postDelayed(new Runnable() {
             public void run() {
-                setTigerMsg(lastMsg);
+                setAnimalMessage(lastMsg);
             }
         }, time);
     }
 
-    public void setTigerMsg(String msg) {
-        tigerMsg = msg;
+    public void setAnimalMessage(String msg) {
+        animalMessage = msg;
 
         setChanged();
         notifyObservers("tigerUpdate");
+    }
+
+    public String getAnimalMessage() {
+        return animalMessage;
     }
 
     public String getStars() {
