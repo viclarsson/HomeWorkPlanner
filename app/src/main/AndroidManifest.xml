@@ -11,7 +11,9 @@
 
         <activity
             android:name=".OverviewActivity"
-            android:label="@string/title_activity_week" >
+            android:label="@string/title_activity_week"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +23,9 @@
         <activity
             android:name=".ScheduleActivity"
             android:label="@string/schedule"
-            android:parentActivityName=".OverviewActivity" >
+            android:parentActivityName=".OverviewActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="iprog.group5.homeworkplanner.OverviewActivity" />
@@ -30,7 +34,9 @@
             android:theme="@style/dialog"
             android:name=".AssignmentPopupActivity"
             android:label="Information om uppgiften"
-            android:parentActivityName=".ScheduleActivity" >
+            android:parentActivityName=".ScheduleActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="iprog.group5.homeworkplanner.ScheduleActivity" />
@@ -39,7 +45,9 @@
             android:theme="@style/dialog"
             android:name=".SessionPopupActivity"
             android:label="Information om uppgiften"
-            android:parentActivityName=".ScheduleActivity" >
+            android:parentActivityName=".ScheduleActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="iprog.group5.homeworkplanner.ScheduleActivity" />
@@ -48,7 +56,9 @@
             android:theme="@style/dialog"
             android:name=".StatsPopupActivity"
             android:label="Statistik"
-            android:parentActivityName=".ScheduleActivity" >
+            android:parentActivityName=".ScheduleActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="iprog.group5.homeworkplanner.ScheduleActivity" />
