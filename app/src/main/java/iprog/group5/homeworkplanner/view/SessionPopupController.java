@@ -37,10 +37,11 @@ public class SessionPopupController implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
+        // On remove button click
         if (v == view.removeBtn) {
-            Toast.makeText(v.getContext(), week_nr + "/" + day_nr + "/" + position, Toast.LENGTH_LONG).show();
             model.removeSession(week_nr, day_nr, position);
-            activity.finish();
+            activity.finish(); // Close the dialog
         }
     }
 }

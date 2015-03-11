@@ -46,6 +46,11 @@ public class AnimalView implements Observer {
 
     @Override
     public void update(Observable observable, Object data) {
-        bubble.setText(model.getTigerMsg());
+        if(data != null) {
+            String updateText = (String) data;
+            if (updateText.equals("tigerUpdate")) {
+                bubble.setText(model.getTigerMsg());
+            }
+        }
     }
 }

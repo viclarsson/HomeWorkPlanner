@@ -81,11 +81,27 @@ public class ScheduleView implements Observer {
 
     @Override
     public void update(Observable observable, Object data) {
-        monday.invalidateViews();
-        tuesday.invalidateViews();
-        wednesday.invalidateViews();
-        thursday.invalidateViews();
-        friday.invalidateViews();
-
+        if(data != null) {
+            if (data.equals("all")) {
+                monday.invalidateViews();
+                tuesday.invalidateViews();
+                wednesday.invalidateViews();
+                thursday.invalidateViews();
+                friday.invalidateViews();
+                return;
+            }
+            if(data.equals("" + Week.MONDAY)) {
+                monday.invalidateViews();
+            } else if(data.equals("" + Week.TUESDAY)) {
+                tuesday.invalidateViews();
+            } else if(data.equals("" + Week.WEDNESDAY)) {
+                wednesday.invalidateViews();
+            } else if(data.equals("" + Week.THURSDAY)) {
+                thursday.invalidateViews();
+            } else if(data.equals("" + Week.FRIDAY)) {
+                friday.invalidateViews();
+            }
+            return;
+        }
     }
 }
