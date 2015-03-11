@@ -1,43 +1,37 @@
 package iprog.group5.homeworkplanner.model;
 
-import android.app.Application;
 import android.graphics.Color;
-import android.util.Log;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashSet;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.Observable;
-import java.util.Set;
-
-import iprog.group5.homeworkplanner.R;
-import iprog.group5.homeworkplanner.view.AnimalView;
 
 /**
  * Created by Victor on 2015-02-23.
  */
 public class PlannerModel extends Observable {
-
-    int stars = 0;
+    // Weeks in HashTable<WeekNumber, Week Object>
     Hashtable<Integer, Week> weeks;
-    String tigerMsg = "Welcome to the Homework Planner app! Press on a week to get started.";
+
+    // Stars
+    int stars = 0;
+    // What the animal should say
+    String animalMessage = "Welcome to the Homework Planner app! Press on a week to get started.";
 
     public PlannerModel() {
         initializeTestData();
     }
 
-    public String getTigerMsg() {
-        return tigerMsg;
+    public String getAnimalMessage() {
+        return animalMessage;
     }
 
-    public void setTigerMsg(String msg) {
-        tigerMsg = msg;
-
-        setChanged();
-        notifyObservers("tigerUpdate");
+    public void setAnimalMessage(String msg, boolean notify) {
+        animalMessage = msg;
+        if(notify) {
+            setChanged();
+            notifyObservers("tigerUpdate");
+        }
     }
 
     public String getStars() {
@@ -96,7 +90,7 @@ public class PlannerModel extends Observable {
     }
 
     /**
-     * Adds a activity defined by the user.
+     * Adds a activity defined by the user. Adds #numberOfBlocks sessions from startPosition.
      * @param weekNumber
      * @param dayNumber
      * @param startPosition

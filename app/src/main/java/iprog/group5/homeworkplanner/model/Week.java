@@ -9,6 +9,7 @@ import java.util.HashMap;
  * Created by Victor on 2015-02-23.
  */
 public class Week {
+    // To be used as reference to days
     public static final int MONDAY = 0;
     public static final int TUESDAY = 1;
     public static final int WEDNESDAY = 2;
@@ -29,6 +30,7 @@ public class Week {
         calendar.setFirstDayOfWeek(Calendar.MONDAY);
 
         this.days = new ArrayList<>();
+        // Add days (Mon = 0, Fri = 4) to the days list
         for(int i = 0; i < 5; i++) {
             //Create a new day object with a new calendar object with the correct date set
             Calendar tmp = (Calendar) calendar.clone();
@@ -37,10 +39,18 @@ public class Week {
         }
     }
 
+    /**
+     * Return the list of days
+     * @return
+     */
     public ArrayList<Day> getDays() {
         return days;
     }
 
+    /**
+     * Return the number of assignments this week.
+     * @return
+     */
     public int getNumberOfAssignments() {
         int total = 0;
         for ( Day d : days) {
@@ -76,7 +86,6 @@ public class Week {
                 }
             }
         }
-
         return subjectCount;
     }
 
@@ -113,26 +122,43 @@ public class Week {
         return subjectCount;
     }
 
-    public Day getDay(int name) {
-        return days.get(name);
+    public Day getDay(int dayNumber) {
+        return days.get(dayNumber);
     }
 
+    /**
+     * Set a new list of days.
+     * @param days
+     */
     public void setDays(ArrayList<Day> days) {
         this.days = days;
     }
 
+    /**
+     * Return the week number
+     * @return
+     */
     public int getWeekNumber() {
         return weekNumber;
     }
 
+    // TODO: Remove one of these variables? (Year is set more correctly, see below)
     public void setWeekNumber(int weekNumber) {
         this.weekNumber = weekNumber;
         calendar.set(Calendar.WEEK_OF_YEAR, weekNumber);
     }
 
+    /**
+     * Set the year
+     * @param year
+     */
     public void setYear(int year) {
         calendar.set(Calendar.YEAR, year);
     }
 
+    /**
+     * Get the year
+     * @return
+     */
     public int getYear() { return calendar.get(Calendar.YEAR); }
 }

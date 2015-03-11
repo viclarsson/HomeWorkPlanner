@@ -10,13 +10,17 @@ public class HomeWorkSession {
     public HomeWorkSession(Assignment assignment) {
         this.assignment = assignment;
     }
+
+    /**
+     * Initialize a HomeWorkSession with empty assignment = teacher scheduled!
+     */
     public HomeWorkSession() {
         this.breakTime = 0;
         this.assignment = new Assignment();
     }
 
     /**
-     * Set this homeworksession to an unscheduled.
+     * Set this HomeWorkSession to an unscheduled session.
      */
     public void setUnscheduled() {
         this.assignment = null;
