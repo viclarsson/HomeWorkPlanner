@@ -18,10 +18,16 @@ public class OverviewActivity extends Activity {
 
         PlannerModel model = ((HomeWorkPlannerApplication) this.getApplication()).getModel();
 
-        OverviewView view = new OverviewView(model, findViewById(R.id.base));
-        OverviewController controller = new OverviewController(model, view, this);
+        /**
+         * The base message for the animal for an activity is set by the view when the acitivty loads
+         */
 
+        // This first
         AnimalView animalView = new AnimalView(model, findViewById(R.id.base));
         AnimalController animalController = new AnimalController(model, animalView, this);
+
+        // Add view and controller for ScheduleView. Also sets the base message in View
+        OverviewView view = new OverviewView(model, findViewById(R.id.base));
+        OverviewController controller = new OverviewController(model, view, this);
     }
 }

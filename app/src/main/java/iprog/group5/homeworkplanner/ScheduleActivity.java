@@ -22,6 +22,10 @@ public class ScheduleActivity extends Activity {
         setContentView(R.layout.activity_schedule);
         PlannerModel model = ((HomeWorkPlannerApplication) this.getApplication()).getModel();
 
+        /**
+         * The base message for the animal for an activity is set by the view when the acitivty loads
+         */
+
         // If this activity has been opened, a week number has been added to the intent.
         int id = 0;
         Intent intent = getIntent();
@@ -29,10 +33,12 @@ public class ScheduleActivity extends Activity {
             id = intent.getExtras().getInt("week_number");
         }
 
-        ScheduleView view = new ScheduleView(model, findViewById(R.id.base), id);
-        ScheduleController controller = new ScheduleController(model, view, this, id);
-
+        // This first
         AnimalView animalView = new AnimalView(model, findViewById(R.id.base));
         AnimalController animalController = new AnimalController(model, animalView, this);
+
+        // Add view and controller for ScheduleView. Also sets the base message in View
+        ScheduleView view = new ScheduleView(model, findViewById(R.id.base), id);
+        ScheduleController controller = new ScheduleController(model, view, this, id);
     }
 }

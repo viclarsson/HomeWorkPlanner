@@ -50,37 +50,63 @@ public class ScheduleListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+        // Get session by position
         HomeWorkSession session = sessions.get(i);
         View item = view;
+
+        // Inflate the block by its XML
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         item = inflater.inflate(R.layout.homeworksession_block, viewGroup, false);
+
+        // Get the view elements of the inflated block
         FrameLayout baseBlock = (FrameLayout) item.findViewById(R.id.baseBlock);
         FrameLayout block = (FrameLayout) item.findViewById(R.id.block);
+
+        // Get the assignment for the session
         Assignment assignment = session.getAssignment();
+
+        // If there is a assignment => some scheduled session is there!
         if(assignment != null) {
+
+            // No subject => School Scheduled session
             if(assignment.getSubject() == null) {
                 block.setBackgroundColor(context.getResources().getColor(R.color.darkBlue));
                 ViewGroup.LayoutParams params = block.getLayoutParams();
                 params.height = ViewGroup.LayoutParams.MATCH_PARENT;
                 block.setLayoutParams(params);
-            }else {
-                float[] hsv = new float[3];
+            } else {
+                // There is some session here!
                 int color = assignment.getSubject().getColor();
+                block.setBackgroundColor(color);
+                /*
+                === Code for darkening a color (used earlier for breaks)
+                 float[] hsv = new float[3];
                 Color.colorToHSV(color, hsv);
                 hsv[2] *= 0.8f; // value component
                 int darken = Color.HSVToColor(hsv);
-                block.setBackgroundColor(color);
                 baseBlock.setBackgroundColor(darken);
+                */
             }
         }
+
+        // Start and end times are set here
         TextView start = (TextView) item.findViewById(R.id.startTime);
         TextView end = (TextView) item.findViewById(R.id.endTime);
-        end.setTag(session);
         start.setText(getHour(i, false));
         end.setText(getHour(i, true));
+
+        // Set the session to the endTime TextView
+        // TODO: Change to set the session to the block?
+        end.setTag(session);
         return item;
     }
 
+    /**
+     * Get the hour depending on the position i in the list.
+     * @param i     the position of the session
+     * @param end   if there is an text in bottom of the block (endTime)
+     * @return      the time as a string to be output in the session in the schedule
+     */
     public String getHour(int i, boolean end) {
         boolean halfHour = false;
         if(i == 0 && !end) {
