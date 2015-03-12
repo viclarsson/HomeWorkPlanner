@@ -146,17 +146,23 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
             Assignment assignment = day.getAssignment();
             // If assigment == null => no assignment => no drag
 
-            // Highlight the days before the deadline
             int dayNumber = day.getDayNumber();
-
-            if(dayNumber == 2) {
-                for(int a = 0; a < view.monday.getChildCount(); a++)
-                {
-                    view.monday.getChildAt(a).setBackgroundColor(Color.LTGRAY);
-                }
-                for(int a = 0; a < view.tuesday.getChildCount(); a++)
-                {
-                    view.tuesday.getChildAt(a).setBackgroundColor(Color.LTGRAY);
+            // Highlight the days before the deadline
+            for(int a = 0; a < view.monday.getChildCount(); a++) {
+                if(dayNumber == 1) {
+                    view.monday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
+                } else if (dayNumber == 2) {
+                    view.monday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
+                    view.tuesday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
+                } else if (dayNumber == 3) {
+                    view.monday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
+                    view.tuesday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
+                    view.wednesday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
+                } else if (dayNumber == 4) {
+                    view.monday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
+                    view.tuesday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
+                    view.wednesday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
+                    view.thursday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
                 }
             }
 
@@ -190,12 +196,24 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
         return true;
     }
 
+    // Resets the background to default
+    public void resetWeekBackground() {
+        view.monday.invalidateViews();
+        view.tuesday.invalidateViews();
+        view.wednesday.invalidateViews();
+        view.thursday.invalidateViews();
+        view.friday.invalidateViews();
+    }
+
     @Override
     public boolean onDrag(View v, DragEvent event) {
         int dragEvent = event.getAction();
 
         switch(dragEvent)
         {
+            case DragEvent.ACTION_DRAG_ENDED:
+                resetWeekBackground();
+                break;
             case DragEvent.ACTION_DRAG_ENTERED:
                 Log.i("Drag Event", "Entered");
                 break;
@@ -208,6 +226,8 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
                 LinearLayout dragged = (LinearLayout) event.getLocalState();
                 int draggedDayNumber = Integer.parseInt(event.getClipData().getDescription().getLabel().toString());
                 int position = target.pointToPosition((int) event.getX(),(int) event.getY());
+
+                resetWeekBackground();
 
                 Assignment assignment = model.getDaysOfWeek(weekNumber).get(draggedDayNumber).getAssignment();
                 String errorOrSuccess = model.addSession(weekNumber, dayNumber, position, assignment);
