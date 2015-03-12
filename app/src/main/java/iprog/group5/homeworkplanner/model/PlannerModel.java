@@ -95,6 +95,7 @@ public class PlannerModel extends Observable {
 
     /**
      * Tests if a session is free or not
+     * TODO: Use this function when adding session, see method above. Return string with message?
      * @param weekNumber
      * @param dayNumber
      * @param position
@@ -102,7 +103,14 @@ public class PlannerModel extends Observable {
      */
     public boolean isFree(int weekNumber, int dayNumber, int position) {
         ArrayList<HomeWorkSession> sessions = getSessionsByDay(weekNumber, dayNumber);
+        // Check if the session is free and not the first or last one.
         if(sessions.get(position).getAssignment() == null) {
+            if(position == (Day.numberOfSessions - 1)) {
+                return false; // Last one, cannot schedule that.
+            } else if(position == 0) {
+                return false; // First one, cannot schedule that
+            }
+            // Its is free!
             return true;
         }
         return false;
@@ -119,6 +127,8 @@ public class PlannerModel extends Observable {
     public String addOwnSession(int weekNumber, int dayNumber, int startPosition, int numberOfBlocks) {
         boolean test = true;
         int end = startPosition + numberOfBlocks;
+
+        // Before adding, we must check if all sessions were free
         for(int i = startPosition; i < end; i++){
             test = isFree(weekNumber, dayNumber, i);
             if(!test) {
