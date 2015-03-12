@@ -1,6 +1,7 @@
 package iprog.group5.homeworkplanner.view;
 
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,7 +25,6 @@ public class OverviewView implements Observer {
     // View elements
     TextView stars;
     ListView list;
-
 
     public OverviewView(PlannerModel model, View view) {
         // Model and root view

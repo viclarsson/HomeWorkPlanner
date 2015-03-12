@@ -47,7 +47,8 @@
                 android:background="@color/blue"
                 android:layout_marginTop="@dimen/global_margin"
                 android:gravity="center"
-                android:paddingLeft="@dimen/global_padding">
+                android:paddingLeft="@dimen/global_padding"
+                android:id="@+id/starField">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -61,7 +62,8 @@
                     android:layout_width="@dimen/buttonHeight"
                     android:layout_height="@dimen/buttonHeight"
                     android:padding="10dp"
-                    android:src="@drawable/star" />
+                    android:src="@drawable/star"
+                    android:id="@+id/" />
 
                 <TextView
                     android:layout_width="@dimen/buttonHeight"

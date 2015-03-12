@@ -44,6 +44,7 @@ public class AssignmentPopupController implements View.OnClickListener {
             // If the assignment isn't finish, set it to finished and add a star
             if(!assignment.isFinished()) {
                 model.addStar();
+                model.setTempAnimalMessage("Congratulations, you have earned a star!", 1500);
                 assignment.setFinished();
             }
             // Close dialog

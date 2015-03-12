@@ -36,7 +36,6 @@ public class OverviewController implements AdapterView.OnItemClickListener{
         intent.putExtra("week_number", weekNumber);
         view.getContext().startActivity(intent);
 
-        // Parameter false => dont notify, it will be fetched by the AnimalView
         model.setBaseAnimalMessage("Here is your weekly schedule. Press and drag a deadline to create a session.");
 
         /*// Creates a delay before changing to text to compensate for lag when chaning states
@@ -47,4 +46,5 @@ public class OverviewController implements AdapterView.OnItemClickListener{
             }
         }, 700); //1000 milliseconds = 1 second*/
     }
+
 }
