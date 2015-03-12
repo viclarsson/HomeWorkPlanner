@@ -77,6 +77,9 @@ public class ScheduleView implements Observer {
 
     @Override
     public void update(Observable observable, Object data) {
+        /*
+        * Only update one day if dayNumber is set
+         */
         if(data != null) {
             if (data.equals("all")) {
                 monday.invalidateViews();
