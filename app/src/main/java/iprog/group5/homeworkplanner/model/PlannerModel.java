@@ -93,7 +93,6 @@ public class PlannerModel extends Observable {
         Day day = weeks.get(weekNumber).getDay(dayNumber);
         String change = day.addSessionAtTime(position, new HomeWorkSession(assignment));
         if(change.equals("Schemalagt!")) {
-            // Update the list of sessions by daynumber
             setChangedDay(dayNumber);
         }
         return change;
