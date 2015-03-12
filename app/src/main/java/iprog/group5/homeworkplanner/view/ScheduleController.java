@@ -145,6 +145,23 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
             Day day = (Day) date.getTag();
             Assignment assignment = day.getAssignment();
             // If assigment == null => no assignment => no drag
+
+            // Highlight the days before the deadline
+            int dayNumber = day.getDayNumber();
+
+            if(dayNumber == 2) {
+                for(int a = 0; a < view.monday.getChildCount(); a++)
+                {
+                    view.monday.getChildAt(a).setBackgroundColor(Color.LTGRAY);
+                }
+                for(int a = 0; a < view.tuesday.getChildCount(); a++)
+                {
+                    view.tuesday.getChildAt(a).setBackgroundColor(Color.LTGRAY);
+                }
+            }
+
+
+
             if (assignment == null) {
                 return false;
             }
