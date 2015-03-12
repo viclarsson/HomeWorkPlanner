@@ -62,8 +62,7 @@
                     android:layout_width="@dimen/buttonHeight"
                     android:layout_height="@dimen/buttonHeight"
                     android:padding="10dp"
-                    android:src="@drawable/star"
-                    android:id="@+id/" />
+                    android:src="@drawable/star" />
 
                 <TextView
                     android:layout_width="@dimen/buttonHeight"
