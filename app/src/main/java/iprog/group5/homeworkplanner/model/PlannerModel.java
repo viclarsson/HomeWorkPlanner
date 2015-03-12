@@ -17,8 +17,10 @@ public class PlannerModel extends Observable {
     int stars = 0;
 
     //What the animal should say
-    String animalMessage = "Welcome to the Homework Planner app! Press on a week to get started.";
-    String lastMsg = "";
+    String baseAnimalMessage = "Welcome to the Homework Planner app! Press on a week to get started.";
+
+    // Check's if the animal is running a temp message
+    boolean animalHandlerRunning = false;
 
     public PlannerModel() {
         initializeTestData();
@@ -26,31 +28,34 @@ public class PlannerModel extends Observable {
 
     // Sets a temporary message for the tiger
     public void setTempAnimalMessage(String msg, int time) {
-        if(animalMessage != msg) {
+        if(!animalHandlerRunning) {
             Handler handler = new Handler();
+            final String theBaseAnimalMessage = baseAnimalMessage;
+            String tempMessage = msg;
 
-            this.lastMsg = animalMessage;
-            setAnimalMessage(msg, true);
+            setBaseAnimalMessage(tempMessage);
+            setChanged();
+            notifyObservers("tigerUpdate");
+            animalHandlerRunning = true;
+
             handler.postDelayed(new Runnable() {
                 public void run() {
-                    setAnimalMessage(lastMsg, true);
+                    setBaseAnimalMessage(theBaseAnimalMessage);
+                    setChanged();
+                    notifyObservers("tigerUpdate");
+                    animalHandlerRunning = false;
                 }
             }, time);
+
         }
     }
 
-    public void setAnimalMessage(String msg, boolean update) {
-        animalMessage = msg;
-
-        if(update) {
-            setChanged();
-            notifyObservers("tigerUpdate");
-        }
-
+    public void setBaseAnimalMessage(String msg) {
+        baseAnimalMessage = msg;
     }
 
     public String getAnimalMessage() {
-        return animalMessage;
+        return baseAnimalMessage;
     }
 
     public String getStars() {

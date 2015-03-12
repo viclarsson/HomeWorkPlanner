@@ -84,7 +84,7 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
         if (v == view.done) {
             Intent intent = new Intent(activity, OverviewActivity.class);
             v.getContext().startActivity(intent);
-            model.setAnimalMessage("Choose which week you would like to plan.", false);
+            model.setBaseAnimalMessage("Choose which week you would like to plan.");
         }
 
         if (v == view.stats) {
