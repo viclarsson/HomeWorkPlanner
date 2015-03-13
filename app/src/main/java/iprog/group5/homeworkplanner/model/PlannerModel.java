@@ -130,7 +130,7 @@ public class PlannerModel extends Observable {
      * @param numberOfBlocks
      * @return
      */
-    public String addOwnSession(int weekNumber, int dayNumber, int startPosition, int numberOfBlocks) {
+    public String addCustomSession(int weekNumber, int dayNumber, int startPosition, int numberOfBlocks, String title, String description) {
         boolean test = true;
         int end = startPosition + numberOfBlocks;
 
@@ -142,7 +142,7 @@ public class PlannerModel extends Observable {
             }
         }
         // All sessions were free! Add the defined activity
-        Assignment assignment = new Assignment(new Subject("own", Color.parseColor("#22dddd")), "Fotboll", "Fotbollsträning", 0);
+        Assignment assignment = new Assignment(new Subject("own", Color.parseColor("#22dddd")), title, description, 0);
         // Set on saturday to be able to add it to all days.
         assignment.setDeadlineDayNumber(5);
         for(int i = startPosition; i < end; i++){

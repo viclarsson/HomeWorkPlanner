@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import iprog.group5.homeworkplanner.AddCustomSessionPopupActivity;
 import iprog.group5.homeworkplanner.AssignmentPopupActivity;
 import iprog.group5.homeworkplanner.OverviewActivity;
 import iprog.group5.homeworkplanner.R;
@@ -101,9 +102,18 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
 
                 // Is it a user defined activity?
                 } else if(session.getAssignment().getSubject().getName().equals("own")) {
+                    /*
                     Day day = (Day) parent.getTag();
                     model.removeOwnSession(weekNumber, day.getDayNumber(), session.getAssignment());
                     Toast.makeText(v.getContext(), "Test remove", Toast.LENGTH_SHORT).show();
+                    */
+                    //TODO Fixa detta till en särskild vy för just egna grejer??
+                    Day day = (Day) parent.getTag();
+                    Intent intent = new Intent(activity, SessionPopupActivity.class);
+                    intent.putExtra("session_week", weekNumber);
+                    intent.putExtra("session_day", day.getDayNumber());
+                    intent.putExtra("position", position);
+                    v.getContext().startActivity(intent);
 
                 // Must be scheduled activity from deadline
                 } else {
@@ -183,8 +193,11 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
             // If assigment == null => nothing planned here!
             if(session.getAssignment() == null) {
                 int dayNumber = determineDayByTargetView(parent);
-                // TODO: Open dialog for making user defined activity and add this code
-                Toast.makeText(v.getContext(), "" + model.addOwnSession(weekNumber, dayNumber, position, 3), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(activity, AddCustomSessionPopupActivity.class);
+                intent.putExtra("session_week", weekNumber);
+                intent.putExtra("session_day", dayNumber);
+                intent.putExtra("position", position);
+                v.getContext().startActivity(intent);
             }
         }
 
