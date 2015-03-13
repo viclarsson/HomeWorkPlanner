@@ -27,6 +27,9 @@ public class ScheduleListAdapter extends BaseAdapter {
 
     ArrayList<HomeWorkSession> sessions;
     Context context;
+    Assignment previousAssignment;
+    Assignment nextAssignment;
+
 
     public ScheduleListAdapter(ArrayList<HomeWorkSession> sessions, Context context) {
         this.context = context;
@@ -52,6 +55,12 @@ public class ScheduleListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         // Get session by position
         HomeWorkSession session = sessions.get(i);
+        if(i > 0) {
+            previousAssignment = sessions.get(i - 1).getAssignment();
+        }
+        if(i < 27) {
+            nextAssignment = sessions.get(i+1).getAssignment();
+        }
         View item = view;
 
         // Inflate the block by its XML
@@ -65,9 +74,12 @@ public class ScheduleListAdapter extends BaseAdapter {
         // Get the assignment for the session
         Assignment assignment = session.getAssignment();
 
+        // Start and end times are set here
+        TextView start = (TextView) item.findViewById(R.id.startTime);
+        TextView end = (TextView) item.findViewById(R.id.endTime);
+
         // If there is a assignment => some scheduled session is there!
         if(assignment != null) {
-
             // No subject => School Scheduled session
             if(assignment.getSubject() == null) {
                 block.setBackgroundColor(context.getResources().getColor(R.color.darkBlue));
@@ -89,12 +101,45 @@ public class ScheduleListAdapter extends BaseAdapter {
             }
         }
 
-        // Start and end times are set here
-        TextView start = (TextView) item.findViewById(R.id.startTime);
-        TextView end = (TextView) item.findViewById(R.id.endTime);
-        start.setText(getHour(i, false));
-        end.setText(getHour(i, true));
-
+        // For label calculations
+        boolean endTextSet = false;
+        boolean startTextSet = false;
+        if(assignment != null) {
+            if(previousAssignment == null) {
+                start.setText(getHour(i, false, true));
+                startTextSet = true;
+            } else {
+                if(previousAssignment.getSubject() != assignment.getSubject()) {
+                    start.setText(getHour(i, false, true));
+                    startTextSet = true;
+                }
+            }
+            if(nextAssignment == null) {
+                end.setText(getHour(i, true, true));
+                endTextSet = true;
+            } else {
+                if(nextAssignment.getSubject() != assignment.getSubject()) {
+                    end.setText(getHour(i, true, true));
+                    endTextSet = true;
+                }
+            }
+        } else {
+            if(nextAssignment != null) {
+                end.setText(getHour(i, true, true));
+                endTextSet = true;
+            }
+            if(previousAssignment != null) {
+                start.setText(getHour(i, false, true));
+                startTextSet = true;
+            }
+        }
+        // Set only full hours
+        if(assignment == null && nextAssignment == null) {
+                end.setText(getHour(i, true, false));
+        }
+        if(assignment == null && previousAssignment == null) {
+            start.setText(getHour(i, false, false));
+        }
         // Set the session to the endTime TextView
         // TODO: Change to set the session to the block?
         end.setTag(session);
@@ -107,7 +152,7 @@ public class ScheduleListAdapter extends BaseAdapter {
      * @param end   if there is an text in bottom of the block (endTime)
      * @return      the time as a string to be output in the session in the schedule
      */
-    public String getHour(int i, boolean end) {
+    public String getHour(int i, boolean end, boolean halfHourEnabled) {
         boolean halfHour = false;
         if(i == 0 && !end) {
             return "";
@@ -122,7 +167,7 @@ public class ScheduleListAdapter extends BaseAdapter {
             halfHour = true;
         }
         // Return nothing if half hour (startTime)
-        if(!end && halfHour) {
+        if(!end && halfHour && !halfHourEnabled) {
             return "";
         }
         for(int n=0; n <= i; n += 2) {
@@ -133,9 +178,10 @@ public class ScheduleListAdapter extends BaseAdapter {
                 hour++;
                 minutes = 0;
             } else {
-                // Return nothing if half hour (endTime)
-                return "";
-                //minutes = 3;
+                if(!halfHourEnabled) {
+                    return "";
+                }
+                minutes = 3;
             }
         }
         return "" + hour + ":" + minutes + "0";
