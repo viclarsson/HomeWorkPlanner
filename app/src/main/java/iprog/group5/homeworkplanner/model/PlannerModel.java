@@ -82,6 +82,10 @@ public class PlannerModel extends Observable {
         return weeks.get(weekId).getDay(dayId).getSessions();
     }
 
+    public HomeWorkSession getSession(int weekNumber, int dayNumber, int position) {
+        return weeks.get(weekNumber).getDay(dayNumber).getSession(position);
+    }
+
     public ArrayList<Week> getWeeks() {
         return new ArrayList<Week>(weeks.values());
     }
@@ -142,7 +146,7 @@ public class PlannerModel extends Observable {
             }
         }
         // All sessions were free! Add the defined activity
-        Assignment assignment = new Assignment(new Subject("own", Color.parseColor("#22dddd")), title, description, 0);
+        Assignment assignment = new Assignment(new Subject("custom", Color.parseColor("#22dddd")), title, description, 0);
         // Set on saturday to be able to add it to all days.
         assignment.setDeadlineDayNumber(5);
         for(int i = startPosition; i < end; i++){
@@ -155,15 +159,16 @@ public class PlannerModel extends Observable {
      * Removes the own defined assignment by checking the whole day for that object.
      * @param weekNumber
      * @param dayNumber
-     * @param assignment
      * @return
      */
-    public boolean removeOwnSession(int weekNumber, int dayNumber, Assignment assignment) {
+    public boolean removeCustomSession(int weekNumber, int dayNumber, int position) {
         ArrayList<HomeWorkSession> sessions = getDaysOfWeek(weekNumber).get(dayNumber).getSessions();
+        Assignment firstSession = sessions.get(position).getAssignment();
+        System.out.println(firstSession.getTitle());
         Assignment tmp = null;
         for(HomeWorkSession s : sessions) {
             tmp = s.getAssignment();
-            if(tmp != null && tmp.equals(assignment)) {
+            if(tmp != null && tmp.equals(firstSession)) {
                 s.setUnscheduled();
             }
         }

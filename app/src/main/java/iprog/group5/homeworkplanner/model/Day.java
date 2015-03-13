@@ -29,6 +29,10 @@ public class Day {
         }
     }
 
+    public HomeWorkSession getSession(int position) {
+        return sessions.get(position);
+    }
+
     /**
      * Sets teacher scheduled sessions based on start and end position.
      * @param startPosition
