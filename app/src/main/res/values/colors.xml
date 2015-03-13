@@ -19,5 +19,6 @@
     <color name="purple">#764ae7</color>
     <color name="purple_darken">#5936b2</color>
     <color name="fadedBlack">#19000000</color>
+    <color name="fadedBlack25">#40000000</color>
 
 </resources>

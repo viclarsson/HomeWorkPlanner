@@ -92,4 +92,18 @@
     <style name="dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@color/darkBlue</item>
     </style>
+
+    <style name="blockStartText" parent="smallText">
+        <item name="android:shadowColor">@color/darkGray</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="blockEndText" parent="smallText">
+        <item name="android:shadowColor">@color/darkGray</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">-1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
 </resources>

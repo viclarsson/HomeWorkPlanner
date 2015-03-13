@@ -35,5 +35,6 @@
     <!-- assignment_popup -->
     <string name="assignmentFinished">Inte Klar</string>
     <string name="no_homework_one_line">Ingen läxa</string>
+    <string name="free">Ledigt</string>
 
 </resources>

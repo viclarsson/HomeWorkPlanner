@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import iprog.group5.homeworkplanner.R;
@@ -70,6 +72,7 @@ public class ScheduleListAdapter extends BaseAdapter {
         // Get the view elements of the inflated block
         FrameLayout baseBlock = (FrameLayout) item.findViewById(R.id.baseBlock);
         FrameLayout block = (FrameLayout) item.findViewById(R.id.block);
+        TextView block_subject = (TextView) item.findViewById(R.id.block_subject);
 
         // Get the assignment for the session
         Assignment assignment = session.getAssignment();
@@ -101,11 +104,17 @@ public class ScheduleListAdapter extends BaseAdapter {
 
             // If there is no scheduled event above this => Write top label
             if(previousAssignment == null) {
+                // Also set description on first block!
+                block_subject.setText(assignment.getTitle());
+                block_subject.setTextColor(context.getResources().getColor(R.color.fadedBlack25));
                 start.setText(getHour(i, false, true));
                 startTextSet = true;
             } else {
                 // If there is another type of scheduled activity above this => Write top label
                 if(previousAssignment.getSubject() != assignment.getSubject()) {
+                    // Also set description on first block!
+                    block_subject.setText(assignment.getTitle());
+                    block_subject.setTextColor(context.getResources().getColor(R.color.fadedBlack25));
                     start.setText(getHour(i, false, true));
                     startTextSet = true;
                 }
