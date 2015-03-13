@@ -26,14 +26,26 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="bigGreenButton" parent="baseButton">
+        <item name="android:background">@drawable/flatbtngreen_selector</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="greenButton" parent="baseButton">
         <item name="android:background">@drawable/flatbtngreen_selector</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
+    <style name="bigRedButton" parent="baseButton">
+        <item name="android:background">@drawable/flatbtnred_selector</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="redButton" parent="baseButton">
         <item name="android:background">@drawable/flatbtnred_selector</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
     <style name="orangeButton" parent="baseButton">
         <item name="android:background">@drawable/flatbtnorange_selector</item>
         <item name="android:textColor">@color/white</item>
