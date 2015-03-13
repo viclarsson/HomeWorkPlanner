@@ -1,15 +1,13 @@
 package iprog.group5.homeworkplanner.adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,7 +15,6 @@ import java.util.ArrayList;
 import iprog.group5.homeworkplanner.R;
 import iprog.group5.homeworkplanner.model.Assignment;
 import iprog.group5.homeworkplanner.model.Day;
-import iprog.group5.homeworkplanner.model.Week;
 
 public class DeadlinesGridAdapter extends BaseAdapter {
 
@@ -50,24 +47,27 @@ public class DeadlinesGridAdapter extends BaseAdapter {
         View item = view;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         item = inflater.inflate(R.layout.deadline_heading, viewGroup, false);
+
+        // Get and set relevant info
         TextView weekday = (TextView) item.findViewById(R.id.weekday);
         TextView date = (TextView) item.findViewById(R.id.date);
         TextView subject = (TextView) item.findViewById(R.id.subject);
-
-        ImageView icon = (ImageView) item.findViewById(R.id.icon);
-        FrameLayout button = (FrameLayout) item.findViewById(R.id.button);
-        date.setTag(day);
-        Assignment assignment = day.getAssignment();
-
+        TextView dragButtonText = (TextView) item.findViewById(R.id.dragButtonText);
+        ImageView icon = (ImageView) item.findViewById(R.id.dragButtonIcon);
         weekday.setText(day.getDayText());
         date.setText(day.getDay() + " " + day.getMonthText());
+        // Set the day as tag to the block
+        LinearLayout block = (LinearLayout) item.findViewById(R.id.dragHeadingBlock);
+        block.setTag(day);
 
-
+        // Check if there is an assignment due to this day
+        Assignment assignment = day.getAssignment();
         if(assignment != null) {
-            // Chosen State
-            button.setBackgroundColor(assignment.getSubject().getColor());
+            // It is!
+            block.setBackgroundColor(assignment.getSubject().getColor());
             icon.setImageResource(R.drawable.dragndrop);
-            subject.setText(context.getText(R.string.deadLine) + "\n" + assignment.getSubject().getName());
+            dragButtonText.setText(context.getText(R.string.dragHomework));
+            subject.setText(assignment.getSubject().getName());
         }
 
         return item;

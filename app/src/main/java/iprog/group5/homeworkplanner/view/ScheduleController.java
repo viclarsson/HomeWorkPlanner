@@ -8,7 +8,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.DragEvent;
@@ -19,22 +18,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import iprog.group5.homeworkplanner.AssignmentPopupActivity;
 import iprog.group5.homeworkplanner.OverviewActivity;
 import iprog.group5.homeworkplanner.R;
-import iprog.group5.homeworkplanner.ScheduleActivity;
 import iprog.group5.homeworkplanner.SessionPopupActivity;
 import iprog.group5.homeworkplanner.StatsPopupActivity;
 import iprog.group5.homeworkplanner.model.Assignment;
 import iprog.group5.homeworkplanner.model.Day;
 import iprog.group5.homeworkplanner.model.HomeWorkSession;
 import iprog.group5.homeworkplanner.model.PlannerModel;
-import iprog.group5.homeworkplanner.model.Week;
 
 /**
  * Created by Victor on 2015-03-06.
@@ -125,7 +117,7 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
             }
         } else {
             // Not listview, must be deadlineheadings
-            Day day = (Day) v.findViewById(R.id.date).getTag();
+            Day day = (Day) v.findViewById(R.id.dragHeadingBlock).getTag();
             if (day.getAssignment() != null) {
                 Intent intent = new Intent(activity, AssignmentPopupActivity.class);
                 intent.putExtra("assignment_week", weekNumber);
@@ -141,36 +133,39 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
         // Deadline Headings On Long Click
         if(parent == view.deadlineHeadings) {
             // Element id=date has a tag attached to it with the day object
-            TextView date = (TextView) v.findViewById(R.id.date);
-            Day day = (Day) date.getTag();
+            LinearLayout dragHeadingBlock = (LinearLayout) v.findViewById(R.id.dragHeadingBlock);
+            Day day = (Day) dragHeadingBlock.getTag();
             Assignment assignment = day.getAssignment();
             // If assigment == null => no assignment => no drag
-
-            int dayNumber = day.getDayNumber();
-            // Highlight the days before the deadline
-            for(int a = 0; a < view.monday.getChildCount(); a++) {
-                if(dayNumber == 1) {
-                    view.monday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
-                } else if (dayNumber == 2) {
-                    view.monday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
-                    view.tuesday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
-                } else if (dayNumber == 3) {
-                    view.monday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
-                    view.tuesday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
-                    view.wednesday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
-                } else if (dayNumber == 4) {
-                    view.monday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
-                    view.tuesday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
-                    view.wednesday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
-                    view.thursday.getChildAt(a).setBackgroundColor(Color.DKGRAY);
-                }
-            }
-
-
-
             if (assignment == null) {
                 return false;
             }
+
+            int dayNumber = day.getDayNumber();
+            int color = assignment.getSubject().getColor();
+            float[] hsv = new float[3];
+            Color.colorToHSV(color, hsv);
+            hsv[2] *= 0.5f; // value component
+            color = Color.HSVToColor(hsv);
+            // Highlight the days before the deadline
+            for(int a = 1; a < (view.monday.getChildCount()-1); a++) {
+                if(dayNumber == 1) {
+                    view.monday.getChildAt(a).setBackgroundColor(color);
+                } else if (dayNumber == 2) {
+                    view.monday.getChildAt(a).setBackgroundColor(color);
+                    view.tuesday.getChildAt(a).setBackgroundColor(color);
+                } else if (dayNumber == 3) {
+                    view.monday.getChildAt(a).setBackgroundColor(color);
+                    view.tuesday.getChildAt(a).setBackgroundColor(color);
+                    view.wednesday.getChildAt(a).setBackgroundColor(color);
+                } else if (dayNumber == 4) {
+                    view.monday.getChildAt(a).setBackgroundColor(color);
+                    view.tuesday.getChildAt(a).setBackgroundColor(color);
+                    view.wednesday.getChildAt(a).setBackgroundColor(color);
+                    view.thursday.getChildAt(a).setBackgroundColor(color);
+                }
+            }
+
             // Vibrate
             Vibrator vib = (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
             vib.vibrate(50);
@@ -269,7 +264,7 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
 
         public DragShadow(View view) {
             super(view);
-            ColorDrawable theColor = (ColorDrawable) view.findViewById(R.id.button).getBackground();
+            ColorDrawable theColor = (ColorDrawable) view.findViewById(R.id.dragHeadingBlock).getBackground();
             greyBox = new ColorDrawable(theColor.getColor());
         }
 

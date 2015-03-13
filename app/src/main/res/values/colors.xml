@@ -18,5 +18,6 @@
     <color name="turquoise">#4ae6e3</color>
     <color name="purple">#764ae7</color>
     <color name="purple_darken">#5936b2</color>
+    <color name="fadedBlack">#19000000</color>
 
 </resources>

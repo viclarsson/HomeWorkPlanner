@@ -1,6 +1,6 @@
 <resources>
     <dimen name="deadlineButtonHeight">60dp</dimen>
-    <dimen name="blockHeight">40dp</dimen>
+    <dimen name="blockHeight">30dp</dimen>
     <dimen name="global_margin">18dp</dimen>
     <dimen name="global_padding">18dp</dimen>
     <dimen name="bubblePadding">10dp</dimen>

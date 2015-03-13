@@ -1,46 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/lightGray">
+    android:layout_height="wrap_content"
+    android:background="@color/lightGray"
+    android:id="@+id/dragHeadingBlock">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Monday"
+        android:text="DAY"
         android:id="@+id/weekday"
-        style="@style/day"
-        android:layout_marginTop="@dimen/global_padding"/>
+        style="@style/day"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="XX Mars"
+        android:text="DATE"
         android:id="@+id/date"
         style="@style/date"/>
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/gridBlue"></FrameLayout>
+        android:layout_height="wrap_content"
+        android:background="@color/fadedBlack">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/subject"
+            android:paddingTop="@dimen/deadlineHeadingPadding"
+            android:paddingBottom="@dimen/deadlineHeadingPadding"
+            style="@style/smallText"
+            android:textAllCaps="true"
+            android:text="@string/no_homework_one_line"
+            android:layout_gravity="center"/>
+
+        </FrameLayout>
     <FrameLayout
-        style="@style/deadlineButton"
+        style="@style/dragButton"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/deadlineButtonHeight"
-        android:id="@+id/button">
+        android:layout_height="wrap_content"
+        android:id="@+id/dragButton">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/deadlineWrapper">
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/deadlineHeadingPadding"
+            android:paddingTop="@dimen/deadlineHeadingPadding">
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                style="@style/deadlineIcon"
-                android:id="@+id/icon"/>
+                style="@style/dragButtonIcon"
+                android:id="@+id/dragButtonIcon"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/free"
-                android:id="@+id/subject"
-                style="@style/deadline"/>
+                android:text="\n"
+                android:id="@+id/dragButtonText"
+                style="@style/dragButtonText"/>
         </LinearLayout>
     </FrameLayout>
 

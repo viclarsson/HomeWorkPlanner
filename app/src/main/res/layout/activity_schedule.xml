@@ -44,7 +44,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:paddingTop="@dimen/global_padding"
+        android:paddingBottom="@dimen/global_padding">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -72,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/animalHeight"
                 layout="@layout/animal"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical|right" />
 
         </LinearLayout>
 

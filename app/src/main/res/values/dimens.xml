@@ -4,9 +4,12 @@
     <dimen name="global_padding">12dp</dimen>
     <dimen name="buttonHeight">40dp</dimen>
     <dimen name="menuHeight">60dp</dimen>
-    <dimen name="blockHeight">30dp</dimen>
-    <dimen name="listViewHeight">830dp</dimen>
+    <dimen name="blockHeight">25dp</dimen>
+    <dimen name="listViewHeight">690dp</dimen>
     <dimen name="deadlineButtonHeight">40dp</dimen>
     <dimen name="animalHeight">125dp</dimen>
     <dimen name="bubblePadding">10dp</dimen>
+    <dimen name="bubbleArrowWidth">20dp</dimen>
+    <dimen name="bubbleArrowWidthOffset">-33dp</dimen>
+    <dimen name="deadlineHeadingPadding">3dp</dimen>
 </resources>

@@ -20,12 +20,13 @@
     <string name="Friday">FRE</string>
     <string name="schedule">Schemalägg din läxtid</string>
     <string name="add_activity">+ Aktivitet</string>
-    <string name="free">Ledigt</string>
+    <string name="no_homework">Inga\nläxor</string>
     <string name="choose_week">Välj vecka att schemalägga</string>
     <string name="welcome">Hej! Börja med att välja en vecka att schemalägga som din lärare har förberett.</string>
     <string name="grab_deadline">Ta tag i en deadline och dra en session till en rimlig tid innan deadlinen!</string>
     <string name="dropAfterDeadlineError">Du kan inte schemlägga efter deadline...</string>
     <string name="dropSuccess">Session tillagd!</string>
+    <string name="dragHomework">Dra ut\nläxtider</string>
 
     <!-- stats_popup -->
     <string name="chartDescription">Här kan du se hur många läxpass du har planerat per ämne den här veckan!</string>
@@ -33,5 +34,6 @@
 
     <!-- assignment_popup -->
     <string name="assignmentFinished">Inte Klar</string>
+    <string name="no_homework_one_line">Ingen läxa</string>
 
 </resources>
