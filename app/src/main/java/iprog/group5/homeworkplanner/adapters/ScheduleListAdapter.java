@@ -87,59 +87,63 @@ public class ScheduleListAdapter extends BaseAdapter {
                 params.height = ViewGroup.LayoutParams.MATCH_PARENT;
                 block.setLayoutParams(params);
             } else {
-                // There is some session here!
+                // There is some session here, color it!
                 int color = assignment.getSubject().getColor();
                 block.setBackgroundColor(color);
-                /*
-                === Code for darkening a color (used earlier for breaks)
-                 float[] hsv = new float[3];
-                Color.colorToHSV(color, hsv);
-                hsv[2] *= 0.8f; // value component
-                int darken = Color.HSVToColor(hsv);
-                baseBlock.setBackgroundColor(darken);
-                */
             }
         }
 
         // For label calculations
         boolean endTextSet = false;
         boolean startTextSet = false;
+        // If the current assignment is scheduled
         if(assignment != null) {
+
+            // If there is no scheduled event above this => Write top label
             if(previousAssignment == null) {
                 start.setText(getHour(i, false, true));
                 startTextSet = true;
             } else {
+                // If there is another type of scheduled activity above this => Write top label
                 if(previousAssignment.getSubject() != assignment.getSubject()) {
                     start.setText(getHour(i, false, true));
                     startTextSet = true;
                 }
             }
+            // If there is no scheduled event below this => Write bottom label
             if(nextAssignment == null) {
                 end.setText(getHour(i, true, true));
                 endTextSet = true;
             } else {
+                // If there is another type of scheduled activity below this => Write top label
                 if(nextAssignment.getSubject() != assignment.getSubject()) {
                     end.setText(getHour(i, true, true));
                     endTextSet = true;
                 }
             }
         } else {
+            // In here if the current session is not scheduled
+
+            // If there is a scheduled event below this => Write bottom label
             if(nextAssignment != null) {
                 end.setText(getHour(i, true, true));
                 endTextSet = true;
             }
+            // If there is a scheduled event above this => Write top label
             if(previousAssignment != null) {
                 start.setText(getHour(i, false, true));
                 startTextSet = true;
             }
         }
-        // Set only full hours
-        if(assignment == null && nextAssignment == null) {
-                end.setText(getHour(i, true, false));
-        }
+
+        // Set only full hours for the remaining sessions
         if(assignment == null && previousAssignment == null) {
             start.setText(getHour(i, false, false));
         }
+        if(assignment == null && nextAssignment == null) {
+            end.setText(getHour(i, true, false));
+        }
+
         // Set the session to the endTime TextView
         // TODO: Change to set the session to the block?
         end.setTag(session);
@@ -148,9 +152,10 @@ public class ScheduleListAdapter extends BaseAdapter {
 
     /**
      * Get the hour depending on the position i in the list.
-     * @param i     the position of the session
-     * @param end   if there is an text in bottom of the block (endTime)
-     * @return      the time as a string to be output in the session in the schedule
+     * @param i                 the position of the session
+     * @param end               if there is an text in bottom of the block (endTime)
+     * @param halfHourEnabled   if should return half hours or not
+     * @return                  the time as a string to be output in the session in the schedule
      */
     public String getHour(int i, boolean end, boolean halfHourEnabled) {
         boolean halfHour = false;
