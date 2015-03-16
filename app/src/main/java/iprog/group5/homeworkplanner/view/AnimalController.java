@@ -27,7 +27,7 @@ public class AnimalController implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        model.setTempAnimalMessage("Rawrrr", 1500);
+        model.setRandomTempAnimalMessage();
         animalJump();
     }
 

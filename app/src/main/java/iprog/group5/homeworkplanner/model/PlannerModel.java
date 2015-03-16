@@ -5,6 +5,7 @@ import android.os.Handler;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Observable;
+import java.util.Random;
 
 /**
  * Created by Victor on 2015-02-23.
@@ -18,6 +19,7 @@ public class PlannerModel extends Observable {
 
     //What the animal should say
     String baseAnimalMessage = "Welcome to the Homework Planner app! Press on a week to get started.";
+    ArrayList<String> randomAnimalMessageList;
 
     // Check's if the animal is running a temp message
     boolean animalHandlerRunning = false;
@@ -48,6 +50,12 @@ public class PlannerModel extends Observable {
             }, time);
 
         }
+    }
+
+    public void setRandomTempAnimalMessage() {
+        Random random = new Random();
+        int randomNumber = random.nextInt(randomAnimalMessageList.size());
+        setTempAnimalMessage(randomAnimalMessageList.get(randomNumber), 2000);
     }
 
     public void setBaseAnimalMessage(String msg) {
@@ -199,6 +207,13 @@ public class PlannerModel extends Observable {
         Subject math = new Subject("Matte", Color.parseColor("#FF6600"));
         Subject swedish = new Subject("Svenska", Color.parseColor("#FF00FF"));
         Subject english = new Subject("Engelska", Color.parseColor("#66FF66"));
+
+        randomAnimalMessageList = new ArrayList<String>();
+        randomAnimalMessageList.add("Rawr!");
+        randomAnimalMessageList.add("If you click on me I will say something.");
+        randomAnimalMessageList.add("I'm a tiger!");
+        randomAnimalMessageList.add("You have earned " + getStars() + " stars!");
+        randomAnimalMessageList.add("Remember to take a 5 minute break every session!");
 
         weeks = new Hashtable<Integer, Week>();
 
