@@ -3,6 +3,7 @@ package iprog.group5.homeworkplanner.model;
 import android.graphics.Color;
 import android.os.Handler;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Observable;
 import java.util.Random;
@@ -92,6 +93,17 @@ public class PlannerModel extends Observable {
 
     public HomeWorkSession getSession(int weekNumber, int dayNumber, int position) {
         return weeks.get(weekNumber).getDay(dayNumber).getSession(position);
+    }
+    public int getWeekSubjectSessionCount(int week_nr, Subject subject) {
+        return getWeek(week_nr).getSessionSubjectsCount().get(subject);
+    }
+
+    public int getSubjectPlannedTime(int week_nr, Subject subject) {
+        return getWeekSubjectSessionCount(week_nr, subject) * 30;
+    }
+
+    public int getSubjectPlannedBreakTime(int week_nr, Subject subject) {
+        return getWeekSubjectSessionCount(week_nr, subject) * 5;
     }
 
     public ArrayList<Week> getWeeks() {
@@ -246,5 +258,4 @@ public class PlannerModel extends Observable {
         weeks.put(week1.getWeekNumber(), week1);
         weeks.put(week2.getWeekNumber(), week2);
     }
-
 }
