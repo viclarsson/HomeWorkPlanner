@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instruktioner"
+        style="@style/BoldWhiteText"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text med information om uppgiften."
+        android:id="@+id/assignment_description"
+        android:paddingBottom="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Till föräldrar"
+        style="@style/BoldWhiteText"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saker föräldrarna kan vilja veta."
+        android:id="@+id/assignment_for_parents"
+        android:paddingBottom="15dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Förväntad tidsåtgång"
+            android:layout_weight="1"
+            style="@style/BoldWhiteText"
+            android:paddingBottom="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xx min"
+            android:id="@+id/assignment_workload"
+            style="@style/BoldWhiteText"
+            android:paddingBottom="15dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
