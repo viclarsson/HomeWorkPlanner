@@ -25,7 +25,7 @@ public class PopupMenuView implements Observer{
 
     ImageView closeBtn;
 
-    public PopupMenuView(PlannerModel model, View view, int week_nr, int day_nr, String type) {
+    public PopupMenuView(PlannerModel model, View view, int week_nr, int day_nr, int position, String type) {
         // Model and root view
         this.model = model;
         this.view = view;
@@ -40,9 +40,18 @@ public class PopupMenuView implements Observer{
 
         closeBtn = (ImageView) view.findViewById(R.id.popup_close_btn);
 
-        popupTitle.setText(day.getAssignment().getSubject().getName());
-        typeText.setText(type);
-
+        if (type.equalsIgnoreCase("uppgift")) {
+            popupTitle.setText(day.getAssignment().getSubject().getName());
+            typeText.setText(type);
+        } else {
+            if (day.getSession(position).getAssignment().getSubject().getName().equalsIgnoreCase("custom")) {
+                popupTitle.setText(day.getSession(position).getAssignment().getTitle());
+                typeText.setText("");
+            } else {
+                 popupTitle.setText(day.getSession(position).getAssignment().getSubject().getName());
+                typeText.setText(type);
+            }
+        }
     }
 
     @Override

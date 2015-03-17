@@ -29,6 +29,7 @@ public class AssignmentPopupActivity extends Activity {
         Intent intent = getIntent();
         int day_nr = 0;
         int week_nr = 0;
+        int position = 0;
         if(intent != null) {
             day_nr = intent.getExtras().getInt("assignment_day");
             week_nr = intent.getExtras().getInt("assignment_week");
@@ -37,9 +38,9 @@ public class AssignmentPopupActivity extends Activity {
         AssignmentPopupView view = new AssignmentPopupView(model, findViewById(R.id.base), week_nr, day_nr);
         AssignmentPopupController assignmentPopupController = new AssignmentPopupController(model, view, this, week_nr, day_nr);
 
-        PopupMenuView menuView = new PopupMenuView(model, findViewById(R.id.base), week_nr, day_nr, "Uppgift");
+        PopupMenuView menuView = new PopupMenuView(model, findViewById(R.id.base), week_nr, day_nr, position, "Uppgift");
         PopupMenuController popupMenuController = new PopupMenuController(model, menuView, this);
 
-        PopupInstructionsView instructionsView = new PopupInstructionsView(model, findViewById(R.id.base), week_nr, day_nr);
+        PopupInstructionsView instructionsView = new PopupInstructionsView(model, findViewById(R.id.base), week_nr, day_nr, position, "Uppgift");
     }
 }

@@ -23,7 +23,7 @@ public class PopupInstructionsView implements Observer{
     TextView assignmentForParents;
     TextView assignmentWorkload;
 
-    public PopupInstructionsView(PlannerModel model, View view, int week_nr, int day_nr) {
+    public PopupInstructionsView(PlannerModel model, View view, int week_nr, int day_nr, int position, String type) {
         // Model and root view
         this.model = model;
         this.view = view;
@@ -34,9 +34,15 @@ public class PopupInstructionsView implements Observer{
 
         Day day = model.getDaysOfWeek(week_nr).get(day_nr);
 
-        assignmentDescription.setText(day.getAssignment().getDescription());
-        assignmentForParents.setText(day.getAssignment().getForParents());
-        assignmentWorkload.setText(day.getAssignment().getEstimatedWorkLoad() + " min");
+        if (type.equalsIgnoreCase("uppgift")) {
+            assignmentDescription.setText(day.getAssignment().getDescription());
+            assignmentForParents.setText(day.getAssignment().getForParents());
+            assignmentWorkload.setText(day.getAssignment().getEstimatedWorkLoad() + " min");
+        } else {
+            assignmentDescription.setText(day.getSession(position).getAssignment().getDescription());
+            assignmentForParents.setText(day.getSession(position).getAssignment().getForParents());
+            assignmentWorkload.setText(day.getSession(position).getAssignment().getEstimatedWorkLoad() + " min");
+        }
 
     }
 
