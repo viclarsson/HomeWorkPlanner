@@ -1,6 +1,7 @@
 package iprog.group5.homeworkplanner.view;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,14 +25,10 @@ public class StatsPopupView implements Observer {
     PlannerModel model;
     View view;
 
-    ImageView closeBtn;
-
     public StatsPopupView(PlannerModel model, View view, int week_nr) {
         // Model and root view
         this.model = model;
         this.view = view;
-
-        closeBtn = (ImageView) view.findViewById(R.id.stats_close_btn);
 
         LinearLayout chart =  (LinearLayout) view.findViewById(R.id.chart);
         HashMap<Subject, Integer> sessionCounts = model.getWeek(week_nr).getSessionSubjectsCount();
@@ -41,10 +38,11 @@ public class StatsPopupView implements Observer {
             int value = entry.getValue();
 
             TextView newView = new TextView(view.getContext());
-            newView.setWidth(50);
+            newView.setWidth(70);
             newView.setHeight(value * 50);
             newView.setBackgroundColor(subject.getColor());
             newView.setText(value + "");
+            newView.setGravity(Gravity.BOTTOM);
 
             chart.addView(newView);
         }

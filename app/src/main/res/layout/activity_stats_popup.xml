@@ -6,42 +6,31 @@
     tools:context="iprog.group5.homeworkplanner.Week"
     android:id="@+id/base">
 
-    <LinearLayout
+    <include
         android:layout_width="match_parent"
-        android:background="@color/darkGray"
-        android:layout_height="@dimen/menuHeight">
-        <ImageView
-            android:layout_width="@dimen/menuHeight"
-            android:layout_height="@dimen/menuHeight"
-            style="@style/redButton"
-            android:src="@drawable/cross_tmp"
-            android:padding="15dp"
-            android:id="@+id/stats_close_btn"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Statistik"
-                style="@style/menuTitle"
-                android:layout_gravity="center"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="@string/chartDescription"
-        android:id="@+id/chart_description"/>
+        layout="@layout/popup_menu"/>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:id="@+id/chart">
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/chartDescription"
+            android:id="@+id/chart_description"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chart"
+            android:layout_gravity="bottom">
+
+        </LinearLayout>
 
     </LinearLayout>
 

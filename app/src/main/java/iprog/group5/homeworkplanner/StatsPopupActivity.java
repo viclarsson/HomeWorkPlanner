@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.view.Window;
 
 import iprog.group5.homeworkplanner.model.PlannerModel;
-import iprog.group5.homeworkplanner.view.StatsPopupController;
+import iprog.group5.homeworkplanner.view.PopupMenuController;
+import iprog.group5.homeworkplanner.view.PopupMenuView;
 import iprog.group5.homeworkplanner.view.StatsPopupView;
 
 /**
@@ -25,11 +26,14 @@ public class StatsPopupActivity extends Activity {
 
         Intent intent = getIntent();
         int week_nr = 0;
+
         if(intent != null) {
             week_nr = intent.getExtras().getInt("stats_week");
         }
 
+        PopupMenuView menuView = new PopupMenuView(model, findViewById(R.id.base), week_nr, "statistik");
+        PopupMenuController popupMenuController = new PopupMenuController(model, menuView, this);
+
         StatsPopupView view = new StatsPopupView(model, findViewById(R.id.base), week_nr);
-        StatsPopupController assignmentPopupController = new StatsPopupController(model, view, this);
     }
 }
