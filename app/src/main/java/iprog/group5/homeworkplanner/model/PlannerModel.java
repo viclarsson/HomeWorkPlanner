@@ -154,7 +154,7 @@ public class PlannerModel extends Observable {
             }
         }
         // All sessions were free! Add the defined activity
-        Assignment assignment = new Assignment(new Subject("custom", Color.parseColor("#22dddd")), title, description, 0);
+        Assignment assignment = new Assignment(new Subject("custom", Color.parseColor("#22dddd")), title, description, "", 0);
         // Set on saturday to be able to add it to all days.
         assignment.setDeadlineDayNumber(5);
         for(int i = startPosition; i < end; i++){
@@ -220,9 +220,9 @@ public class PlannerModel extends Observable {
         Week week1 = new Week(10, 2015);
 
         // Adds assignments
-        Assignment math1 = new Assignment(math, "Räkneläxa", "Gör 4 tal i boken.", 60);
-        Assignment swedish1 = new Assignment(swedish, "Glosor", "Se veckobrev.", 30);
-        Assignment english1 = new Assignment(english, "Uppsats", "Skriv och berätta om ditt sportlov på engelska. 1 A4", 60);
+        Assignment math1 = new Assignment(math, "Räkneläxa", "Gör 4 tal i boken.", "Viktigt att förstå division!",60);
+        Assignment swedish1 = new Assignment(swedish, "Glosor","Orden till kapitel 2.", "Se veckobrev.", 30);
+        Assignment english1 = new Assignment(english, "Uppsats", "Skriv och berätta om ditt sportlov på engelska. 1 A4", "Försök få med orden från kaitel 6 i boken.", 60);
 
         // Test teacher added
         week1.days.get(Week.MONDAY).setScheduledTime(1,13);

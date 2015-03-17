@@ -7,6 +7,7 @@ public class Assignment {
     Subject subject;
     String title;
     String description;
+    String forParents;
     int estimatedWorkLoad; // In minutes
     int deadlineDayNumber; // day in week
     boolean finished = false;
@@ -16,12 +17,14 @@ public class Assignment {
      * @param subject
      * @param title
      * @param description
+     * @param forParents
      * @param estimatedWorkLoad
      */
-    public Assignment(Subject subject, String title, String description, int estimatedWorkLoad) {
+    public Assignment(Subject subject, String title, String description, String forParents, int estimatedWorkLoad) {
         this.subject = subject;
         this.title = title;
         this.description = description;
+        this.forParents = forParents;
         this.estimatedWorkLoad = estimatedWorkLoad;
     }
 
@@ -44,6 +47,8 @@ public class Assignment {
     public String getDescription() {
         return description;
     }
+
+    public String getForParents() { return forParents; }
 
     public String getTitle() {
         return title;
