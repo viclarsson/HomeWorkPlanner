@@ -7,6 +7,9 @@ import android.view.Window;
 
 import iprog.group5.homeworkplanner.model.PlannerModel;
 import iprog.group5.homeworkplanner.view.AssignmentPopupView;
+import iprog.group5.homeworkplanner.view.PopupInstructionsView;
+import iprog.group5.homeworkplanner.view.PopupMenuController;
+import iprog.group5.homeworkplanner.view.PopupMenuView;
 import iprog.group5.homeworkplanner.view.SessionPopupController;
 import iprog.group5.homeworkplanner.view.SessionPopupView;
 
@@ -34,7 +37,12 @@ public class SessionPopupActivity extends Activity {
             position = intent.getExtras().getInt("position");
         }
 
-        SessionPopupView view = new SessionPopupView(model, findViewById(R.id.base), week_nr, day_nr);
+        SessionPopupView view = new SessionPopupView(model, findViewById(R.id.base), week_nr, day_nr, position);
         SessionPopupController controller = new SessionPopupController(model, view, this, week_nr, day_nr, position);
+
+        PopupMenuView menuView = new PopupMenuView(model, findViewById(R.id.base), week_nr, day_nr, position, "Läxtid");
+        PopupMenuController popupMenuController = new PopupMenuController(model, menuView, this);
+
+        PopupInstructionsView instructionsView = new PopupInstructionsView(model, findViewById(R.id.base), week_nr, day_nr, position, "Läxtid");
     }
 }

@@ -21,14 +21,10 @@ public class SessionPopupView implements Observer {
     View view;
 
     // View elements
-    TextView assignmentTitle;
-    TextView assignmentDescription;
-    TextView assignmentSubject;
-    TextView assignmentWorkload;
-    ImageView removeBtn;
-    ImageView closeBtn;
+    TextView plannedTime;
+    TextView removeBtn;
 
-    public SessionPopupView(PlannerModel model, View view, int week_nr, int day_nr) {
+    public SessionPopupView(PlannerModel model, View view, int week_nr, int day_nr, int position) {
         // Model and root view
         this.model = model;
         this.view = view;
@@ -38,18 +34,13 @@ public class SessionPopupView implements Observer {
 
         Day day = model.getDaysOfWeek(week_nr).get(day_nr);
 
-        assignmentSubject = (TextView) view.findViewById(R.id.assignment_subject);
-        assignmentTitle = (TextView) view.findViewById(R.id.assignment_title);
-        assignmentDescription = (TextView) view.findViewById(R.id.assignment_description);
-        assignmentWorkload = (TextView) view.findViewById(R.id.assignment_workload);
+        removeBtn = (TextView) view.findViewById(R.id.remove_btn);
+        plannedTime = (TextView) view.findViewById(R.id.planned_time);
 
-        removeBtn = (ImageView) view.findViewById(R.id.remove_btn);
-        closeBtn = (ImageView) view.findViewById(R.id.session_close_btn);
+        int planned = model.getSubjectPlannedTime(week_nr, day.getSession(position).getAssignment().getSubject());
+        int breaks = model.getSubjectPlannedBreakTime(week_nr, day.getSession(position).getAssignment().getSubject());
 
-        assignmentSubject.setText(week_nr +  "/" + day_nr);
-       // assignmentTitle.setText(day.getAssignment().getTitle());
-      //  assignmentDescription.setText(day.getAssignment().getDescription());
-       // assignmentWorkload.setText(day.getAssignment().getEstimatedWorkLoad() + "");
+        plannedTime.setText(planned + " min + " + breaks + " min rast");
 
     }
 
