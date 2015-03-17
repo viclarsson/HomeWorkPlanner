@@ -28,14 +28,6 @@ public class AssignmentPopupController implements View.OnClickListener {
 
         // Set Listeners
         view.assignmentDone.setOnClickListener(this);
-        view.assignmentCloseBtn.setOnClickListener(this);
-
-        // Sets the view text if the assignment is finished or not
-        if(assignment.isFinished()) {
-            view.assignmentFinished.setText("Klar!");
-        } else {
-            view.assignmentFinished.setText("Inte klar");
-        }
     }
 
     @Override
@@ -48,10 +40,6 @@ public class AssignmentPopupController implements View.OnClickListener {
                 assignment.setFinished();
             }
             // Close dialog
-            activity.finish();
-        }
-
-        if(v == view.assignmentCloseBtn) {
             activity.finish();
         }
     }

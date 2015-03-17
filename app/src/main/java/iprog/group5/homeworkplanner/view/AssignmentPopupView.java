@@ -22,15 +22,8 @@ public class AssignmentPopupView implements Observer {
     View view;
 
     // View elements
-    TextView assignmentTitle;
-    TextView assignmentDescription;
-    TextView assignmentSubject;
-    TextView assignmentWorkload;
-    TextView assignmentFinished;
-
-    ImageView assignmentDone;
-    ImageView assignmentCloseBtn;
-
+    TextView assignmentDone;
+    TextView assignmentDeadline;
 
     public AssignmentPopupView(PlannerModel model, View view, int week_nr, int day_nr) {
         // Model and root view
@@ -42,18 +35,10 @@ public class AssignmentPopupView implements Observer {
 
         Day day = model.getDaysOfWeek(week_nr).get(day_nr);
 
-        assignmentSubject = (TextView) view.findViewById(R.id.assignment_subject);
-        assignmentTitle = (TextView) view.findViewById(R.id.assignment_title);
-        assignmentDescription = (TextView) view.findViewById(R.id.assignment_description);
-        assignmentWorkload = (TextView) view.findViewById(R.id.assignment_workload);
-        assignmentFinished = (TextView) view.findViewById(R.id.assignment_finished);
+        assignmentDeadline = (TextView) view.findViewById(R.id.assignment_deadline);
+        assignmentDone = (TextView) view.findViewById(R.id.assignment_done_btn);
 
-        assignmentSubject.setText(day.getAssignment().getSubject().getName());
-        assignmentTitle.setText(day.getAssignment().getTitle());
-        assignmentDescription.setText(day.getAssignment().getDescription());
-        assignmentWorkload.setText(day.getAssignment().getEstimatedWorkLoad() + "");
-        assignmentDone = (ImageView) view.findViewById(R.id.assignment_done);
-        assignmentCloseBtn = (ImageView) view.findViewById(R.id.assignment_close_btn);
+        assignmentDeadline.setText(day.getDay() + " " + day.getMonthText());
     }
 
     @Override

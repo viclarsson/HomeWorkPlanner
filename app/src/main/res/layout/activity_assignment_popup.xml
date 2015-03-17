@@ -2,72 +2,63 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context="iprog.group5.homeworkplanner.Week"
     android:id="@+id/base">
 
-    <LinearLayout
+    <include
         android:layout_width="match_parent"
-        android:background="@color/darkGray"
-        android:layout_height="@dimen/menuHeight">
-        <ImageView
-            android:layout_width="@dimen/menuHeight"
-            android:layout_height="@dimen/menuHeight"
-            style="@style/redButton"
-            android:src="@drawable/cross_tmp"
-            android:padding="15dp"
-            android:id="@+id/assignment_close_btn"/>
+        android:layout_height="wrap_content"
+        layout="@layout/popup_menu"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Uppgiftsinfo"
-                style="@style/menuTitle"
-                android:layout_gravity="center"/>
+                android:text="Deadline"
+                android:layout_weight="1"
+                style="@style/BoldWhiteText"
+                android:paddingBottom="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 mars"
+                android:id="@+id/assignment_deadline"
+                style="@style/BoldGreenText"
+                android:paddingBottom="15dp"/>
         </LinearLayout>
-        <ImageView
-            android:layout_width="@dimen/menuHeight"
-            android:layout_height="@dimen/menuHeight"
-            style="@style/greenButton"
-            android:src="@drawable/done"
-            android:padding="15dp"
-            android:id="@+id/assignment_done"/>
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/popup_instructions"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/menuHeight"
+                style="@style/bigGreenButton"
+                android:gravity="center"
+                android:text="Jag är klar!"
+                android:id="@+id/assignment_done_btn"/>
+
+        </LinearLayout>
+
     </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ämne"
-        android:id="@+id/assignment_subject" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Titel"
-        android:id="@+id/assignment_title" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Text med information om uppgiften."
-        android:id="@+id/assignment_description" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Förväntad tidsåtgång"
-        android:id="@+id/assignment_workload" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/assignmentFinished"
-        android:id="@+id/assignment_finished" />
-
 
 </LinearLayout>
