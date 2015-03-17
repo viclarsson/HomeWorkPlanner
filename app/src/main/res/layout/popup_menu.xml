@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/darkGray"
+        android:layout_height="@dimen/menuHeight">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="20dp">
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Popup-typ"
+            android:id="@+id/type_text"
+            style="@style/menuTitleGray"
+            android:layout_gravity="center"
+                android:paddingRight="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ämne"
+                android:id="@+id/popup_title"
+                style="@style/menuTitle"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="@dimen/menuHeight"
+            android:layout_height="@dimen/menuHeight"
+            style="@style/blueButton"
+            android:src="@drawable/cross_tmp"
+            android:padding="15dp"
+            android:id="@+id/popup_close_btn"/>
+    </LinearLayout>
+</LinearLayout>
