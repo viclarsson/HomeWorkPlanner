@@ -37,14 +37,12 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
     public ScheduleView view;
     public Activity activity;
     int weekNumber;
-    int resetDay;
 
     public ScheduleController(PlannerModel model, ScheduleView view, Activity activity, int weekNumber) {
         this.model = model;
         this.view = view;
         this.activity = activity;
         this.weekNumber = weekNumber;
-        resetDay = 0;
 
         // Add listeners here
         view.deadlineHeadings.setOnItemLongClickListener(this);
@@ -208,18 +206,12 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
     }
 
     // Resets the background to default
-    public void resetWeekBackground(int day) {
-        if(day == 0) {
-            view.monday.invalidateViews();
-        } else if(day == 1) {
-            view.tuesday.invalidateViews();
-        } else if(day == 2) {
-            view.wednesday.invalidateViews();
-        } else if(day == 3) {
-            view.thursday.invalidateViews();
-        } else if(day == 4) {
-            view.friday.invalidateViews();
-        }
+    public void resetWeekBackground() {
+        view.monday.invalidateViews();
+        view.tuesday.invalidateViews();
+        view.wednesday.invalidateViews();
+        view.thursday.invalidateViews();
+        view.friday.invalidateViews();
     }
 
     @Override
@@ -229,13 +221,7 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
         switch(dragEvent)
         {
             case DragEvent.ACTION_DRAG_ENDED:
-                resetWeekBackground(resetDay);
-                if(resetDay < 4) {
-                    resetDay++;
-                } else {
-                    resetDay = 0;
-                }
-                Log.i("resetDay", ""+resetDay);
+                resetWeekBackground();
                 break;
             case DragEvent.ACTION_DRAG_ENTERED:
                 Log.i("Drag Event", "Entered");
@@ -250,7 +236,7 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
                 int draggedDayNumber = Integer.parseInt(event.getClipData().getDescription().getLabel().toString());
                 int position = target.pointToPosition((int) event.getX(),(int) event.getY());
 
-                //resetWeekBackground();
+                resetWeekBackground();
 
                 Assignment assignment = model.getDaysOfWeek(weekNumber).get(draggedDayNumber).getAssignment();
                 String errorOrSuccess = model.addSession(weekNumber, dayNumber, position, assignment);
