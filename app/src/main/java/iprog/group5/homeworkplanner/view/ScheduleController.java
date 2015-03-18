@@ -292,7 +292,7 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
         public void onProvideShadowMetrics(Point shadowSize, Point shadowTouchPoint)
         {
             View v = getView();
-            int height = (int) 100;
+            int height = (int) 75;
             int width = (int) v.getWidth();
             greyBox.setBounds(0, 0, width, height);
             shadowSize.set(width, height);
