@@ -31,6 +31,7 @@ public class StatsPopupView implements Observer {
     int barWidth = 60;
 
     TextView statsTime;
+    TextView typeText;
 
     public StatsPopupView(PlannerModel model, View view, int week_nr) {
         // Model and root view

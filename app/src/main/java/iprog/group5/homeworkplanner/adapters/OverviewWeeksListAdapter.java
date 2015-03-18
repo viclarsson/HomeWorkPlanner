@@ -45,6 +45,7 @@ public class OverviewWeeksListAdapter extends ArrayAdapter<Week> {
             WeekWrapper = new WeekWrapper();
             WeekWrapper.number = (TextView) item.findViewById(R.id.week_number);
             WeekWrapper.title = (TextView) item.findViewById(R.id.weekTitle);
+            WeekWrapper.isPlanned = (TextView) item.findViewById(R.id.isPlanned);
             WeekWrapper.description = (TextView) item.findViewById(R.id.weekDescription);
             WeekWrapper.show = (ImageView) item.findViewById(R.id.show_week);
             item.setTag(WeekWrapper);
@@ -55,9 +56,11 @@ public class OverviewWeeksListAdapter extends ArrayAdapter<Week> {
         // Hashtable returned backwards.
         Week week = weeks.get(total-position);
         WeekWrapper.number.setText(week.getWeekNumber()+"");
-        WeekWrapper.title.setText("TODO TITLE");
-        WeekWrapper.description.setText(week.getNumberOfAssignments() + " läxor denna vecka.");
-
+        WeekWrapper.title.setText(week.getListTitle());
+        if(week.isPlanned()) {
+            WeekWrapper.isPlanned.setText(" (" + context.getText(R.string.planned) + ")");
+        }
+        WeekWrapper.description.setText(week.getNumberOfAssignments() + " " + context.getText(R.string.homeworks_this_week));
         return item;
     }
 
@@ -65,6 +68,7 @@ public class OverviewWeeksListAdapter extends ArrayAdapter<Week> {
         TextView number;
         TextView description;
         TextView title;
+        TextView isPlanned;
         ImageView show;
     }
 

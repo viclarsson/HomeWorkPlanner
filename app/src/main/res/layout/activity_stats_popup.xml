@@ -4,7 +4,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     tools:context="iprog.group5.homeworkplanner.Week"
-    android:id="@+id/base">
+    android:id="@+id/base"
+    style="@style/dialog_base">
 
     <include
         android:layout_width="match_parent"
@@ -19,7 +20,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp">
+            android:padding="@dimen/global_padding">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -31,7 +32,7 @@
                     android:text="Scheduled time"
                     android:layout_weight="1"
                     style="@style/BoldWhiteText"
-                    android:paddingBottom="15dp"/>
+                    android:paddingBottom="@dimen/global_padding"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -39,7 +40,7 @@
                     android:text="2h 00min"
                     android:id="@+id/stats_time"
                     style="@style/BoldGreenText"
-                    android:paddingBottom="15dp"/>
+                    android:paddingBottom="@dimen/global_padding"/>
             </LinearLayout>
 
             <TextView
@@ -51,7 +52,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Here is the time you have scheduled for every subject (light bar) and the time your teacher has suggested that you need to work on the same subject(dark bar)."/>
+                android:text="@string/distribution_description"
+                style="@style/WhiteText"/>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -59,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/chart"
                 android:layout_gravity="bottom"
-                android:paddingTop="15dp">
+                android:paddingTop="@dimen/global_padding">
 
             </LinearLayout>
             <LinearLayout

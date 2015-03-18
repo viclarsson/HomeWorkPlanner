@@ -40,6 +40,28 @@ public class Week {
     }
 
     /**
+     * Get overview list title
+     * @return  the list title
+     */
+    public String getListTitle() {
+        Day firstDay = days.get(calendar.getFirstDayOfWeek());
+        Day lastDay = days.get(4);
+        return firstDay.getDay() + " " + firstDay.getMonthText() + " - " + lastDay.getDay() + " " + lastDay.getMonthText();
+    }
+
+    /**
+     * Returns true if there are sessions added to this week
+     * @return
+     */
+    public boolean isPlanned() {
+        boolean planned = false;
+        if(!this.getSessionSubjectsCount().isEmpty()) {
+            planned = true;
+        }
+        return planned;
+    }
+
+    /**
      * Return the list of days
      * @return
      */

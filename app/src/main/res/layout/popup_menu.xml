@@ -6,35 +6,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:background="@color/darkGray"
-        android:layout_height="@dimen/menuHeight">
+        android:layout_height="@dimen/dialogMenuHeight"
+        android:paddingLeft="@dimen/global_padding">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:padding="20dp">
+            android:layout_gravity="center_vertical">
             <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Popup-typ"
             android:id="@+id/type_text"
             style="@style/menuTitleGray"
-            android:layout_gravity="center"
-                android:paddingRight="10dp"/>
+            android:paddingRight="5dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ämne"
                 android:id="@+id/popup_title"
-                style="@style/menuTitle"
-                android:layout_gravity="center"/>
+                style="@style/menuTitle"/>
         </LinearLayout>
         <ImageView
-            android:layout_width="@dimen/menuHeight"
-            android:layout_height="@dimen/menuHeight"
+            android:layout_width="@dimen/dialogMenuHeight"
+            android:layout_height="@dimen/dialogMenuHeight"
             style="@style/blueButton"
-            android:src="@drawable/cross_tmp"
-            android:padding="15dp"
+            android:src="@drawable/delete_icon_dark"
+            android:padding="@dimen/global_padding"
             android:id="@+id/popup_close_btn"/>
     </LinearLayout>
 </LinearLayout>

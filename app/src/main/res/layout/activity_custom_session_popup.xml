@@ -5,7 +5,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     tools:context="iprog.group5.homeworkplanner.Week"
-    android:id="@+id/base">
+    android:id="@+id/base"
+    style="@style/dialog_base">
 
     <include
         android:layout_width="match_parent"

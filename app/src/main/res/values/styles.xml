@@ -5,18 +5,30 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="WhiteText">
+    <!-- Text sizes -->
+    <style name="normalTextSize">
+        <item name="android:textSize">@dimen/normal_text_size</item>
+    </style>
+    <style name="smallTextSize">
+        <item name="android:textSize">@dimen/small_text_size</item>
+    </style>
+    <style name="bigTextSize">
+        <item name="android:textSize">@dimen/big_text_size</item>
+    </style>
+
+
+    <style name="WhiteText" parent="normalTextSize">
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="GreenText">
+    <style name="GreenText" parent="normalTextSize">
         <item name="android:textColor">@color/green</item>
     </style>
 
     <style name="BoldWhiteText" parent="WhiteText">
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
     </style>
 
     <style name="BoldGreenText" parent="GreenText">
@@ -26,20 +38,22 @@
     </style>
 
     <style name="menuTitle" parent="WhiteText">
+        <item name="android:textSize">@dimen/normal_text_size</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="GrayText">
+    <style name="GrayText" parent="normalTextSize">
         <item name="android:textColor">@color/lightGray</item>
     </style>
 
     <style name="menuTitleGray" parent="GrayText">
+        <item name="android:textSize">@dimen/normal_text_size</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="baseButton">
+    <style name="baseButton" parent="normalTextSize">
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
         <item name="android:padding">5dp</item>
@@ -84,7 +98,7 @@
     <style name="day" parent="WhiteText">
         <item name="android:layout_gravity">center</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/darkGray</item>
         <item name="android:layout_marginTop">@dimen/deadlineHeadingPadding</item>
@@ -94,7 +108,7 @@
     <style name="date" parent="WhiteText">
         <item name="android:layout_gravity">center</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textSize">10dp</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginTop">-4dp</item>
         <item name="android:layout_marginBottom">@dimen/deadlineHeadingPadding</item>
@@ -104,7 +118,7 @@
     <style name="dragButtonText" parent="WhiteText">
         <item name="android:layout_gravity">center</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textSize">8dp</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_weight">1</item>
         <item name="android:textColor">@color/darkGray</item>
@@ -115,14 +129,15 @@
         <item name="android:paddingTop">@dimen/deadlineHeadingPadding</item>
         <item name="android:paddingBottom">@dimen/deadlineHeadingPadding</item>
     </style>
+
     <style name="dragButtonIcon" parent="WhiteText">
-        <item name="android:src">@drawable/happy</item>
+        <item name="android:src">@drawable/smiley_icon_dark</item>
         <item name="android:layout_weight">0</item>
         <item name="android:layout_gravity">center_vertical</item>
     </style>
 
     <style name="smallText" parent="WhiteText">
-        <item name="android:textSize">10dp</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -130,9 +145,6 @@
         <item name="android:layout_weight">0.2</item>
         <item name="android:divider">@color/lightGray</item>
         <item name="android:dividerHeight">0px</item>
-    </style>
-    <style name="dialog" parent="@android:style/Theme.Dialog">
-        <item name="android:windowBackground">@color/darkBlue</item>
     </style>
 
     <style name="blockStartText" parent="smallText">
@@ -147,5 +159,13 @@
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">-1</item>
         <item name="android:shadowRadius">1</item>
+    </style>
+
+    <!-- Dialogs -->
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/darkBlue</item>
+    </style>
+    <style name="dialog_base">
+        <item name="android:minWidth">@dimen/minDialogWidth</item>
     </style>
 </resources>

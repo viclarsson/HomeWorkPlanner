@@ -65,7 +65,7 @@ public class DeadlinesGridAdapter extends BaseAdapter {
         if(assignment != null) {
             // It is!
             block.setBackgroundColor(assignment.getSubject().getColor());
-            icon.setImageResource(R.drawable.dragndrop);
+            icon.setImageResource(R.drawable.drag_icon_dark);
             dragButtonText.setText(context.getText(R.string.dragHomework));
             subject.setText(assignment.getSubject().getName());
         }

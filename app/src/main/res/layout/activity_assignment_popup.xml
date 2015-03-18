@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context="iprog.group5.homeworkplanner.Week"
-    android:id="@+id/base">
+    android:id="@+id/base"
+    style="@style/dialog_base">
 
     <include
         android:layout_width="match_parent"
@@ -20,7 +21,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp">
+            android:padding="@dimen/global_padding">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,7 +33,7 @@
                     android:text="Deadline"
                     android:layout_weight="1"
                     style="@style/BoldWhiteText"
-                    android:paddingBottom="15dp"/>
+                    android:paddingBottom="@dimen/global_padding"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -40,7 +41,7 @@
                     android:text="3 mars"
                     android:id="@+id/assignment_deadline"
                     style="@style/BoldGreenText"
-                    android:paddingBottom="15dp"/>
+                    android:paddingBottom="@dimen/global_padding"/>
             </LinearLayout>
 
             <include
@@ -53,12 +54,12 @@
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
                 android:layout_gravity="center_horizontal">
-                <TextView
+                <Button
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/menuHeight"
-                    style="@style/bigGreenButton"
+                    android:layout_height="@dimen/dialogButtonHeight"
+                    style="@style/greenButton"
                     android:gravity="center"
-                    android:text="Jag är klar!"
+                    android:text="@string/homework_done"
                     android:id="@+id/assignment_done_btn"/>
 
             </LinearLayout>

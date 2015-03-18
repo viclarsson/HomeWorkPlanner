@@ -1,40 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- Globals -->
     <string name="app_name">HomeWorkPlanner</string>
-    <string name="title_activity_week">HomeWorkPlanner Start</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="math">Math</string>
-    <string name="swedish">Swedish</string>
-    <string name="greenButton">GreenButton!</string>
-
-    <!-- top_menu -->
-    <string name="topText">Schemalägg läxor</string>
 
     <!-- week_deadlines -->
-    <string name="Monday">MÅN</string>
-    <string name="Tuesday">TIS</string>
-    <string name="Wednesday">ONS</string>
-    <string name="Thursday">TOR</string>
-    <string name="Friday">FRE</string>
-    <string name="schedule">Schemalägg din läxtid</string>
-    <string name="add_activity">+ Aktivitet</string>
-    <string name="no_homework">Inga\nläxor</string>
-    <string name="choose_week">Välj vecka att schemalägga</string>
-    <string name="welcome">Hej! Börja med att välja en vecka att schemalägga som din lärare har förberett.</string>
-    <string name="grab_deadline">Ta tag i en deadline och dra en session till en rimlig tid innan deadlinen!</string>
-    <string name="dropAfterDeadlineError">Du kan inte schemlägga efter deadline...</string>
-    <string name="dropSuccess">Session tillagd!</string>
-    <string name="dragHomework">Dra ut\nläxtider</string>
+    <string name="schedule">Schedule your time</string>
+    <string name="no_homework">No\nhomework</string>
+    <string name="choose_week">Choose week to schedule</string>
+    <string name="dragHomework">Drag\nblocks</string>
 
     <!-- stats_popup -->
-    <string name="chartDescription">Här kan du se hur många läxpass du har planerat per ämne den här veckan!</string>
+    <string name="chartDescription">Here you can see all the school scheduled time you have done! The dark bar is the teachers suggested time for the homework.</string>
     <string name="deadLine">Deadline</string>
 
     <!-- assignment_popup -->
-    <string name="assignmentFinished">Inte Klar</string>
-    <string name="no_homework_one_line">Ingen läxa</string>
+    <string name="no_homework_one_line">No homework</string>
     <string name="free">Ledigt</string>
+    <string name="overview_activity_title">Weekly overview</string>
+    <string name="planned">Planned</string>
+    <string name="homeworks_this_week">homework(s) this week.</string>
+    <string name="stats">Statistics</string>
+    <string name="week">Week</string>
+    <string name="homework_done">I\'m done!</string>
+    <string name="delete">Delete</string>
+    <string name="planned_time">Planned time</string>
+    <string name="instructions">Instructions</string>
+    <string name="to_parents">To parents</string>
+    <string name="suggested_time">Suggested time</string>
+    <string name="assignment">Assigment</string>
+    <string name="add_activity">Add activity</string>
+    <string name="description">Description</string>
+    <string name="distribution_description">Here is the time you have scheduled for every subject (light bar) and the time your teacher has suggested that you need to work on the same subject(dark bar).</string>
+    <string name="earn_stars">Earn stars by completing assigments!</string>
+    <string name="custom_activity">Activity</string>
+    <string name="homework_session">Homework</string>
+    <string name="no_blocks">No\nblocks</string>
 
 </resources>

@@ -1,5 +1,6 @@
 package iprog.group5.homeworkplanner.view;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ public class PopupMenuView implements Observer{
     // Base variables
     PlannerModel model;
     View view;
+    Context context;
 
     TextView popupTitle;
     TextView typeText;
@@ -29,6 +31,7 @@ public class PopupMenuView implements Observer{
         // Model and root view
         this.model = model;
         this.view = view;
+        this.context = view.getContext();
 
         // Subscribe to Observer
         model.addObserver(this);
@@ -44,11 +47,11 @@ public class PopupMenuView implements Observer{
         If clicked item is an assignment, get subject from the clicked assignment. Else get subject
         from the clicked sessions assignment.
          */
-        if (type.equalsIgnoreCase("uppgift")) {
+        if (type.equalsIgnoreCase("assignment")) {
             popupTitle.setText(day.getAssignment().getSubject().getName());
-            typeText.setText(type);
+            typeText.setText(context.getText(R.string.assignment));
         } else if(type.equalsIgnoreCase("addcustom")) {
-            popupTitle.setText("Add Activity");
+            popupTitle.setText(context.getText(R.string.add_activity));
             typeText.setText("");
         } else {
             /*
@@ -58,10 +61,10 @@ public class PopupMenuView implements Observer{
              */
             if (day.getSession(position).getAssignment().getSubject().getName().equalsIgnoreCase("custom")) {
                 popupTitle.setText(day.getSession(position).getAssignment().getTitle());
-                typeText.setText("");
+                typeText.setText(context.getText(R.string.custom_activity));
             } else {
                 popupTitle.setText(day.getSession(position).getAssignment().getSubject().getName());
-                typeText.setText(type);
+                typeText.setText(context.getText(R.string.homework_session));
             }
         }
     }
@@ -78,6 +81,7 @@ public class PopupMenuView implements Observer{
         // Model and root view
         this.model = model;
         this.view = view;
+        this.context = view.getContext();
 
         // Subscribe to Observer
         model.addObserver(this);
@@ -87,8 +91,8 @@ public class PopupMenuView implements Observer{
 
         closeBtn = (ImageView) view.findViewById(R.id.popup_close_btn);
 
-        popupTitle.setText("Statistik över vecka " + week_nr);
-        typeText.setText("");
+        popupTitle.setText("" + context.getText(R.string.week) + " " + week_nr);
+        typeText.setText(context.getText(R.string.stats));
     }
 
     @Override

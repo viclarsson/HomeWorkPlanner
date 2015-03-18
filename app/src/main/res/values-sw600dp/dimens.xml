@@ -1,9 +1,19 @@
 <resources>
     <dimen name="deadlineButtonHeight">60dp</dimen>
-    <dimen name="blockHeight">30dp</dimen>
-    <dimen name="global_margin">18dp</dimen>
-    <dimen name="global_padding">18dp</dimen>
-    <dimen name="bubblePadding">10dp</dimen>
-    <dimen name="animalHeight">200dp</dimen>
+    <dimen name="blockHeight">40dp</dimen>
+    <dimen name="global_margin">30dp</dimen>
+    <dimen name="global_padding">30dp</dimen>
+    <dimen name="bubblePadding">20dp</dimen>
+    <dimen name="animalHeight">175dp</dimen>
     <dimen name="listViewHeight">1095dp</dimen>
+    <dimen name="minDialogWidth">400dp</dimen>
+    <dimen name="dialogMenuHeight">50dp</dimen>
+    <dimen name="deadlineHeadingPadding">5dp</dimen>
+
+    <dimen name="big_text_size">24sp</dimen>
+    <dimen name="normal_text_size">16sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="week_number_size">28dp</dimen>
+    <dimen name="small_padding">16dp</dimen>
+    <dimen name="deadline_icon_size">24dp</dimen>
 </resources>
