@@ -118,7 +118,9 @@ public class PlannerModel extends Observable {
         String change = day.addSessionAtTime(position, new HomeWorkSession(assignment));
         if(change.equals("Scheduled!")) {
             // Update the list of sessions by daynumber
-            setChangedDay(dayNumber);
+            //setChangedDay(dayNumber);
+            setChanged();
+            notifyObservers("all");
         }
         return change;
     }
