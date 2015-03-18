@@ -1,6 +1,7 @@
 package iprog.group5.homeworkplanner.view;
 
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Observable;
@@ -32,6 +33,10 @@ public class PopupInstructionsView implements Observer{
         assignmentForParents = (TextView) view.findViewById(R.id.assignment_for_parents);
         assignmentWorkload = (TextView) view.findViewById(R.id.assignment_workload);
 
+        TextView instructionsHeader = (TextView) view.findViewById(R.id.instructions_header);
+        TextView forParentsHeader = (TextView) view.findViewById(R.id.for_parents_header);
+        LinearLayout workloadContainer = (LinearLayout) view.findViewById(R.id.workload_container);
+
         Day day = model.getDaysOfWeek(week_nr).get(day_nr);
 
         if (type.equalsIgnoreCase("uppgift")) {
@@ -39,11 +44,19 @@ public class PopupInstructionsView implements Observer{
             assignmentForParents.setText(day.getAssignment().getForParents());
             assignmentWorkload.setText(day.getAssignment().getEstimatedWorkLoad() + " min");
         } else {
-            assignmentDescription.setText(day.getSession(position).getAssignment().getDescription());
-            assignmentForParents.setText(day.getSession(position).getAssignment().getForParents());
-            assignmentWorkload.setText(day.getSession(position).getAssignment().getEstimatedWorkLoad() + " min");
+            if (day.getSession(position).getAssignment().getSubject().getName().equalsIgnoreCase("custom")) {
+                assignmentDescription.setText(day.getSession(position).getAssignment().getDescription());
+                assignmentForParents.setVisibility(View.GONE);
+                assignmentWorkload.setVisibility(View.GONE);
+                forParentsHeader.setVisibility(View.GONE);
+                workloadContainer.setVisibility(View.GONE);
+                instructionsHeader.setText("Description");
+            } else {
+                assignmentDescription.setText(day.getSession(position).getAssignment().getDescription());
+                assignmentForParents.setText(day.getSession(position).getAssignment().getForParents());
+                assignmentWorkload.setText(day.getSession(position).getAssignment().getEstimatedWorkLoad() + " min");
+            }
         }
-
     }
 
     @Override
