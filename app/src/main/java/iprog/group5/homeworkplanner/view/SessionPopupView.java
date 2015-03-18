@@ -1,5 +1,6 @@
 package iprog.group5.homeworkplanner.view;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,6 +22,7 @@ public class SessionPopupView implements Observer {
     // Base variables
     PlannerModel model;
     View view;
+    Context context;
 
     // View elements
     TextView plannedTime;
@@ -30,6 +32,7 @@ public class SessionPopupView implements Observer {
         // Model and root view
         this.model = model;
         this.view = view;
+        this.context = view.getContext();
 
         // Subscribe to Observer
         model.addObserver(this);
@@ -50,7 +53,7 @@ public class SessionPopupView implements Observer {
             int planned = model.getSubjectPlannedTime(week_nr, subject);
             int breaks = model.getSubjectPlannedBreakTime(week_nr, subject);
 
-            plannedTime.setText(planned + " min + " + breaks + " min rast");
+            plannedTime.setText(planned + " " + context.getResources().getText(R.string.min) + " + " + breaks + " " + context.getResources().getText(R.string.min_break));
         }
     }
 

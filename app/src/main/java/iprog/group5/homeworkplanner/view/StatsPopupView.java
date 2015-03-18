@@ -5,9 +5,14 @@ import android.graphics.Color;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,6 +32,7 @@ public class StatsPopupView implements Observer {
     // Base variables
     PlannerModel model;
     View view;
+    Context context;
 
     int barWidth = 60;
 
@@ -37,11 +43,11 @@ public class StatsPopupView implements Observer {
         // Model and root view
         this.model = model;
         this.view = view;
+        this.context = view.getContext();
 
         statsTime = (TextView) view.findViewById(R.id.stats_time);
 
         LinearLayout chart =  (LinearLayout) view.findViewById(R.id.chart);
-        LinearLayout chartLabels = (LinearLayout) view.findViewById(R.id.chart_labels);
         HashMap<Subject, Integer> sessionCounts = model.getWeek(week_nr).getSessionSubjectsCount();
 
         int totalTime = model.getTotalSessionTime(week_nr);
@@ -52,8 +58,13 @@ public class StatsPopupView implements Observer {
             Subject subject = entry.getKey();
             int value = entry.getValue();
 
+            // Use inflater
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             //Don't count custom sessions to the stats
             if (!subject.getName().equalsIgnoreCase("custom")) {
+
+                Assignment assignment = model.getWeek(week_nr).getAssignmentBySubject(subject);
+                int amplifier = 40;
 
                 int color = subject.getColor();
                 float[] hsv = new float[3];
@@ -61,6 +72,30 @@ public class StatsPopupView implements Observer {
                 hsv[2] *= 0.6f; // value component
                 int darker_color = Color.HSVToColor(hsv);
 
+                // Inflate the block by its XML
+                View item = inflater.inflate(R.layout.distribution_block, chart, false);
+                FrameLayout bar = (FrameLayout) item.findViewById(R.id.bar);
+                LinearLayout.LayoutParams barDimensions = new LinearLayout.LayoutParams(0, value*amplifier, 0.5f);
+                bar.setLayoutParams(barDimensions);
+                bar.setBackgroundColor(color);
+                TextView barText = (TextView) item.findViewById(R.id.bar_text);
+                barText.setText("" + value);
+
+                FrameLayout barDark = (FrameLayout) item.findViewById(R.id.bar_darken);
+                int workload = assignment.getEstimatedWorkLoad() / 25;
+                LinearLayout.LayoutParams barDarkDimensions = new LinearLayout.LayoutParams(0, workload*amplifier , 0.5f);
+                barDark.setLayoutParams(barDarkDimensions);
+                barDark.setBackgroundColor(darker_color);
+                TextView barTextDark = (TextView) item.findViewById(R.id.bar_text_darken);
+                barTextDark.setText("" + workload);
+
+                TextView barSubject = (TextView) item.findViewById(R.id.bar_subject);
+                barSubject.setText(assignment.getSubject().getName());
+
+                chart.addView(item);
+
+
+                /*
                 //Create a bar for the subject
                 TextView newBarView1 = new TextView(view.getContext());
                 newBarView1.setWidth(barWidth);
@@ -87,8 +122,7 @@ public class StatsPopupView implements Observer {
                 newLabelView.setWidth(barWidth * 2);
                 newLabelView.setText(subject.getName());
                 newLabelView.setGravity(Gravity.CENTER_HORIZONTAL);
-
-                chartLabels.addView(newLabelView);
+                */
             }
 
 

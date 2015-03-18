@@ -101,12 +101,10 @@ public class ScheduleListAdapter extends BaseAdapter {
         boolean startTextSet = false;
         // If the current assignment is scheduled
         if(assignment != null) {
-
             // If there is no scheduled event above this => Write top label
             if(previousAssignment == null) {
                 // Also set description on first block!
                 block_subject.setText(assignment.getTitle());
-                block_subject.setTextColor(context.getResources().getColor(R.color.fadedBlack25));
                 start.setText(getHour(i, false, true));
                 startTextSet = true;
             } else {
@@ -114,11 +112,16 @@ public class ScheduleListAdapter extends BaseAdapter {
                 if(previousAssignment.getSubject() != assignment.getSubject()) {
                     // Also set description on first block!
                     block_subject.setText(assignment.getTitle());
-                    block_subject.setTextColor(context.getResources().getColor(R.color.fadedBlack25));
                     start.setText(getHour(i, false, true));
                     startTextSet = true;
                 }
             }
+            // Always write school if school scheduled
+            if(assignment.getSubject() == null) {
+                block_subject.setText(context.getText(R.string.in_school));
+                block_subject.setTextColor(context.getResources().getColor(R.color.fadedBlack));
+            }
+
             // If there is no scheduled event below this => Write bottom label
             if(nextAssignment == null) {
                 end.setText(getHour(i, true, true));

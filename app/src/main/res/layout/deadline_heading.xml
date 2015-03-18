@@ -47,14 +47,14 @@
             android:paddingBottom="@dimen/deadlineHeadingPadding"
             android:paddingTop="@dimen/deadlineHeadingPadding">
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="@dimen/deadline_icon_size"
+                android:layout_height="@dimen/deadline_icon_size"
                 style="@style/dragButtonIcon"
                 android:id="@+id/dragButtonIcon"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="\n"
+                android:text="@string/no_blocks"
                 android:id="@+id/dragButtonText"
                 style="@style/dragButtonText"/>
         </LinearLayout>

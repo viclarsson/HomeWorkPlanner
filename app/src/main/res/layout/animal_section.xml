@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/global_padding"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="0.7"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <include
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/bubble"/>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/buttonHeight"
+                android:orientation="horizontal"
+                android:background="@color/blue"
+                android:layout_marginTop="@dimen/global_margin"
+                android:gravity="center_vertical"
+                android:id="@+id/starField">
+
+                <ImageView
+                    android:layout_width="@dimen/buttonHeight"
+                    android:layout_height="@dimen/buttonHeight"
+                    android:padding="10dp"
+                    android:src="@drawable/star_icon_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22"
+                    android:id="@+id/numberOfStars"
+                    android:textStyle="bold"
+                    style="@style/WhiteText"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/earn_stars"
+                    android:id="@+id/name"
+                    android:layout_weight="0"
+                    style="@style/smallText"
+                    android:paddingLeft="@dimen/global_padding"
+                    android:paddingRight="@dimen/global_padding"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/bubbleArrowWidth"
+                android:layout_height="@dimen/bubbleArrowWidth"
+                android:src="@drawable/bubble_triangle"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="@dimen/bubble_arrow_offset"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:layout_gravity="center_vertical">
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/animalHeight"
+            layout="@layout/animal" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -52,7 +52,7 @@
         android:textColor="@color/darkBlue"
         android:textAllCaps="true"
         android:layout_gravity="center"
-        android:textSize="6dp"
+        android:textSize="@dimen/block_text_size"
 android:id="@+id/block_subject"
         />
 </FrameLayout>

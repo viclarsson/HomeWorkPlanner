@@ -36,11 +36,13 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
     public PlannerModel model;
     public ScheduleView view;
     public Activity activity;
+    public Context context;
     int weekNumber;
 
     public ScheduleController(PlannerModel model, ScheduleView view, Activity activity, int weekNumber) {
         this.model = model;
         this.view = view;
+        this.context = activity.getApplicationContext();
         this.activity = activity;
         this.weekNumber = weekNumber;
 
@@ -148,16 +150,21 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
             Day day = (Day) dragHeadingBlock.getTag();
             Assignment assignment = day.getAssignment();
             // If assigment == null => no assignment => no drag
-            if (assignment == null) {
+            if (assignment == null || assignment.isFinished()) {
                 return false;
             }
 
             int dayNumber = day.getDayNumber();
+            int color = context.getResources().getColor(R.color.scheduleHighlight);
+            /*
+            === Code for coloured highlight
+
             int color = assignment.getSubject().getColor();
             float[] hsv = new float[3];
             Color.colorToHSV(color, hsv);
             hsv[2] *= 0.5f; // value component
             color = Color.HSVToColor(hsv);
+            */
             // Highlight the days before the deadline
             for(int a = 1; a < (view.monday.getChildCount()-1); a++) {
                 if(dayNumber == 1) {

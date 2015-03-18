@@ -35,7 +35,10 @@ public class AddCustomSessionPopupController implements View.OnClickListener {
     public void onClick(View v) {
         if (v == view.saveBtn) {
             //When save button is clicked, get values from input fields
-            int blocks = view.numberPicker.getValue();
+            int hours = (int) Integer.parseInt(view.hours.getText().toString());
+            int minutes = (int) Integer.parseInt(view.minutes.getText().toString());
+
+            int blocks = Math.abs(hours)*2 + ((int) Math.ceil((float) Math.abs(minutes) / 30));
             String title = view.titleField.getText().toString();
             String description = view.descriptionField.getText().toString();
 

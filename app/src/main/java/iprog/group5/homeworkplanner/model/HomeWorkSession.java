@@ -21,10 +21,10 @@ public class HomeWorkSession {
 
     /**
      * Set this HomeWorkSession to an unscheduled session.
-     */
+
     public void setUnscheduled() {
         this.assignment = null;
-    }
+    }     */
 
     public int getBreakTime() {
         return breakTime;

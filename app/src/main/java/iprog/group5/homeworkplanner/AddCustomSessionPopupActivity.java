@@ -36,7 +36,7 @@ public class AddCustomSessionPopupActivity extends Activity {
             position = intent.getExtras().getInt("position");
         }
 
-        PopupMenuView menuView = new PopupMenuView(model, findViewById(R.id.base), week_nr, day_nr, position, "AddCustom");
+        PopupMenuView menuView = new PopupMenuView(model, findViewById(R.id.base), week_nr, day_nr, position, "addcustom");
         PopupMenuController popupMenuController = new PopupMenuController(model, menuView, this);
 
         AddCustomSessionPopupView view = new AddCustomSessionPopupView(model, findViewById(R.id.base));

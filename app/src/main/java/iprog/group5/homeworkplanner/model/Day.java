@@ -13,6 +13,8 @@ public class Day {
     ArrayList<HomeWorkSession> sessions;
     // Assignment to be done to this day
     Assignment assignment;
+    HomeWorkSession unscheduledSession;
+    HomeWorkSession schoolSession;
 
     /**
      * Initialize the Day with the daynumber and Calendar object. Also add unscheduled sessions.
@@ -22,15 +24,27 @@ public class Day {
     public Day(int dayNumber, Calendar calendar) {
         this.calendar = calendar;
         this.dayNumber = dayNumber;
+        // Two unscheduledSessions to be able to point to
+        this.unscheduledSession = new HomeWorkSession(null);
+        // School session has ass
+        this.schoolSession = new HomeWorkSession();
         // We start at 8.00 and end at 21:00 with 30 min sessions
         this.sessions = new ArrayList<HomeWorkSession>(numberOfSessions);
         for(int i = 0; i < numberOfSessions; i++) {
-            this.sessions.add(i, new HomeWorkSession(null));
+            this.sessions.add(i, unscheduledSession);
         }
     }
 
     public HomeWorkSession getSession(int position) {
         return sessions.get(position);
+    }
+
+    /**
+     * Returns the unscheduled object
+     * @return the unscheduled object
+     */
+    public HomeWorkSession getUnscheduledSession() {
+        return unscheduledSession;
     }
 
     /**
@@ -41,7 +55,7 @@ public class Day {
     public void setScheduledTime(int startPosition, int endPosition) {
         for(int i = startPosition; i < endPosition; i++) {
             // HomeworkSession without paramters means teacher scheduled
-            this.sessions.set(i, new HomeWorkSession());
+            this.sessions.set(i, schoolSession);
         }
     }
 
@@ -80,7 +94,7 @@ public class Day {
      * @param position
      */
     public void removeSessionAtTime(int position) {
-        sessions.get(position).setUnscheduled();
+        sessions.set(position, unscheduledSession);
     }
 
     /**
@@ -125,11 +139,11 @@ public class Day {
      */
     public String getDayText() {
         switch(calendar.get(Calendar.DAY_OF_WEEK)) {
-            case Calendar.MONDAY: return "MÅN";
-            case Calendar.TUESDAY: return "TIS";
-            case Calendar.WEDNESDAY: return "ONS";
-            case Calendar.THURSDAY: return "TOR";
-            case Calendar.FRIDAY: return "FRE";
+            case Calendar.MONDAY: return "Mon";
+            case Calendar.TUESDAY: return "Tue";
+            case Calendar.WEDNESDAY: return "Wed";
+            case Calendar.THURSDAY: return "Thu";
+            case Calendar.FRIDAY: return "Fri";
         }
         return "";
     }
@@ -147,12 +161,12 @@ public class Day {
             case Calendar.FEBRUARY: return "Feb";
             case Calendar.MARCH : return "Mar";
             case Calendar.APRIL : return "Apr";
-            case Calendar.MAY : return "Maj";
+            case Calendar.MAY : return "May";
             case Calendar.JUNE : return "Jun";
             case Calendar.JULY : return "Jul";
             case Calendar.AUGUST : return "Aug";
             case Calendar.SEPTEMBER : return "Sep";
-            case Calendar.OCTOBER : return "Okt";
+            case Calendar.OCTOBER : return "Oct";
             case Calendar.NOVEMBER : return "Nov";
             case Calendar.DECEMBER : return "Dec";
         }

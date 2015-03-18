@@ -1,6 +1,7 @@
 package iprog.group5.homeworkplanner.view;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
@@ -22,11 +23,11 @@ public class AddCustomSessionPopupView implements Observer {
     View view;
 
     //View variables
-    TextView saveBtn;
-
-    NumberPicker numberPicker;
+    Button saveBtn;
     EditText descriptionField;
     EditText titleField;
+    EditText hours;
+    EditText minutes;
 
     public AddCustomSessionPopupView(PlannerModel model, View view) {
         // Model and root view
@@ -36,15 +37,17 @@ public class AddCustomSessionPopupView implements Observer {
         // Subscribe to Observer
         model.addObserver(this);
 
-        saveBtn = (TextView) view.findViewById(R.id.save_btn);
+        saveBtn = (Button) view.findViewById(R.id.save_btn);
 
         //Initiate number picker with max and min possible values
-        numberPicker = (NumberPicker) view.findViewById(R.id.number_picker);
+       /* numberPicker = (NumberPicker) view.findViewById(R.id.number_picker);
         numberPicker.setMaxValue(6);
-        numberPicker.setMinValue(1);
+        numberPicker.setMinValue(1);*/
 
         titleField = (EditText) view.findViewById(R.id.title_field);
         descriptionField = (EditText) view.findViewById(R.id.description_field);
+        hours = (EditText) view.findViewById(R.id.hours);
+        minutes = (EditText) view.findViewById(R.id.minutes);
 
     }
 

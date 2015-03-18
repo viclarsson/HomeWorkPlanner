@@ -100,6 +100,9 @@ public class ScheduleView implements Observer {
             } else if(data.equals("" + Week.FRIDAY)) {
                 friday.invalidateViews();
             }
+            if(data.equals("starAdded")) {
+                deadlineHeadings.invalidateViews();
+            }
             return;
         }
     }

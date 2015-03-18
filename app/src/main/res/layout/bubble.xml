@@ -6,7 +6,6 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:background="@drawable/bubble_bg"
         android:padding="@dimen/bubblePadding">
 
@@ -14,23 +13,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bubble"
+            android:text="This is a long text to test the bubble and stuff. Lorem ipsum is not used here, nono!"
             android:textColor="@color/black"
             android:textSize="@dimen/normal_text_size"/>
-
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="@dimen/bubbleArrowWidth"
-        android:layout_height="fill_parent">
-
-        <ImageView
-            android:layout_width="@dimen/bubbleArrowWidth"
-            android:layout_height="@dimen/bubbleArrowWidth"
-            android:src="@drawable/bubble_triangle"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="Arrow"
-            android:adjustViewBounds="true"/>
-
-        </LinearLayout>
-
 </LinearLayout>

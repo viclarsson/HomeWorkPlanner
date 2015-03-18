@@ -38,9 +38,9 @@ public class AssignmentPopupActivity extends Activity {
         AssignmentPopupView view = new AssignmentPopupView(model, findViewById(R.id.base), week_nr, day_nr);
         AssignmentPopupController assignmentPopupController = new AssignmentPopupController(model, view, this, week_nr, day_nr);
 
-        PopupMenuView menuView = new PopupMenuView(model, findViewById(R.id.base), week_nr, day_nr, position, "Uppgift");
+        PopupMenuView menuView = new PopupMenuView(model, findViewById(R.id.base), week_nr, day_nr, position, "assignment");
         PopupMenuController popupMenuController = new PopupMenuController(model, menuView, this);
 
-        PopupInstructionsView instructionsView = new PopupInstructionsView(model, findViewById(R.id.base), week_nr, day_nr, position, "Uppgift");
+        PopupInstructionsView instructionsView = new PopupInstructionsView(model, findViewById(R.id.base), week_nr, day_nr, position, "assignment");
     }
 }

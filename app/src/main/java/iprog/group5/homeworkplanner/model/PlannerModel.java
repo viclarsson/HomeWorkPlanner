@@ -78,6 +78,8 @@ public class PlannerModel extends Observable {
 
     public void addStar() {
         stars++;
+        setChanged();
+        notifyObservers("starAdded");
     }
 
     public void removeStar() {
@@ -208,15 +210,15 @@ public class PlannerModel extends Observable {
      * @return
      */
     public boolean removeCustomSession(int weekNumber, int dayNumber, int position) {
-        ArrayList<HomeWorkSession> sessions = getDaysOfWeek(weekNumber).get(dayNumber).getSessions();
+        Day day = getDaysOfWeek(weekNumber).get(dayNumber);
+        ArrayList<HomeWorkSession> sessions = day.getSessions();
         Assignment firstSession = sessions.get(position).getAssignment();
-        System.out.println(firstSession.getTitle());
-        Assignment tmp = null;
-        for(HomeWorkSession s : sessions) {
-            tmp = s.getAssignment();
-            if(tmp != null && tmp.equals(firstSession)) {
-                s.setUnscheduled();
-            }
+        int index = position;
+        Assignment tmp = firstSession;
+        while(tmp == firstSession) {
+            sessions.set(index, day.getUnscheduledSession());
+            index++;
+            tmp = sessions.get(index).getAssignment();
         }
         setChangedDay(dayNumber);
         return true;
@@ -242,9 +244,9 @@ public class PlannerModel extends Observable {
      * Initialize Test data
      */
     public void initializeTestData() {
-        Subject math = new Subject("Matte", Color.parseColor("#FF6600"));
-        Subject swedish = new Subject("Svenska", Color.parseColor("#FF00FF"));
-        Subject english = new Subject("Engelska", Color.parseColor("#66FF66"));
+        Subject math = new Subject("Math", Color.parseColor("#FF6600"));
+        Subject swedish = new Subject("Swedish", Color.parseColor("#FF00FF"));
+        Subject english = new Subject("English", Color.parseColor("#66FF66"));
 
         randomAnimalMessageList = new ArrayList<String>();
         randomAnimalMessageList.add("Rawr!");
@@ -258,9 +260,9 @@ public class PlannerModel extends Observable {
         Week week1 = new Week(10, 2015);
 
         // Adds assignments
-        Assignment math1 = new Assignment(math, "Räkneläxa", "Gör 4 tal i boken.", "Viktigt att förstå division!",60);
-        Assignment swedish1 = new Assignment(swedish, "Glosor","Orden till kapitel 2.", "Se veckobrev.", 30);
-        Assignment english1 = new Assignment(english, "Uppsats", "Skriv och berätta om ditt sportlov på engelska. 1 A4", "Försök få med orden från kaitel 6 i boken.", 60);
+        Assignment math1 = new Assignment(math, "Do assignments", "Do assignment 3a-5c in the division section.", "Really try to get the children to understand the division. Use things you have at home, like apples or pears to show them!", 60);
+        Assignment swedish1 = new Assignment(swedish, "Words","In the end of chapter 5, there are some words. The children are supposed to know them all.", "There are a few words that are hard to spell. Make sure they know them all by repeating alot!", 30);
+        Assignment english1 = new Assignment(english, "Small essay", "Write and describe your spring holiday! Keep it to maximum of 1 A4.", "Make sure they write full sentences and mix long and short ones.", 60);
 
         // Test teacher added
         week1.days.get(Week.MONDAY).setScheduledTime(1,13);

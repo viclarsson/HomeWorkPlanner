@@ -1,9 +1,11 @@
 package iprog.group5.homeworkplanner.view;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.widget.Toast;
 
+import iprog.group5.homeworkplanner.R;
 import iprog.group5.homeworkplanner.model.Assignment;
 import iprog.group5.homeworkplanner.model.PlannerModel;
 
@@ -14,6 +16,7 @@ public class AssignmentPopupController implements View.OnClickListener {
     public PlannerModel model;
     public AssignmentPopupView view;
     public Activity activity;
+    public Context context;
     public int week_nr;
     public int day_nr;
     public Assignment assignment;
@@ -36,7 +39,7 @@ public class AssignmentPopupController implements View.OnClickListener {
             // If the assignment isn't finish, set it to finished and add a star
             if(!assignment.isFinished()) {
                 model.addStar();
-                model.setTempAnimalMessage("Congratulations, you have earned a star!", 1500);
+                model.setTempAnimalMessage((String) v.getContext().getResources().getText(R.string.earned_star), 1500);
                 assignment.setFinished();
             }
             // Close dialog

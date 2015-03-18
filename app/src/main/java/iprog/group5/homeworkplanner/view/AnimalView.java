@@ -23,6 +23,7 @@ public class AnimalView implements Observer {
     // View elements
     ImageView animal;
     TextView bubble;
+    TextView stars;
 
 
     public AnimalView(PlannerModel model, View view) {
@@ -36,6 +37,9 @@ public class AnimalView implements Observer {
         // If we want to edit the bubble text
         bubble = (TextView) view.findViewById(R.id.bubble);
         bubble.setText(model.getAnimalMessage());
+        // Set up stars
+        stars = (TextView) view.findViewById(R.id.numberOfStars);
+        stars.setText(model.getStars());
     }
 
     @Override
@@ -52,5 +56,6 @@ public class AnimalView implements Observer {
                 animal.startAnimation(animation);*/
             }
         }
+        stars.setText(model.getStars());
     }
 }

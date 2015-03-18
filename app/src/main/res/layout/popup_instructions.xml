@@ -6,28 +6,30 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Instruktioner"
+        android:text="@string/instructions"
         android:id="@+id/instructions_header"
         style="@style/BoldWhiteText"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Text med information om uppgiften."
+        android:text="About assigment"
         android:id="@+id/assignment_description"
-        android:paddingBottom="15dp"/>
+        style="@style/WhiteText"
+        android:paddingBottom="@dimen/global_padding"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Till föräldrar"
+        android:text="@string/to_parents"
         android:id="@+id/for_parents_header"
         style="@style/BoldWhiteText"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Saker föräldrarna kan vilja veta."
+        android:text="Information about assignment to parents"
         android:id="@+id/assignment_for_parents"
-        android:paddingBottom="15dp"/>
+        style="@style/WhiteText"
+        android:paddingBottom="@dimen/global_padding"/>
 
 
     <LinearLayout
@@ -38,17 +40,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Förväntad tidsåtgång"
+            android:text="@string/suggested_time"
             android:layout_weight="1"
             style="@style/BoldWhiteText"
-            android:paddingBottom="15dp"/>
+            android:paddingBottom="@dimen/global_padding"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="xx min"
             android:id="@+id/assignment_workload"
             style="@style/BoldWhiteText"
-            android:paddingBottom="15dp"/>
+            android:paddingBottom="@dimen/global_padding"/>
 
     </LinearLayout>
 

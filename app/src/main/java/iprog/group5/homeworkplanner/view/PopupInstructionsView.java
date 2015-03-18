@@ -1,5 +1,6 @@
 package iprog.group5.homeworkplanner.view;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ public class PopupInstructionsView implements Observer{
     // Base variables
     PlannerModel model;
     View view;
+    Context context;
 
     TextView assignmentDescription;
     TextView assignmentForParents;
@@ -28,6 +30,7 @@ public class PopupInstructionsView implements Observer{
         // Model and root view
         this.model = model;
         this.view = view;
+        this.context = view.getContext();
 
         assignmentDescription = (TextView) view.findViewById(R.id.assignment_description);
         assignmentForParents = (TextView) view.findViewById(R.id.assignment_for_parents);
@@ -39,7 +42,7 @@ public class PopupInstructionsView implements Observer{
 
         Day day = model.getDaysOfWeek(week_nr).get(day_nr);
 
-        if (type.equalsIgnoreCase("uppgift")) {
+        if (type.equalsIgnoreCase("assignment")) {
             assignmentDescription.setText(day.getAssignment().getDescription());
             assignmentForParents.setText(day.getAssignment().getForParents());
             assignmentWorkload.setText(day.getAssignment().getEstimatedWorkLoad() + " min");
@@ -50,7 +53,7 @@ public class PopupInstructionsView implements Observer{
                 assignmentWorkload.setVisibility(View.GONE);
                 forParentsHeader.setVisibility(View.GONE);
                 workloadContainer.setVisibility(View.GONE);
-                instructionsHeader.setText("Description");
+                instructionsHeader.setText(context.getText(R.string.description));
             } else {
                 assignmentDescription.setText(day.getSession(position).getAssignment().getDescription());
                 assignmentForParents.setText(day.getSession(position).getAssignment().getForParents());

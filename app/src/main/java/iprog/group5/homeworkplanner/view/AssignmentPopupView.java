@@ -1,5 +1,6 @@
 package iprog.group5.homeworkplanner.view;
 
+import android.content.Context;
 import android.media.Image;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ public class AssignmentPopupView implements Observer {
     // Base variables
     PlannerModel model;
     View view;
+    Context context;
 
     // View elements
     TextView assignmentDone;
@@ -29,6 +31,7 @@ public class AssignmentPopupView implements Observer {
         // Model and root view
         this.model = model;
         this.view = view;
+        this.context = view.getContext();
 
         // Subscribe to Observer
         model.addObserver(this);
@@ -37,6 +40,11 @@ public class AssignmentPopupView implements Observer {
 
         assignmentDeadline = (TextView) view.findViewById(R.id.assignment_deadline);
         assignmentDone = (TextView) view.findViewById(R.id.assignment_done_btn);
+
+        if(day.getAssignment().isFinished()) {
+            assignmentDone.setText(context.getResources().getText(R.string.finished));
+            assignmentDone.setBackground(context.getResources().getDrawable(R.drawable.flatbtnblue_selector));
+        }
 
         assignmentDeadline.setText(day.getDay() + " " + day.getMonthText());
     }

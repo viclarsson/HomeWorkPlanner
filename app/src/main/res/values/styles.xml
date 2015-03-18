@@ -166,6 +166,13 @@
         <item name="android:windowBackground">@color/darkBlue</item>
     </style>
     <style name="dialog_base">
-        <item name="android:minWidth">@dimen/minDialogWidth</item>
+        <item name="android:minWidth">@dimen/dialogWidth</item>
+    </style>
+
+    <style name="input_field">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:padding">@dimen/small_padding</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
     </style>
 </resources>

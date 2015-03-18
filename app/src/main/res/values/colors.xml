@@ -2,6 +2,7 @@
 <resources>
     <color name="darkBlue">#3b4252</color>
     <color name="gridBlue">#414757</color>
+    <color name="scheduleHighlight">#474e5d</color>
     <color name="white">#e8f0fd</color>
     <color name="black">#1b1c21</color>
     <color name="darkGray">#30343f</color>

@@ -23,7 +23,6 @@ public class OverviewView implements Observer {
     View view;
 
     // View elements
-    TextView stars;
     ListView list;
 
     public OverviewView(PlannerModel model, View view) {
@@ -38,15 +37,10 @@ public class OverviewView implements Observer {
         list = (ListView) view.findViewById(R.id.listview);
         OverviewWeeksListAdapter adapter = new OverviewWeeksListAdapter(view.getContext(), R.layout.overview_weeks_list_item, model.getWeeks());
         list.setAdapter(adapter);
-
-        // Set up stars
-        stars = (TextView) view.findViewById(R.id.numberOfStars);
-
-        update(null, null);
     }
 
     @Override
     public void update(Observable observable, Object data) {
-        stars.setText(model.getStars());
+
     }
 }
