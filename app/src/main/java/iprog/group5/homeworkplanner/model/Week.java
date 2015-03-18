@@ -89,6 +89,21 @@ public class Week {
         return subjectCount;
     }
 
+    public Assignment getAssignmentBySubject(Subject subject) {
+
+        for (Day d : days) {
+            Assignment a = d.getAssignment();
+
+            if (a != null) {
+                if (a.getSubject() == subject) {
+                    return a;
+                }
+            }
+        }
+
+        return null;
+    }
+
     /**
      * Get the number of homework sessions for every subject this week
      *
