@@ -30,14 +30,22 @@ public class StatsPopupView implements Observer {
 
     int barWidth = 60;
 
+    TextView statsTime;
+
     public StatsPopupView(PlannerModel model, View view, int week_nr) {
         // Model and root view
         this.model = model;
         this.view = view;
 
+        statsTime = (TextView) view.findViewById(R.id.stats_time);
+
         LinearLayout chart =  (LinearLayout) view.findViewById(R.id.chart);
         LinearLayout chartLabels = (LinearLayout) view.findViewById(R.id.chart_labels);
         HashMap<Subject, Integer> sessionCounts = model.getWeek(week_nr).getSessionSubjectsCount();
+
+        int totalTime = model.getTotalSessionTime(week_nr);
+
+        statsTime.setText("" + (totalTime/60) + "h " + (totalTime%60) + "min");
 
         for (HashMap.Entry<Subject, Integer> entry : sessionCounts.entrySet()) {
             Subject subject = entry.getKey();
@@ -65,9 +73,9 @@ public class StatsPopupView implements Observer {
                 //Create a bar for the estimated workload for the assignment in this subject
                 TextView newBarView2 = new TextView(view.getContext());
                 newBarView2.setWidth(barWidth);
-                newBarView2.setHeight((assignment.getEstimatedWorkLoad() / 30) * barWidth);
+                newBarView2.setHeight((assignment.getEstimatedWorkLoad() / 25) * barWidth);
                 newBarView2.setBackgroundColor(darker_color);
-                newBarView2.setText((assignment.getEstimatedWorkLoad() / 30) + "");
+                newBarView2.setText((assignment.getEstimatedWorkLoad() / 25) + "");
                 newBarView2.setGravity(Gravity.BOTTOM);
 
                 chart.addView(newBarView1);

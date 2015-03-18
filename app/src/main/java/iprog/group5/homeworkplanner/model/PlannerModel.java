@@ -103,7 +103,27 @@ public class PlannerModel extends Observable {
     }
 
     public int getSubjectPlannedTime(int week_nr, Subject subject) {
-        return getWeekSubjectSessionCount(week_nr, subject) * 30;
+        return getWeekSubjectSessionCount(week_nr, subject) * 25;
+    }
+
+    public int getTotalSessionTime(int week_nr) {
+
+        ArrayList<Day> days = getDaysOfWeek(week_nr);
+        int totalTime = 0;
+
+        for( Day day : days) {
+            ArrayList<HomeWorkSession> sessions = day.getSessions();
+
+            for (HomeWorkSession session : sessions) {
+                if (session.getAssignment() != null) {
+                    if (session.getAssignment().getSubject() != null) {
+                        totalTime++;
+                    }
+                }
+            }
+        }
+
+        return totalTime * 25;
     }
 
     public int getSubjectPlannedBreakTime(int week_nr, Subject subject) {
