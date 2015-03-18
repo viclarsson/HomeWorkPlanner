@@ -232,14 +232,11 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
             case DragEvent.ACTION_DROP:
                 ListView target = (ListView) v;
                 int dayNumber = determineDayByTargetView(target);
-                LinearLayout dragged = (LinearLayout) event.getLocalState();
                 int draggedDayNumber = Integer.parseInt(event.getClipData().getDescription().getLabel().toString());
                 int position = target.pointToPosition((int) event.getX(),(int) event.getY());
                 Assignment assignment = model.getDaysOfWeek(weekNumber).get(draggedDayNumber).getAssignment();
                 String errorOrSuccess = model.addSession(weekNumber, dayNumber, position, assignment);
-                //Toast.makeText(activity.getApplicationContext(), errorOrSuccess, Toast.LENGTH_SHORT).show();
                 model.setTempAnimalMessage(errorOrSuccess, 2000);
-                //Toast.makeText(activity.getApplicationContext(), (dayNumber + "/" + position + "/" + draggedDayNumber), Toast.LENGTH_SHORT).show();
                 break;
         }
 
