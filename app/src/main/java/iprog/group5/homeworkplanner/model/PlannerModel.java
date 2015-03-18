@@ -212,13 +212,12 @@ public class PlannerModel extends Observable {
     public boolean removeCustomSession(int weekNumber, int dayNumber, int position) {
         Day day = getDaysOfWeek(weekNumber).get(dayNumber);
         ArrayList<HomeWorkSession> sessions = day.getSessions();
-        Assignment firstSession = sessions.get(position).getAssignment();
-        int index = position;
-        Assignment tmp = firstSession;
-        while(tmp == firstSession) {
-            sessions.set(index, day.getUnscheduledSession());
-            index++;
-            tmp = sessions.get(index).getAssignment();
+        Assignment assignmentToRemove = sessions.get(position).getAssignment();
+        HomeWorkSession unscheduled = day.getUnscheduledSession();
+        for(int index = 0; index < sessions.size(); index++) {
+            if(sessions.get(index).getAssignment() == assignmentToRemove) {
+                sessions.set(index, unscheduled);
+            }
         }
         setChangedDay(dayNumber);
         return true;
