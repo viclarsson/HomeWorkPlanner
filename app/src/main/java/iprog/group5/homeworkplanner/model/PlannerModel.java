@@ -29,6 +29,10 @@ public class PlannerModel extends Observable {
         initializeTestData();
     }
 
+    public boolean isAnimalHandlerRunning() {
+        return animalHandlerRunning;
+    }
+
     // Sets a temporary message for the tiger
     public void setTempAnimalMessage(String msg, int time) {
         if(!animalHandlerRunning) {

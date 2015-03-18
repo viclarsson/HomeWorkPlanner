@@ -30,21 +30,15 @@ public class OverviewController implements AdapterView.OnItemClickListener{
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(activity, ScheduleActivity.class);
-        TextView weekText = (TextView) view.findViewById(R.id.week_number);
-        int weekNumber = (int) Integer.parseInt((String) weekText.getText());
-        intent.putExtra("week_number", weekNumber);
-        view.getContext().startActivity(intent);
+        if(!model.isAnimalHandlerRunning()) {
+            Intent intent = new Intent(activity, ScheduleActivity.class);
+            TextView weekText = (TextView) view.findViewById(R.id.week_number);
+            int weekNumber = (int) Integer.parseInt((String) weekText.getText());
+            intent.putExtra("week_number", weekNumber);
+            view.getContext().startActivity(intent);
 
-        model.setBaseAnimalMessage("Here is your weekly schedule. Press and drag a deadline to create a session.");
-
-        /*// Creates a delay before changing to text to compensate for lag when chaning states
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                model.setAnimalMessage("Here is your weekly schedule. Press and drag a deadline to create a session.");
-            }
-        }, 700); //1000 milliseconds = 1 second*/
+            model.setBaseAnimalMessage("Here is your weekly schedule. Press and drag a deadline to create a session.");
+        } 
     }
 
 }
