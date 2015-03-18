@@ -172,7 +172,7 @@ public class PlannerModel extends Observable {
         for(int i = startPosition; i < end; i++){
             addSession(weekNumber, dayNumber, i, assignment);
         }
-        return "Schemalagt!";
+        return "Scheduled!";
     }
 
     /**
