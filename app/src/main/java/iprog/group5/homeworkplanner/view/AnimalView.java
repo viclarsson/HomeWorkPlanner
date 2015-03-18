@@ -45,11 +45,11 @@ public class AnimalView implements Observer {
             if (data.equals("tigerUpdate")) {
                 bubble.setText(model.getAnimalMessage());
 
-                TranslateAnimation animation = new TranslateAnimation(0.0f, 0.0f, 0.0f, -20.0f);
+                /*TranslateAnimation animation = new TranslateAnimation(0.0f, 0.0f, 0.0f, -20.0f);
                 animation.setDuration(100);
                 animation.setRepeatCount(1);
                 animation.setRepeatMode(2);
-                animal.startAnimation(animation);
+                animal.startAnimation(animation);*/
             }
         }
     }

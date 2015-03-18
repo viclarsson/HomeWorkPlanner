@@ -235,9 +235,6 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
                 LinearLayout dragged = (LinearLayout) event.getLocalState();
                 int draggedDayNumber = Integer.parseInt(event.getClipData().getDescription().getLabel().toString());
                 int position = target.pointToPosition((int) event.getX(),(int) event.getY());
-
-                resetWeekBackground();
-
                 Assignment assignment = model.getDaysOfWeek(weekNumber).get(draggedDayNumber).getAssignment();
                 String errorOrSuccess = model.addSession(weekNumber, dayNumber, position, assignment);
                 //Toast.makeText(activity.getApplicationContext(), errorOrSuccess, Toast.LENGTH_SHORT).show();
