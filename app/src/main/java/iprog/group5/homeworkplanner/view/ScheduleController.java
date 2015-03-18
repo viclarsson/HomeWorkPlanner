@@ -98,7 +98,8 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
                 // Is it school scheduled?
                 if(session.getAssignment().getSubject() == null) {
                     //Toast.makeText(v.getContext(), "School scheduled!", Toast.LENGTH_LONG).show();
-                    model.setTempAnimalMessage("That is your school schedule!", 1500);
+                    model.setTempAnimalMessage("You are in school here." +
+                            "", 1500);
 
                 // Is it a user defined activity?
                 } else if(session.getAssignment().getSubject().getName().equals("own")) {
@@ -240,7 +241,7 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
                 Assignment assignment = model.getDaysOfWeek(weekNumber).get(draggedDayNumber).getAssignment();
                 String errorOrSuccess = model.addSession(weekNumber, dayNumber, position, assignment);
                 //Toast.makeText(activity.getApplicationContext(), errorOrSuccess, Toast.LENGTH_SHORT).show();
-                model.setTempAnimalMessage(errorOrSuccess, 1500);
+                model.setTempAnimalMessage(errorOrSuccess, 2000);
                 //Toast.makeText(activity.getApplicationContext(), (dayNumber + "/" + position + "/" + draggedDayNumber), Toast.LENGTH_SHORT).show();
                 break;
         }

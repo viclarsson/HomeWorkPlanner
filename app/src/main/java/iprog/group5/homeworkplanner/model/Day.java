@@ -62,16 +62,16 @@ public class Day {
         // TODO: Evaluate protocol for error messages.
         // Check if able to add
         if(this.getDayNumber() >= session.getAssignment().getDeadlineDayNumber()) {
-            return "(FIX THIS) Schemalägg inte efter deadline.";
+            return "You cannot schedule something after it's deadline.";
         } else if(sessions.get(position).getAssignment() != null) {
-            return "(FIX THIS) Du går i skolan denna tid.";
+            return "You cannot schedule something when you're in school.";
         } else if(position == 0) {
-            return "(FIX THIS) Du måste hinna äta frukost denna tid.";
+            return "You have to eat breakfast!";
         } else if(position == (numberOfSessions -1)) {
-            return "(FIX THIS) Du borde gå och lägga dig vid denna tid...";
+            return "You should sleep at this hour.";
         } else {
             sessions.set(position, session);
-            return "Schemalagt!";
+            return "Scheduled!";
         }
     }
 

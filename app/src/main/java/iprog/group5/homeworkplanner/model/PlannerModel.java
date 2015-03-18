@@ -224,8 +224,8 @@ public class PlannerModel extends Observable {
         randomAnimalMessageList.add("Rawr!");
         randomAnimalMessageList.add("If you click on me I will say something.");
         randomAnimalMessageList.add("I'm a tiger!");
-        randomAnimalMessageList.add("You have earned " + getStars() + " stars!");
-        randomAnimalMessageList.add("Remember to take a 5 minute break every session!");
+        randomAnimalMessageList.add("You have earned " + getStars() + " stars so far.");
+        randomAnimalMessageList.add("Remember to take a 5 minute break every session.");
 
         weeks = new Hashtable<Integer, Week>();
 
