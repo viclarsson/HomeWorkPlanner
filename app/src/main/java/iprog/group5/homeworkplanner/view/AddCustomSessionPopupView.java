@@ -22,7 +22,6 @@ public class AddCustomSessionPopupView implements Observer {
     View view;
 
     //View variables
-    ImageView closeBtn;
     TextView saveBtn;
 
     NumberPicker numberPicker;
@@ -37,7 +36,6 @@ public class AddCustomSessionPopupView implements Observer {
         // Subscribe to Observer
         model.addObserver(this);
 
-        closeBtn = (ImageView) view.findViewById(R.id.close_btn);
         saveBtn = (TextView) view.findViewById(R.id.save_btn);
 
         //Initiate number picker with max and min possible values

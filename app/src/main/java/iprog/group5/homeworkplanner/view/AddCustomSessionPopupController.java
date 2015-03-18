@@ -28,15 +28,12 @@ public class AddCustomSessionPopupController implements View.OnClickListener {
         this.assignment = model.getWeek(week_nr).getDay(day_nr).getAssignment();
 
         // Set Listeners
-        view.closeBtn.setOnClickListener(this);
         view.saveBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if(v == view.closeBtn) {
-            activity.finish();
-        } else if (v == view.saveBtn) {
+        if (v == view.saveBtn) {
             //When save button is clicked, get values from input fields
             int blocks = view.numberPicker.getValue();
             String title = view.titleField.getText().toString();

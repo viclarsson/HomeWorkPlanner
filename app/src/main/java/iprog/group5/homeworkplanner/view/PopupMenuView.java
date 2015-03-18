@@ -47,6 +47,9 @@ public class PopupMenuView implements Observer{
         if (type.equalsIgnoreCase("uppgift")) {
             popupTitle.setText(day.getAssignment().getSubject().getName());
             typeText.setText(type);
+        } else if(type.equalsIgnoreCase("addcustom")) {
+            popupTitle.setText("Add Activity");
+            typeText.setText("");
         } else {
             /*
             If the clicked session is a custom assignment, don't set a type and set the menu title
@@ -57,7 +60,7 @@ public class PopupMenuView implements Observer{
                 popupTitle.setText(day.getSession(position).getAssignment().getTitle());
                 typeText.setText("");
             } else {
-                 popupTitle.setText(day.getSession(position).getAssignment().getSubject().getName());
+                popupTitle.setText(day.getSession(position).getAssignment().getSubject().getName());
                 typeText.setText(type);
             }
         }

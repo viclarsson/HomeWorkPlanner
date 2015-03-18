@@ -10,6 +10,8 @@ import iprog.group5.homeworkplanner.view.AddCustomSessionPopupController;
 import iprog.group5.homeworkplanner.view.AddCustomSessionPopupView;
 import iprog.group5.homeworkplanner.view.AssignmentPopupController;
 import iprog.group5.homeworkplanner.view.AssignmentPopupView;
+import iprog.group5.homeworkplanner.view.PopupMenuController;
+import iprog.group5.homeworkplanner.view.PopupMenuView;
 
 /**
  * Created by Erica on 2015-03-13.
@@ -33,6 +35,9 @@ public class AddCustomSessionPopupActivity extends Activity {
             week_nr = intent.getExtras().getInt("session_week");
             position = intent.getExtras().getInt("position");
         }
+
+        PopupMenuView menuView = new PopupMenuView(model, findViewById(R.id.base), week_nr, day_nr, position, "AddCustom");
+        PopupMenuController popupMenuController = new PopupMenuController(model, menuView, this);
 
         AddCustomSessionPopupView view = new AddCustomSessionPopupView(model, findViewById(R.id.base));
         AddCustomSessionPopupController addCustomSessionPopupController = new AddCustomSessionPopupController(model, view, this, week_nr, day_nr, position);
