@@ -39,7 +39,7 @@ public class SessionPopupController implements View.OnClickListener {
 
         // On remove button click
         if (v == view.removeBtn) {
-            //If custom session, call emthod to remove all blocks
+            //If custom session, call method to remove all blocks
             if (model.getSession(week_nr, day_nr, position).getAssignment().getSubject().getName().equals("custom")) {
                 model.removeCustomSession(week_nr, day_nr, position);
             } else {

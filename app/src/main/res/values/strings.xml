@@ -42,8 +42,9 @@
     <string name="define_time">Duration</string>
     <string name="save">Save!</string>
     <string name="ceil_duration">The duration will be rounded to half hours to be placed in the schedule.</string>
-    <string name="finished">Finished! Close</string>
+    <string name="finished">Click to activate again</string>
     <string name="earned_star">Congratulations, you have earned a star!</string>
+    <string name="remove_star">A star has been removed and you can now drag this session again.</string>
     <string name="min">min</string>
     <string name="min_break">min break</string>
     <string name="deadline_done">It is\ndone!</string>

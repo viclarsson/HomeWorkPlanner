@@ -2,6 +2,8 @@ package iprog.group5.homeworkplanner.model;
 
 import android.graphics.Color;
 import android.os.Handler;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -34,11 +36,19 @@ public class PlannerModel extends Observable {
     }
 
     // Sets a temporary message for the tiger
-    public void setTempAnimalMessage(String msg, int time) {
+    public void setTempAnimalMessage(String msg) {
         if(!animalHandlerRunning) {
             Handler handler = new Handler();
             final String theBaseAnimalMessage = baseAnimalMessage;
             String tempMessage = msg;
+            int time = 0;
+
+            if(msg.length() < 30){
+                time = 2000;
+            } else {
+                time = 3000;
+            }
+
 
             setBaseAnimalMessage(tempMessage);
             setChanged();
@@ -60,7 +70,7 @@ public class PlannerModel extends Observable {
     public void setRandomTempAnimalMessage() {
         Random random = new Random();
         int randomNumber = random.nextInt(randomAnimalMessageList.size());
-        setTempAnimalMessage(randomAnimalMessageList.get(randomNumber), 2000);
+        setTempAnimalMessage(randomAnimalMessageList.get(randomNumber));
     }
 
     public void setBaseAnimalMessage(String msg) {
@@ -79,13 +89,15 @@ public class PlannerModel extends Observable {
     public void addStar() {
         stars++;
         setChanged();
-        notifyObservers("starAdded");
+        notifyObservers("starChanged");
     }
 
     public void removeStar() {
         if(stars > 0) {
             stars = stars - 1;
         }
+        setChanged();
+        notifyObservers("starChanged");
     }
 
     public ArrayList<Day> getDaysOfWeek(int weekNumber) {
@@ -253,6 +265,7 @@ public class PlannerModel extends Observable {
         randomAnimalMessageList.add("I'm a tiger!");
         randomAnimalMessageList.add("You have earned " + getStars() + " stars so far.");
         randomAnimalMessageList.add("Remember to take a 5 minute break every session.");
+        randomAnimalMessageList.add("You can add your own assignments by holding down on where you'd like to place it. Try it out!");
 
         weeks = new Hashtable<Integer, Week>();
 

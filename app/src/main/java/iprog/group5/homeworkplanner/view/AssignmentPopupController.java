@@ -39,8 +39,12 @@ public class AssignmentPopupController implements View.OnClickListener {
             // If the assignment isn't finish, set it to finished and add a star
             if(!assignment.isFinished()) {
                 model.addStar();
-                model.setTempAnimalMessage((String) v.getContext().getResources().getText(R.string.earned_star), 1500);
-                assignment.setFinished();
+                model.setTempAnimalMessage((String) v.getContext().getResources().getText(R.string.earned_star));
+                assignment.setFinished(true);
+            } else if(assignment.isFinished()) {
+                model.removeStar();
+                model.setTempAnimalMessage((String) v.getContext().getResources().getText(R.string.remove_star));
+                assignment.setFinished(false);
             }
             // Close dialog
             activity.finish();

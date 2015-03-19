@@ -68,7 +68,7 @@ public class Assignment {
         return finished;
     }
 
-    public void setFinished() {
-        finished = true;
+    public void setFinished(boolean arg) {
+        finished = arg;
     }
 }
