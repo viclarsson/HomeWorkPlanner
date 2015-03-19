@@ -257,6 +257,9 @@ public class PlannerModel extends Observable {
         Subject math = new Subject("Math", Color.parseColor("#65E681"));
         Subject swedish = new Subject("Swedish", Color.parseColor("#754CEA"));
         Subject english = new Subject("English", Color.parseColor("#DD5746"));
+        Subject geography = new Subject("Geography", Color.parseColor("#32A086"));
+        Subject nature = new Subject("Nature", Color.parseColor("#D84AE9"));
+        Subject science = new Subject("Science", Color.parseColor("#C40075"));
 
         randomAnimalMessageList = new ArrayList<String>();
         randomAnimalMessageList.add("Rawr!");
