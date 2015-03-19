@@ -277,6 +277,7 @@ public class PlannerModel extends Observable {
         Assignment math1 = new Assignment(math, "Do assignments", "Do assignment 3a-5c in the division section.", "Really try to get the children to understand the division. Use things you have at home, like apples or pears to show them!", 90);
         Assignment swedish1 = new Assignment(swedish, "Words","In the end of chapter 5, there are some words. The children are supposed to know them all.", "There are a few words that are hard to spell. Make sure they know them all by repeating alot!", 90);
         Assignment english1 = new Assignment(english, "Small essay", "Write and describe your spring holiday! Keep it to maximum of 1 A4.", "Make sure they write full sentences and mix long and short ones.", 120);
+        Assignment nature1 = new Assignment(nature, "Small essay", "Write and describe the ocean flow.", "Make sure they write full sentences and mix long and short ones.", 120);
 
         // Test teacher added
         week1.days.get(Week.MONDAY).setScheduledTime(1,13);
@@ -286,6 +287,7 @@ public class PlannerModel extends Observable {
         week1.days.get(Week.FRIDAY).setScheduledTime(2,13);
 
         week1.days.get(Week.TUESDAY).setAssignment(math1);
+        week1.days.get(Week.THURSDAY).setAssignment(nature1);
         week1.days.get(Week.FRIDAY).setAssignment(swedish1);
         week1.days.get(Week.WEDNESDAY).setAssignment(english1);
 
