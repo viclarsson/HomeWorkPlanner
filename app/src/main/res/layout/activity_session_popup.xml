@@ -28,21 +28,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/planned_time_container">
+                android:id="@+id/planned_time_container"
+                android:layout_marginBottom="@dimen/global_margin">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/planned_time"
                     android:layout_weight="1"
-                    style="@style/BoldWhiteText"
-                    android:paddingBottom="@dimen/global_padding"/>
+                    style="@style/BoldWhiteText"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/planned_time"
                     style="@style/BoldWhiteText"
-                    android:paddingBottom="@dimen/global_padding"
                     android:text="0H 00min" />
             </LinearLayout>
 
@@ -63,7 +62,6 @@
                     android:gravity="center"
                     android:text="@string/delete"
                     android:id="@+id/remove_btn"/>
-
             </LinearLayout>
 
         </LinearLayout>

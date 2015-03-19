@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/smallText"
+            android:layout_marginTop="5dp"
             />
         <TextView
             android:textStyle="bold"
@@ -28,7 +29,7 @@
             android:layout_height="wrap_content"
             style="@style/WhiteText"
             android:textAllCaps="true"
-            android:layout_marginTop="-5dp"/>
+            android:layout_marginTop="@dimen/overview_week_title_offset"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="0dp"

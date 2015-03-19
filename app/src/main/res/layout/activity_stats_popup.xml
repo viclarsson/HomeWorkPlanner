@@ -25,22 +25,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/global_margin">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Scheduled time"
                     android:layout_weight="1"
-                    style="@style/BoldWhiteText"
-                    android:paddingBottom="@dimen/global_padding"/>
+                    style="@style/BoldWhiteText"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2h 00min"
                     android:id="@+id/stats_time"
-                    style="@style/BoldGreenText"
-                    android:paddingBottom="@dimen/global_padding"/>
+                    style="@style/BoldGreenText"/>
             </LinearLayout>
 
             <TextView

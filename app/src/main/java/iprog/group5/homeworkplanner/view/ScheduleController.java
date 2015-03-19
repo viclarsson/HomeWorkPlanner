@@ -165,7 +165,7 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
             color = Color.HSVToColor(hsv);
             */
             // Highlight the days before the deadline
-            for(int a = 1; a < (view.monday.getChildCount()-1); a++) {
+            for(int a = day.getStartSession(); a < (view.monday.getChildCount()-1); a++) {
                 if(dayNumber == 1) {
                     view.monday.getChildAt(a).setBackgroundColor(color);
                 } else if (dayNumber == 2) {

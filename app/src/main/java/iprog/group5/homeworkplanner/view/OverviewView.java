@@ -1,5 +1,6 @@
 package iprog.group5.homeworkplanner.view;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -21,6 +22,7 @@ public class OverviewView implements Observer {
     // Base variables
     PlannerModel model;
     View view;
+    Context context;
 
     // View elements
     ListView list;
@@ -29,6 +31,7 @@ public class OverviewView implements Observer {
         // Model and root view
         this.model = model;
         this.view = view;
+        this.context = view.getContext();
 
         // Subscribe to Observer
         model.addObserver(this);
@@ -37,6 +40,9 @@ public class OverviewView implements Observer {
         list = (ListView) view.findViewById(R.id.listview);
         OverviewWeeksListAdapter adapter = new OverviewWeeksListAdapter(view.getContext(), R.layout.overview_weeks_list_item, model.getWeeks());
         list.setAdapter(adapter);
+
+        // Set up tiger
+        model.setBaseAnimalMessage(context.getResources().getString(R.string.start_message));
     }
 
     @Override

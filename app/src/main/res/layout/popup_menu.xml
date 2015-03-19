@@ -33,7 +33,7 @@
             android:layout_height="@dimen/dialogMenuHeight"
             style="@style/blueButton"
             android:src="@drawable/delete_icon_dark"
-            android:padding="@dimen/global_padding"
+            android:padding="@dimen/bubblePadding"
             android:id="@+id/popup_close_btn"/>
     </LinearLayout>
 </LinearLayout>

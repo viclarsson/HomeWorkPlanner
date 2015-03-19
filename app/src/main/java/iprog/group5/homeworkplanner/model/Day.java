@@ -10,6 +10,7 @@ public class Day {
     final static int numberOfSessions = 28; // two extra for spacing
     Calendar calendar;
     int dayNumber;
+    int startSession = 3;
     ArrayList<HomeWorkSession> sessions;
     // Assignment to be done to this day
     Assignment assignment;
@@ -37,6 +38,10 @@ public class Day {
 
     public HomeWorkSession getSession(int position) {
         return sessions.get(position);
+    }
+
+    public int getStartSession() {
+        return startSession;
     }
 
     /**
@@ -79,7 +84,7 @@ public class Day {
             return "You cannot schedule something after it's deadline.";
         } else if(sessions.get(position).getAssignment() != null) {
             return "You cannot schedule something when you're in school.";
-        } else if(position == 0) {
+        } else if(position < startSession) {
             return "You have to eat breakfast!";
         } else if(position == (numberOfSessions -1)) {
             return "You should sleep at this hour.";

@@ -34,7 +34,7 @@
     <style name="BoldGreenText" parent="GreenText">
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
     </style>
 
     <style name="menuTitle" parent="WhiteText">
@@ -57,7 +57,7 @@
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
         <item name="android:padding">5dp</item>
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
     </style>
 
     <style name="purpleButton" parent="baseButton">

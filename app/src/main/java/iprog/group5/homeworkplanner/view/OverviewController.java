@@ -37,7 +37,7 @@ public class OverviewController implements AdapterView.OnItemClickListener{
             intent.putExtra("week_number", weekNumber);
             view.getContext().startActivity(intent);
 
-            model.setBaseAnimalMessage("Here is your weekly schedule. Press and drag a deadline to create a session.");
+            model.setBaseAnimalMessage(weekText.getContext().getResources().getString(R.string.schedule_view_start));
         } 
     }
 

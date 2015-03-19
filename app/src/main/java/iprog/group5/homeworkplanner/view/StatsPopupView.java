@@ -69,7 +69,7 @@ public class StatsPopupView implements Observer {
                 int color = subject.getColor();
                 float[] hsv = new float[3];
                 Color.colorToHSV(color, hsv);
-                hsv[2] *= 0.6f; // value component
+                hsv[2] *= 0.75f; // value component
                 int darker_color = Color.HSVToColor(hsv);
 
                 // Inflate the block by its XML

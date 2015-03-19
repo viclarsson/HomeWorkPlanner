@@ -10,30 +10,38 @@
     <dimen name="global_padding">12dp</dimen>
     <dimen name="buttonHeight">40dp</dimen>
     <dimen name="menuHeight">60dp</dimen>
+    <dimen name="small_padding">10dp</dimen>
+    <dimen name="buttonPadding">15dp</dimen>
 
     <!-- Animal and bubble -->
     <dimen name="animalHeight">125dp</dimen>
     <dimen name="bubblePadding">10dp</dimen>
     <dimen name="bubbleArrowWidth">20dp</dimen>
     <dimen name="bubbleArrowWidthOffset">-33dp</dimen>
+    <dimen name="stars_description_size">8sp</dimen>
+    <dimen name="star_size">22dp</dimen>
+    <dimen name="bubble_arrow_offset">25dp</dimen>
+
+    <!-- Overview -->
+    <dimen name="overview_button_size">30dp</dimen>
+    <dimen name="overview_week_title_offset">-8dp</dimen>
+    <dimen name="week_number_size">28dp</dimen>
 
     <!-- Schedule -->
     <dimen name="blockHeight">25dp</dimen>
     <dimen name="listViewHeight">690dp</dimen>
     <dimen name="deadlineButtonHeight">40dp</dimen>
     <dimen name="deadlineHeadingPadding">3dp</dimen>
+    <dimen name="deadline_icon_size">16dp</dimen>
+    <dimen name="block_text_size">8dp</dimen>
 
     <!-- Dialogs -->
     <dimen name="dialogWidth">240dp</dimen>
     <dimen name="dialogMenuHeight">40dp</dimen>
     <dimen name="dialogButtonHeight">40dp</dimen>
-    <dimen name="week_number_size">28dp</dimen>
-    <dimen name="small_padding">10dp</dimen>
-    <dimen name="deadline_icon_size">16dp</dimen>
-    <dimen name="block_text_size">8dp</dimen>
-    <dimen name="bubble_arrow_offset">25dp</dimen>
-    <dimen name="buttonPadding">15dp</dimen>
-    <dimen name="overview_button_size">30dp</dimen>
     <dimen name="bar_chart_padding">2dp</dimen>
+
+
+
 
 </resources>

@@ -47,6 +47,8 @@
     <string name="remove_star">A star has been removed and you can now drag this session again.</string>
     <string name="min">min</string>
     <string name="min_break">min break</string>
-    <string name="deadline_done">It is\ndone!</string>
+    <string name="deadline_done">It\'s\ndone!</string>
+    <string name="schedule_view_start">Here is your weekly schedule! I have a secret... Hold down on a free session to schedule your own activities!</string>
+    <string name="start_message">Hi there friend! Let\'s get right to the scheduling. Choose a week below!</string>
 
 </resources>

@@ -29,34 +29,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/title_field"
-            style="@style/input_field"/>
+            style="@style/input_field"
+            android:layout_marginBottom="@dimen/global_margin"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/description"
-            android:paddingTop="@dimen/global_padding"
             style="@style/BoldWhiteText"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/description_field"
-            style="@style/input_field"/>
+            style="@style/input_field"
+            android:layout_marginBottom="@dimen/global_margin"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/define_time"
-            android:paddingTop="@dimen/global_padding"
             style="@style/BoldWhiteText"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingTop="@dimen/global_padding"
-            android:paddingBottom="@dimen/global_padding"
             >
 
             <LinearLayout
@@ -83,7 +81,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_padding">
+                android:layout_marginTop="@dimen/small_padding"
+                android:layout_marginBottom="@dimen/global_margin">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -108,7 +107,7 @@
             android:text="@string/ceil_duration"
             style="@style/smallText"
             android:textColor="@color/lightGray"
-            />
+            android:layout_marginBottom="@dimen/global_margin"/>
 
         <Button
             android:layout_width="fill_parent"
@@ -116,8 +115,7 @@
             style="@style/bigGreenButton"
             android:gravity="center"
             android:text="@string/save"
-            android:id="@+id/save_btn"
-            android:layout_marginTop="@dimen/global_padding"/>
+            android:id="@+id/save_btn"/>
     </LinearLayout>
 
 

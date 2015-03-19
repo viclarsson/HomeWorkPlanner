@@ -165,7 +165,6 @@ public class PlannerModel extends Observable {
 
     /**
      * Tests if a session is free or not
-     * TODO: Use this function when adding session, see method above. Return string with message?
      * @param weekNumber
      * @param dayNumber
      * @param position
@@ -206,7 +205,7 @@ public class PlannerModel extends Observable {
             }
         }
         // All sessions were free! Add the defined activity
-        Assignment assignment = new Assignment(new Subject("custom", Color.parseColor("#22dddd")), title, description, "", 0);
+        Assignment assignment = new Assignment(new Subject("custom", Color.parseColor("#7FCFD6")), title, description, "", 0);
         // Set on saturday to be able to add it to all days.
         assignment.setDeadlineDayNumber(5);
         for(int i = startPosition; i < end; i++){
@@ -255,9 +254,9 @@ public class PlannerModel extends Observable {
      * Initialize Test data
      */
     public void initializeTestData() {
-        Subject math = new Subject("Math", Color.parseColor("#FF6600"));
-        Subject swedish = new Subject("Swedish", Color.parseColor("#FF00FF"));
-        Subject english = new Subject("English", Color.parseColor("#66FF66"));
+        Subject math = new Subject("Math", Color.parseColor("#65E681"));
+        Subject swedish = new Subject("Swedish", Color.parseColor("#754CEA"));
+        Subject english = new Subject("English", Color.parseColor("#DD5746"));
 
         randomAnimalMessageList = new ArrayList<String>();
         randomAnimalMessageList.add("Rawr!");
@@ -265,16 +264,16 @@ public class PlannerModel extends Observable {
         randomAnimalMessageList.add("I'm a tiger!");
         randomAnimalMessageList.add("You have earned " + getStars() + " stars so far.");
         randomAnimalMessageList.add("Remember to take a 5 minute break every session.");
-        randomAnimalMessageList.add("You can add your own assignments by holding down on where you'd like to place it. Try it out!");
+        randomAnimalMessageList.add("You can add your own activities by holding down on where you'd like to place it. Try it out!");
 
         weeks = new Hashtable<Integer, Week>();
 
         Week week1 = new Week(10, 2015);
 
         // Adds assignments
-        Assignment math1 = new Assignment(math, "Do assignments", "Do assignment 3a-5c in the division section.", "Really try to get the children to understand the division. Use things you have at home, like apples or pears to show them!", 60);
-        Assignment swedish1 = new Assignment(swedish, "Words","In the end of chapter 5, there are some words. The children are supposed to know them all.", "There are a few words that are hard to spell. Make sure they know them all by repeating alot!", 30);
-        Assignment english1 = new Assignment(english, "Small essay", "Write and describe your spring holiday! Keep it to maximum of 1 A4.", "Make sure they write full sentences and mix long and short ones.", 60);
+        Assignment math1 = new Assignment(math, "Do assignments", "Do assignment 3a-5c in the division section.", "Really try to get the children to understand the division. Use things you have at home, like apples or pears to show them!", 90);
+        Assignment swedish1 = new Assignment(swedish, "Words","In the end of chapter 5, there are some words. The children are supposed to know them all.", "There are a few words that are hard to spell. Make sure they know them all by repeating alot!", 90);
+        Assignment english1 = new Assignment(english, "Small essay", "Write and describe your spring holiday! Keep it to maximum of 1 A4.", "Make sure they write full sentences and mix long and short ones.", 120);
 
         // Test teacher added
         week1.days.get(Week.MONDAY).setScheduledTime(1,13);
