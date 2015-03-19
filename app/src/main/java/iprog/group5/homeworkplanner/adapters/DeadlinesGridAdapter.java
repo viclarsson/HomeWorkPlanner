@@ -54,6 +54,7 @@ public class DeadlinesGridAdapter extends BaseAdapter {
         TextView subject = (TextView) item.findViewById(R.id.subject);
         TextView dragButtonText = (TextView) item.findViewById(R.id.dragButtonText);
         ImageView icon = (ImageView) item.findViewById(R.id.dragButtonIcon);
+        ImageView infoIcon = (ImageView) item.findViewById(R.id.deadline_info_icon);
         weekday.setText(day.getDayText());
         date.setText(day.getDay() + " " + day.getMonthText());
         // Set the day as tag to the block
@@ -73,6 +74,8 @@ public class DeadlinesGridAdapter extends BaseAdapter {
                 icon.setImageResource(R.drawable.drag_icon_dark);
                 dragButtonText.setText(context.getText(R.string.dragHomework));
             }
+        } else {
+            infoIcon.setVisibility(View.GONE);
         }
 
         return item;

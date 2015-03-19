@@ -17,10 +17,18 @@
         android:text="DATE"
         android:id="@+id/date"
         style="@style/date"/>
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/fadedBlack">
+        android:background="@color/fadedBlack"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="@dimen/small_text_size"
+            android:layout_height="@dimen/small_text_size"
+            android:src="@drawable/info_icon_light"
+            android:layout_margin="@dimen/deadlineHeadingPadding"
+            android:id="@+id/deadline_info_icon"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,7 +41,7 @@
             android:text="@string/no_homework_one_line"
             android:layout_gravity="center"/>
 
-        </FrameLayout>
+        </LinearLayout>
     <FrameLayout
         style="@style/dragButton"
         android:layout_width="fill_parent"
