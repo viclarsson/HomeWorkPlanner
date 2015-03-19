@@ -2,7 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/global_padding"
+    android:paddingTop="@dimen/global_padding"
+    android:paddingBottom="@dimen/global_padding"
+    android:paddingLeft="@dimen/global_margin"
+    android:paddingRight="@dimen/global_margin"
     android:weightSum="1"
     android:baselineAligned="false"
     android:gravity="center_vertical">

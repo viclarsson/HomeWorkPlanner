@@ -1,10 +1,13 @@
 package iprog.group5.homeworkplanner.view;
 
+import android.animation.ObjectAnimator;
 import android.media.Image;
+import android.os.Handler;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.Observable;
@@ -33,6 +36,7 @@ public class ScheduleView implements Observer {
     ImageView done;
 
     // Schedule Lists
+    ScrollView scroll;
     ListView monday;
     ListView tuesday;
     ListView wednesday;
@@ -47,6 +51,8 @@ public class ScheduleView implements Observer {
 
         // Subscribe to Observer
         model.addObserver(this);
+
+        scroll = (ScrollView) view.findViewById(R.id.scroll);
 
         // Set up deadline headings
         deadlineHeadings = (GridView) view.findViewById(R.id.deadlineHeadings);
@@ -73,6 +79,16 @@ public class ScheduleView implements Observer {
         wednesday.setTag(model.getDaysOfWeek(weekNumber).get(Week.WEDNESDAY));
         thursday.setTag(model.getDaysOfWeek(weekNumber).get(Week.THURSDAY));
         friday.setTag(model.getDaysOfWeek(weekNumber).get(Week.FRIDAY));
+
+        // Do scroll!
+        scroll.post(new Runnable() {
+            @Override
+            public void run() {
+                ObjectAnimator animator=ObjectAnimator.ofInt(scroll, "scrollY", 600);
+                animator.setDuration(1200);
+                animator.start();
+            }
+        });
     }
 
     @Override
