@@ -3,7 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/darkGray"
-    android:padding="@dimen/global_padding">
+    android:paddingTop="@dimen/global_padding"
+    android:paddingBottom="@dimen/global_padding"
+    android:paddingLeft="@dimen/global_margin"
+    android:paddingRight="@dimen/global_margin"
+    >
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/listview"

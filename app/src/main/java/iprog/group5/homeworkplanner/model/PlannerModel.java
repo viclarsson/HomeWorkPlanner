@@ -21,7 +21,7 @@ public class PlannerModel extends Observable {
     int stars = 0;
 
     //What the animal should say
-    String baseAnimalMessage = "Welcome to the Homework Planner app! Press on a week to get started.";
+    String baseAnimalMessage = "Hi there! Lets get started scheduling! Trust me, it's important. Choose a week!";
     ArrayList<String> randomAnimalMessageList;
 
     // Check's if the animal is running a temp message
