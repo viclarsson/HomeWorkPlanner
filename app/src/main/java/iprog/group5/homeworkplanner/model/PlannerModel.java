@@ -286,6 +286,8 @@ public class PlannerModel extends Observable {
         Assignment swedish1 = new Assignment(swedish, "Words","In the end of chapter 5, there are some words. The children are supposed to know them all.", "There are a few words that are hard to spell. Make sure they know them all by repeating alot!", 90);
         Assignment english1 = new Assignment(english, "Small essay", "Write and describe your spring holiday! Keep it to maximum of 1 A4.", "Make sure they write full sentences and mix long and short ones.", 120);
         Assignment nature1 = new Assignment(nature, "Small essay", "Write and describe the ocean flow.", "Make sure they write full sentences and mix long and short ones.", 120);
+        Assignment geography1 = new Assignment(geography, "Capital Cities", "Use the handout from last week to practice placing the capital cities of all the countries in Europe on the map.", "Make sure they learn which capital belong to each country and not just where it lies on the map.", 90);
+        Assignment science1 = new Assignment(science, "Cress Experiment", "Perform the experiment from the book, page 35, with growing cress in saltwater of different concentrations.", "They probably will need some help with preparing the correct saltwater concentrations.", 60);
 
         // Test teacher added
         week1.days.get(Week.MONDAY).setScheduledTime(1,13);
@@ -295,7 +297,7 @@ public class PlannerModel extends Observable {
         week1.days.get(Week.FRIDAY).setScheduledTime(2,13);
 
         week1.days.get(Week.TUESDAY).setAssignment(math1);
-        week1.days.get(Week.THURSDAY).setAssignment(nature1);
+        //week1.days.get(Week.THURSDAY).setAssignment(nature1);
         week1.days.get(Week.FRIDAY).setAssignment(swedish1);
         week1.days.get(Week.WEDNESDAY).setAssignment(english1);
 
@@ -307,6 +309,16 @@ public class PlannerModel extends Observable {
         week1.days.get(Week.TUESDAY).addSessionAtTime(17, testSession3);
 
         Week week2 = new Week(11, 2015, context);
+
+        week2.days.get(Week.MONDAY).setScheduledTime(1,11);
+        week2.days.get(Week.TUESDAY).setScheduledTime(2,13);
+        week2.days.get(Week.WEDNESDAY).setScheduledTime(1,10);
+        week2.days.get(Week.THURSDAY).setScheduledTime(1,14);
+        week2.days.get(Week.FRIDAY).setScheduledTime(4,11);
+
+        week2.days.get(Week.FRIDAY).setAssignment(science1);
+        week2.days.get(Week.THURSDAY).setAssignment(geography1);
+
         weeks.put(week1.getWeekNumber(), week1);
         weeks.put(week2.getWeekNumber(), week2);
     }
