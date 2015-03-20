@@ -1,7 +1,12 @@
 package iprog.group5.homeworkplanner.model;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import iprog.group5.homeworkplanner.HomeWorkPlannerApplication;
+import iprog.group5.homeworkplanner.R;
 
 /**
  * Created by Victor on 2015-02-23.
@@ -17,14 +22,18 @@ public class Day {
     HomeWorkSession unscheduledSession;
     HomeWorkSession schoolSession;
 
+    // Context
+    Context context;
+
     /**
      * Initialize the Day with the daynumber and Calendar object. Also add unscheduled sessions.
      * @param dayNumber
      * @param calendar
      */
-    public Day(int dayNumber, Calendar calendar) {
+    public Day(int dayNumber, Calendar calendar, Context applicationContext) {
         this.calendar = calendar;
         this.dayNumber = dayNumber;
+        this.context = applicationContext;
         // Two unscheduledSessions to be able to point to
         this.unscheduledSession = new HomeWorkSession(null);
         // School session has ass
@@ -78,19 +87,18 @@ public class Day {
      * @param session
      */
     public String addSessionAtTime(int position, HomeWorkSession session) {
-        // TODO: Evaluate protocol for error messages.
         // Check if able to add
         if(this.getDayNumber() >= session.getAssignment().getDeadlineDayNumber()) {
-            return "You cannot schedule something after it's deadline.";
+            return (String) context.getResources().getText(R.string.error_after_deadline);
         } else if(sessions.get(position).getAssignment() != null) {
-            return "You cannot schedule something when you're in school.";
+            return (String) context.getResources().getText(R.string.error_conflict);
         } else if(position < startSession) {
-            return "You have to eat breakfast!";
+            return (String) context.getResources().getText(R.string.error_early);
         } else if(position == (numberOfSessions -1)) {
-            return "You should sleep at this hour.";
+            return (String) context.getResources().getText(R.string.error_late);
         } else {
             sessions.set(position, session);
-            return "Scheduled!";
+            return "scheduled";
         }
     }
 

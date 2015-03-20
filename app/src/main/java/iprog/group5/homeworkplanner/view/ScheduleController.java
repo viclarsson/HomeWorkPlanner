@@ -100,7 +100,7 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
                 // Is it school scheduled?
                 if(session.getAssignment().getSubject() == null) {
                     //Toast.makeText(v.getContext(), "School scheduled!", Toast.LENGTH_LONG).show();
-                    model.setTempAnimalMessage("You are in school here.");
+                    model.setTempAnimalMessage(context.getResources().getString(R.string.in_school_message));
 
                 // Is it a user defined activity?
                 } else if(session.getAssignment().getSubject().getName().equals("own")) {
@@ -109,7 +109,6 @@ public class ScheduleController implements AdapterView.OnItemLongClickListener, 
                     model.removeOwnSession(weekNumber, day.getDayNumber(), session.getAssignment());
                     Toast.makeText(v.getContext(), "Test remove", Toast.LENGTH_SHORT).show();
                     */
-                    //TODO Fixa detta till en särskild vy för just egna grejer??
                     Day day = (Day) parent.getTag();
                     Intent intent = new Intent(activity, SessionPopupActivity.class);
                     intent.putExtra("session_week", weekNumber);

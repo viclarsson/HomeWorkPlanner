@@ -30,7 +30,7 @@
     <string name="assignment">Assigment</string>
     <string name="add_activity">Add activity</string>
     <string name="description">Description</string>
-    <string name="distribution_description">Here is the time you have scheduled for every subject (light bar) and the time your teacher has suggested that you need to work on the same subject(dark bar).</string>
+    <string name="distribution_description">Here is the time you have scheduled!\n\nDark bar shows the suggested time.\nLight bar shows your scheduled time.\n\nTry to get them equal!</string>
     <string name="earn_stars">Earn stars by completing assigments!</string>
     <string name="custom_activity">Activity</string>
     <string name="homework_session">Homework</string>
@@ -50,5 +50,13 @@
     <string name="deadline_done">It\'s\ndone!</string>
     <string name="schedule_view_start">Here is your weekly schedule! I have a secret... Hold down on a free session to schedule your own activities!</string>
     <string name="start_message">Hi there friend! Let\'s get right to the scheduling. Choose a week below!</string>
+    <string name="welcome">Hi there! Lets get started scheduling! Trust me, it\'s important. Choose a week!</string>
+    <string name="not_possible">Not possible. Try another slot!</string>
+    <string name="schedule_success">Great! The session is scheduled!</string>
+    <string name="error_after_deadline">You cannot schedule something after it\'s deadline.</string>
+    <string name="error_conflict">You cannot schedule something there is already something there.</string>
+    <string name="error_early">You have to eat breakfast!</string>
+    <string name="error_late">You should sleep at this hour...</string>
+    <string name="in_school_message">You are in school here!</string>
 
 </resources>

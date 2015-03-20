@@ -1,5 +1,6 @@
 package iprog.group5.homeworkplanner.model;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
 import android.util.Log;
@@ -10,10 +11,16 @@ import java.util.Hashtable;
 import java.util.Observable;
 import java.util.Random;
 
+import iprog.group5.homeworkplanner.HomeWorkPlannerApplication;
+import iprog.group5.homeworkplanner.R;
+
 /**
  * Created by Victor on 2015-02-23.
  */
 public class PlannerModel extends Observable {
+    // Global context
+    Context context;
+
     // Weeks in HashTable<WeekNumber, Week Object>
     Hashtable<Integer, Week> weeks;
 
@@ -21,13 +28,15 @@ public class PlannerModel extends Observable {
     int stars = 0;
 
     //What the animal should say
-    String baseAnimalMessage = "Hi there! Lets get started scheduling! Trust me, it's important. Choose a week!";
+    String baseAnimalMessage;
     ArrayList<String> randomAnimalMessageList;
 
     // Check's if the animal is running a temp message
     boolean animalHandlerRunning = false;
 
-    public PlannerModel() {
+    public PlannerModel (Context applicationContext) {
+        context = applicationContext;
+        baseAnimalMessage = context.getResources().getString(R.string.welcome);
         initializeTestData();
     }
 
@@ -154,11 +163,10 @@ public class PlannerModel extends Observable {
     public String addSession(int weekNumber, int dayNumber, int position, Assignment assignment) {
         Day day = weeks.get(weekNumber).getDay(dayNumber);
         String change = day.addSessionAtTime(position, new HomeWorkSession(assignment));
-        if(change.equals("Scheduled!")) {
-            // Update the list of sessions by daynumber
-            //setChangedDay(dayNumber);
+        if(change.equals("scheduled")) {
             setChanged();
             notifyObservers("all");
+            return (String) context.getResources().getText(R.string.schedule_success);
         }
         return change;
     }
@@ -201,7 +209,7 @@ public class PlannerModel extends Observable {
         for(int i = startPosition; i < end; i++){
             test = isFree(weekNumber, dayNumber, i);
             if(!test) {
-                return "Not possible.";
+                return (String) context.getResources().getText(R.string.not_possible);
             }
         }
         // All sessions were free! Add the defined activity
@@ -211,7 +219,7 @@ public class PlannerModel extends Observable {
         for(int i = startPosition; i < end; i++){
             addSession(weekNumber, dayNumber, i, assignment);
         }
-        return "Scheduled!";
+        return (String) context.getResources().getText(R.string.schedule_success);
     }
 
     /**
@@ -271,7 +279,7 @@ public class PlannerModel extends Observable {
 
         weeks = new Hashtable<Integer, Week>();
 
-        Week week1 = new Week(10, 2015);
+        Week week1 = new Week(10, 2015, context);
 
         // Adds assignments
         Assignment math1 = new Assignment(math, "Do assignments", "Do assignment 3a-5c in the division section.", "Really try to get the children to understand the division. Use things you have at home, like apples or pears to show them!", 90);
@@ -298,7 +306,7 @@ public class PlannerModel extends Observable {
         week1.days.get(Week.WEDNESDAY).addSessionAtTime(20, testSession2);
         week1.days.get(Week.TUESDAY).addSessionAtTime(17, testSession3);
 
-        Week week2 = new Week(11, 2015);
+        Week week2 = new Week(11, 2015, context);
         weeks.put(week1.getWeekNumber(), week1);
         weeks.put(week2.getWeekNumber(), week2);
     }

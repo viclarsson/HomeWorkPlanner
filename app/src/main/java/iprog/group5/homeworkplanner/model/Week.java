@@ -1,5 +1,7 @@
 package iprog.group5.homeworkplanner.model;
 
+import android.content.Context;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,8 +22,10 @@ public class Week {
     int weekNumber;
 
     Calendar calendar;
+    Context context;
 
-    public Week(int weekNumber, int year) {
+    public Week(int weekNumber, int year, Context applicationContext) {
+        this.context = applicationContext;
         this.weekNumber = weekNumber;
         calendar = Calendar.getInstance();
         calendar.clear();
@@ -35,7 +39,7 @@ public class Week {
             //Create a new day object with a new calendar object with the correct date set
             Calendar tmp = (Calendar) calendar.clone();
             tmp.add(Calendar.DATE, i);
-            this.days.add(i, new Day(i, tmp));
+            this.days.add(i, new Day(i, tmp, context));
         }
     }
 
@@ -178,8 +182,6 @@ public class Week {
     public int getWeekNumber() {
         return weekNumber;
     }
-
-    // TODO: Remove one of these variables? (Year is set more correctly, see below)
     public void setWeekNumber(int weekNumber) {
         this.weekNumber = weekNumber;
         calendar.set(Calendar.WEEK_OF_YEAR, weekNumber);

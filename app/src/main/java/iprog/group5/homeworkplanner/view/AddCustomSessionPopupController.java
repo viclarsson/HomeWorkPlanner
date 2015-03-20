@@ -41,9 +41,8 @@ public class AddCustomSessionPopupController implements View.OnClickListener {
             int blocks = Math.abs(hours)*2 + ((int) Math.ceil((float) Math.abs(minutes) / 30));
             String title = view.titleField.getText().toString();
             String description = view.descriptionField.getText().toString();
-
-            model.addCustomSession(week_nr,day_nr, position, blocks, title, description);
-
+            String errorOrSuccess = model.addCustomSession(week_nr,day_nr, position, blocks, title, description);
+            model.setTempAnimalMessage(errorOrSuccess);
             activity.finish();
         }
     }
